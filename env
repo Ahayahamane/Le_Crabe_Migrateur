@@ -1,0 +1,4 @@
+DB_HOST =               #serveur qui contient la base de données
+DB_LOGIN =              #nom d'utilisateur
+DB_PASSWORD =           #mdp utilisateur
+DB_NAME =               #nom de la base de données
