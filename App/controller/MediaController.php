@@ -100,7 +100,7 @@ class MediaController extends AbstractController
     public function register_media()
     {
         $unique_name = $this->generateUniqueName($this->ext);
-        $target_path = 'MEDIAS/' . $this->type_config['folder'] . '/' . $unique_name;
+        $target_path = MEDIAS . '/' . $this->type_config['folder'] . '/' . $unique_name;
 
         if (!move_uploaded_file($this->tmp_name, $target_path)) {
             $this->errors['file'][] = "Échec de l\'enregistrement du fichier.";
@@ -113,7 +113,7 @@ class MediaController extends AbstractController
             $media_model = new MediaModel;
             $media_model->register_media($datas);
             
-            $this->path = $target_path;
+            $this->path = $datas['path'];
         }
         return $this->errors;
     }

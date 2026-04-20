@@ -40,11 +40,11 @@ class ItineraryController extends AbstractController
         $itinerary = $itinerary->get_one(['Id' => $id]);
         $comments = new ItineraryCommModel;
         $comments = $comments->get_comments_for($id);
-        $json_content = file_get_contents($itinerary->get('media'));
-        
-        
+        $json_content = file_get_contents(MEDIAS . $itinerary->get('media'));
+
+
         $datas = [
-            'json'=>$json_content,
+            'json' => $json_content,
             'itinerary' => $itinerary,
             'comments' => $comments,
             'links' => '<link rel="stylesheet" href="public/css/itineraryZoom.css">
@@ -83,26 +83,22 @@ class ItineraryController extends AbstractController
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
         $new_media = new MediaController;
-        
+
         if (!empty($_FILES['json_data'])) {
             $return = $new_media->validate_media($_FILES['json_data']);
             if (!empty($return['file'])) {
                 $errors += $return['file'];
             }
-
         } else {
             $errors['file'][] = 'Fichier au format JSON requis';
         }
 
         if (empty($errors)) {
             $errors = $new_media->register_media();
-          echo '<br>$errors<pre>';
-        var_dump($new_media->get_path());
-            if (empty($errors)) {echo '<br>$errors<pre>';
-        var_dump(empty($errors));
-        $media_path=$new_media->get_path();
-            $datas=$_POST;
-            $datas['path']= $media_path;
+
+            if (empty($errors)) {
+                $datas = $_POST;                
+                $datas['path'] = $new_media->get_path();
                 $new_itinerary = new Itinerary($datas);
                 $itinerary_model = new ItineraryModel;
                 $itinerary_model->register_itinerary($new_itinerary->to_array());
