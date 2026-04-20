@@ -1,0 +1,168 @@
+.weather-container {
+  background: #AEE6F4;
+  border-radius: 40px 40px 0 0;
+  padding: 30px;
+  width: 100%;
+  
+}
+
+.weather-current {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.text{
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-icon {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 64px;
+  font-weight: 300;
+  color: #202124;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.location {
+  font-size: 20px;
+  color: #5f6368;
+  margin-bottom: 5px;
+}
+
+.condition {
+  font-size: 16px;
+  color: #5f6368;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-top: 1px solid #e8eaed;
+  border-bottom: 1px solid #e8eaed;
+  margin-bottom: 25px;
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-label {
+  display: block;
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #202124;
+}
+
+.weather-hourly h3 {
+  font-size: 16px;
+  color: #202124;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.hourly-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #dadce0 transparent;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hourly-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hourly-scroll::-webkit-scrollbar-thumb {
+  background-color: #dadce0;
+  border-radius: 3px;
+}
+
+.hourly-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 15px 10px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  cursor: pointer;
+  /* transition: background 0.2s ease; */
+}
+
+.hourly-card:hover {
+  background: #e8eaed;
+}
+
+.hourly-card.active {
+  background: #e8f4fd;
+  border: 2px solid #1a73e8;
+}
+
+.hourly-time {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 8px;
+}
+
+.hourly-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.hourly-temp, .hourly-wind {
+  font-size: 16px;
+  font-weight: 500;
+  color: #202124;
+}
+
+.hourly-rain {
+  font-size: 10px;
+  color: #5f6368;
+  margin-top: 4px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #5f6368;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #d93025;
+  background: #fce8e6;
+  border-radius: 16px;
+}
+
+@media (max-width: 480px) {
+  .weather-container {
+    padding: 20px;
+  }
+
+  .temperature {
+    font-size: 48px;
+  }
+
+  .hourly-card {
+    flex: 0 0 60px;
+  }
+}

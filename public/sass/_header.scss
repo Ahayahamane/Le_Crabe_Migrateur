@@ -1,0 +1,30 @@
+@use "couleur";
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    
+    picture{
+        img{
+             max-width: 100px;
+        }
+       
+    }
+ 
+    h2{
+        color: couleur.$blanc;
+    }
+    .connect{
+        a{
+            text-decoration: none;
+            color: couleur.$blanc;
+            
+        }
+        
+    }
+
+
+}

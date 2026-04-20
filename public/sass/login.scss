@@ -1,0 +1,52 @@
+@use "header";
+@use "navbar";
+@use "couleur";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#login{
+    display: flex;
+    justify-content: center;
+
+    form {
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        align-items: center;
+        border-radius: 40px;
+        gap: 10px;
+
+        input{
+            border-style: none;
+        }
+
+        .fields-box {
+            width: 500px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .field {
+
+                display: block;
+                padding: 20px;
+                border-radius: 40px;
+            }
+        }
+
+        .button {
+            
+            padding: 20px;
+            border-radius: 40px;
+        }
+
+        a {
+            color: couleur.$blanc;
+        }
+    }
+}

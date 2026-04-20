@@ -1,0 +1,120 @@
+<?php
+
+namespace App\controller;
+
+use App\class\Itinerary;
+use App\class\Validator;
+use App\model\ItineraryModel;
+
+
+use App\controller\AbstractController;
+use App\model\ItineraryCommModel;
+
+class ItineraryController extends AbstractController
+{
+
+    /**
+     * Récupere les éléments nécéssaire à la page "liste des itinéraires" et retourne
+     * le rendu correspondant
+     */
+    public function itin_list_page()
+    {
+        $itinerary_model = new ItineraryModel;
+        $last_itinerarys = $itinerary_model->last_itinerary(12);
+        $datas = [
+            "last_itinerarys" => $last_itinerarys,
+            "links" => '<link rel="stylesheet" href="public/css/itineraryList.css">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />'
+        ];
+        return $this->display_vue('/main/itineraryList.php', $datas);
+    }
+
+    /**
+     * Récupere les éléments nécéssaire au détail d'un itinéraire et retourne
+     * le rendu correspondant
+     */
+    public function itin_zoom_page()
+    {
+        $id = $_GET['id'];
+        $itinerary = new ItineraryModel;
+        $itinerary = $itinerary->get_one(['Id' => $id]);
+        $comments = new ItineraryCommModel;
+        $comments = $comments->get_comments_for($id);
+        $json_content = file_get_contents($itinerary->get('media'));
+        
+        
+        $datas = [
+            'json'=>$json_content,
+            'itinerary' => $itinerary,
+            'comments' => $comments,
+            'links' => '<link rel="stylesheet" href="public/css/itineraryZoom.css">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />'
+        ];
+        return $this->display_vue('/main/itineraryZoom.php', $datas);
+    }
+
+    public function comment_itinerary()
+    {
+        $comm_model = new ItineraryCommModel;
+        $comm_model->register_comm();
+        $id = $_GET['id'];
+        header("location:?path=itinerary_zoom&id=$id");
+    }
+
+    public function first_new_itinerary()
+    {
+        $datas = [
+            'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+        ];
+        return $this->display_vue('/main/newItinerary.php', $datas);
+    }
+
+    public function new_itinerary()
+    {
+        $rules = [
+            'title' => ['required', 'max:50'],
+            'description' => ['required', 'max:250'],
+            'start' => ['required', 'max:30'],
+            'difficulty' => ['required'],
+            'length' => ['required', 'int'],
+            'duration' => ['max:10'],
+            'advice' => ['max:100'],
+        ];
+        $validator = new Validator($_POST);
+        $errors = $validator->validate($rules);
+        $new_media = new MediaController;
+        
+        if (!empty($_FILES['json_data'])) {
+            $return = $new_media->validate_media($_FILES['json_data']);
+            if (!empty($return['file'])) {
+                $errors += $return['file'];
+            }
+
+        } else {
+            $errors['file'][] = 'Fichier au format JSON requis';
+        }
+
+        if (empty($errors)) {
+            $errors = $new_media->register_media();
+          echo '<br>$errors<pre>';
+        var_dump($new_media->get_path());
+            if (empty($errors)) {echo '<br>$errors<pre>';
+        var_dump(empty($errors));
+        $media_path=$new_media->get_path();
+            $datas=$_POST;
+            $datas['path']= $media_path;
+                $new_itinerary = new Itinerary($datas);
+                $itinerary_model = new ItineraryModel;
+                $itinerary_model->register_itinerary($new_itinerary->to_array());
+                $_SESSION["message"] = 'Itinéraire crée avec succes';
+                header("location:?path=first_new_itinerary");
+            }
+        } else {
+            $datas = [
+                'errors' => $errors,
+                'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+            ];
+            return $this->display_vue('/main/newItinerary.php', $datas);
+        }
+    }
+}

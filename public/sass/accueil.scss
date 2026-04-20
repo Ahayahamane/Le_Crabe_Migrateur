@@ -1,0 +1,111 @@
+@use "header";
+@use "navbar";
+@use "couleur";
+@use "slider";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+
+
+    &::before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background-image: url("../img/plage_bretonne.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    h1 {
+
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        width: 70%;
+        text-align: center;
+
+    }
+}
+
+.buttons {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-around;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 28px 80px;
+
+    .slider-box {
+        background-color: #65BBA7;
+        align-content: flex-end;
+        text-align: center;
+        padding: 40px;
+        border-radius: 40px;
+    }
+
+    .side {
+        justify-content: center;
+
+        height: 1000px;
+        background-color: #65BBA7;
+        border-radius: 40px;
+
+        .itinerary {
+            padding: 40px;
+            line-height: 1.8em;
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            p{
+                display: flex;
+                justify-content: space-between;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+
+
+}
+
+@media (min-width: 640px) {
+    .content {
+        flex-direction: row;
+
+        .events {
+            width: 66%;
+        }
+
+        .side {
+            width: 33%;
+        }
+    }
+}

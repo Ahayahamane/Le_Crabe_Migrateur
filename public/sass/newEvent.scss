@@ -1,0 +1,14 @@
+@use "header";
+@use "navbar";
+@use "couleur";
+
+* {
+    padding: 10;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
