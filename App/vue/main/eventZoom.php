@@ -1,8 +1,10 @@
+
 <div class="content">
     <div class="frame fondCanard">
         <article class="fondVertClair">
             <h1><?= $datas['event']->get('title') ?></h1>
             <p><?= $datas['event']->get('date_') ?></p>
+            <img src="<?= 'public/medias' . $datas['media'][0]->get('path') ?>" alt="">
             <p><?= $datas['event']->get('content') ?></p>
         </article>
     </div>

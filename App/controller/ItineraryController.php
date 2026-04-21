@@ -66,7 +66,7 @@ class ItineraryController extends AbstractController
         $datas = [
             'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
         ];
-        return $this->display_vue('/main/newItinerary.php', $datas);
+        return $this->display_back_vue('/back/newItinerary.php', $datas);
     }
 
     public function new_itinerary()
@@ -97,20 +97,26 @@ class ItineraryController extends AbstractController
             $errors = $new_media->register_media();
 
             if (empty($errors)) {
-                $datas = $_POST;                
+                $datas = $_POST;
                 $datas['path'] = $new_media->get_path();
                 $new_itinerary = new Itinerary($datas);
                 $itinerary_model = new ItineraryModel;
                 $itinerary_model->register_itinerary($new_itinerary->to_array());
                 $_SESSION["message"] = 'Itinéraire crée avec succes';
                 header("location:?path=first_new_itinerary");
+            } else {
+                $datas = [
+                    'errors' => $errors,
+                    'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+                ];
+                return $this->display_back_vue('/back/newItinerary.php', $datas);
             }
         } else {
             $datas = [
                 'errors' => $errors,
                 'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
             ];
-            return $this->display_vue('/main/newItinerary.php', $datas);
+            return $this->display_back_vue('/back/newItinerary.php', $datas);
         }
     }
 }

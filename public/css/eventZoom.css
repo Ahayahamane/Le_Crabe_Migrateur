@@ -134,6 +134,25 @@ nav .menuPrincipal {
     box-shadow: 5px 5px black;
   }
 }
+#footerNav {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 10px;
+}
+#footerNav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footerNav ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+#footerNav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -150,6 +169,11 @@ nav .menuPrincipal {
   flex-direction: column;
   padding: 30px;
   border-radius: 40px;
+}
+.content .frame article img {
+  height: 500px;
+  object-fit: cover;
+  display: block;
 }
 .content .frame .comment {
   display: flex;

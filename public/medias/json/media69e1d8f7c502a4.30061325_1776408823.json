@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "Tour de la Presqu'île de Rhuys",
+    "coordinates": [
+      {"lat": 47.6234, "lon": -2.8912},
+      {"lat": 47.6189, "lon": -2.8845},
+      {"lat": 47.6145, "lon": -2.8778},
+      {"lat": 47.6098, "lon": -2.8712},
+      {"lat": 47.6051, "lon": -2.8645}
+    ]
+  }
+}

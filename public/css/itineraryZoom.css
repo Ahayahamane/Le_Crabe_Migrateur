@@ -142,6 +142,19 @@ nav .menuPrincipal {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+#footerNav {
+  display: flex;
+  flex-direction: column;
+}
+#footerNav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footerNav ul li {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 * {
   padding: 0;
   margin: 0;

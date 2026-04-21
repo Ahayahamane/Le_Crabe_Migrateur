@@ -1,6 +1,6 @@
 <?php
 
-namespace App\controller;
+namespace App\controller\tools;
 
 use App\controller\AbstractController;
 use App\model\MediaModel;
@@ -115,6 +115,8 @@ class MediaController extends AbstractController
             
             $this->path = $datas['path'];
         }
+
+        
         return $this->errors;
     }
 

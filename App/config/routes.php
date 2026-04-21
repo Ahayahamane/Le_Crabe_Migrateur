@@ -11,7 +11,10 @@ const ROUTES = [
         ]
     ],
 
-    'asso' => [],
+    'asso' => [
+        'controller' => App\controller\StaticController::class,
+        'method' => 'asso'
+    ],
 
     'event_list' => [
         'controller' => App\controller\EventController::class,
@@ -156,6 +159,12 @@ const ROUTES = [
     'backoffice_accueil' => [
         'controller' => App\controller\AccueilController::class,
         'method' => 'backoffice_accueil'
-    ]
+    ],
+
+    'logout_back' => [
+        'controller' => App\controller\UserController::class,
+        'method' => 'logout_back'
+    ],
+
     
 ];

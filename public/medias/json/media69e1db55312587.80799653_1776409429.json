@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "Vannes aux Marais Salants",
+    "coordinates": [
+      {"lat": 47.6589, "lon": -2.7612},
+      {"lat": 47.6612, "lon": -2.7578},
+      {"lat": 47.6635, "lon": -2.7544},
+      {"lat": 47.6658, "lon": -2.7510},
+      {"lat": 47.6681, "lon": -2.7476}
+    ]
+  }
+}

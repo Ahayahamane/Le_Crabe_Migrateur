@@ -2,17 +2,17 @@
 
 namespace App\controller;
 
-use App\class\User;
+
 use App\class\Event;
-use App\class\EventComm;
 use App\class\Validator;
+
 use App\model\EventModel;
 use App\model\EventCommModel;
-
+use App\model\ItineraryModel;
+use App\model\MediaModel;
 
 use App\controller\AbstractController;
-use App\model\ItineraryModel;
-use App\model\UserModel;
+
 
 class EventController extends AbstractController
 {
@@ -35,20 +35,27 @@ class EventController extends AbstractController
     }
 
     /**
-     * Récupere les éléments nécéssaire au détail d'un événement et retourne
+     * Récupere les éléments nécessaire au détail d'un événement et retourne
      * la vue correspondante
      */
     public function event_zoom_page()
     {
         $id = $_GET['id'];
-        $event = new EventModel;
+        $event = new EventModel();
         $event = $event->get_one(['id' => $id]);
-        $comments = new EventCommModel;
+
+        $comments = new EventCommModel();
         $comments = $comments->get_comments_for($id);
+
         $itin_id = $event->get('itinerary');
-        $itinerary = new ItineraryModel;
+        $itinerary = new ItineraryModel();
         $itinerary = $itinerary->get_one(['id' => $itin_id]);
+
+        $media = new MediaModel();
+        $media = $media->get_media_for($id);
+    
         $datas = [
+            'media' => $media,
             'event' => $event,
             'comments' => $comments,
             'itinerary' => $itinerary,
@@ -79,7 +86,7 @@ class EventController extends AbstractController
             'itinerary' => $itinerary,
             'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
         ];
-        return $this->display_vue('/main/newEvent.php', $datas);
+        return $this->display_back_vue('/back/newEvent.php', $datas);
     }
 
     public function new_event()
@@ -88,18 +95,43 @@ class EventController extends AbstractController
         $rules = [
             'title' => ['required', 'min:10', 'max:50'],
             'date_' => ['required', 'format_date'],
-            'itinerary' => ['required'],
+            'itinerary' => ['required', 'int'],
             'content' => ['required']
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
+        $new_media = new MediaController;
+
+
+
+        if (!empty($_FILES['media'])) {
+            $return = $new_media->validate_media($_FILES['media']);
+
+            if (!empty($return['file'])) {
+                $errors += $return['file'];
+            }
+        } else {
+            $errors['file'][] = 'Fichier au format image ou vidéo requis';
+        }
 
         if (empty($errors)) {
-            $new_event = new Event($_POST);
-            $event_model = new EventModel;
-            $event_model->register_event($new_event->to_array());
-            $_SESSION["message"] = "Evenement crée avec succes";
-            header("location:?path=first_new_event");
+            $errors = $new_media->register_media();
+            if (empty($errors)) {
+                $new_event = new Event($_POST);
+                $event_model = new EventModel;
+                $event_model->register_event($new_event->to_array());
+                $_SESSION["message"] = "Evenement crée avec succes";
+                header("location:?path=first_new_event");
+            } else {
+                $itinerary = new ItineraryModel;
+                $itinerary = $itinerary->get_all();
+                $datas = [
+                    'itinerary' => $itinerary,
+                    'errors' => $errors,
+                    'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
+                ];
+                return $this->display_back_vue('/back/newEvent.php', $datas);
+            }
         } else {
             $itinerary = new ItineraryModel;
             $itinerary = $itinerary->get_all();
@@ -108,7 +140,7 @@ class EventController extends AbstractController
                 'errors' => $errors,
                 'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
             ];
-            return $this->display_vue('/main/newEvent.php', $datas);
+            return $this->display_back_vue('/back/newEvent.php', $datas);
         }
     }
 }

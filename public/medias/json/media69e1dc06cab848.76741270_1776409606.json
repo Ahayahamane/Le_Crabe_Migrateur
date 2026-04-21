@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "Mégalithes de Locmariaquer",
+    "coordinates": [
+      {"lat": 47.6012, "lon": -3.1567},
+      {"lat": 47.6034, "lon": -3.1534},
+      {"lat": 47.6056, "lon": -3.1501},
+      {"lat": 47.6078, "lon": -3.1468},
+      {"lat": 47.6100, "lon": -3.1435}
+    ]
+  }
+}

@@ -7,7 +7,7 @@
     <ul class="menuPrincipal fondCanard">
 
         <li class="fondBleuCiel"><a href="?path=accueil">Accueil</a></li>
-        <li class="fondBleuCiel">L'association</li>
+        <li class="fondBleuCiel"><a href="?path=asso">L'association</a></li>
         <li class="fondBleuCiel"><a href="?path=event_list">Evenements</a></li>
         <li class="fondBleuCiel"><a href="?path=itinerary_list">Itinéraires</a></li>
         <li class="fondBleuCiel">Nous contacter</li>

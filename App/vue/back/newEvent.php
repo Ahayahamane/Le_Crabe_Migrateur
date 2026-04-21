@@ -43,9 +43,7 @@
         <?php
 
         if (isset($datas['errors']['itinerary'])) {
-            foreach ($datas['errors']['itinerary'] as $data) {
-                echo ("<br><span class='error'>" . $data . "</span>");
-            }
+            echo ("<br><span class='error'> Choisisez un itinéraire </span>");
         } ?>
     </div>
     <div>
@@ -78,6 +76,12 @@
     <div>
         <legend>Ilustration/vidéo</legend>
         <input type="file" name="media" accept=".jpg, .jpeg, .svg, .png, .mp4">
+        <?php
+        if (isset($datas['errors']['file'])) {
+            foreach ($datas['errors']['file'] as $data) {
+                echo ("<br><span class='error'>" . $data . "</span>");
+            }
+        } ?>
     </div>
 
     <br>

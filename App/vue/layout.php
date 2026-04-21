@@ -10,6 +10,9 @@
 			<?php require VUE . '/navbar.php' ?> 
 			<?php require $view_path ?>
 		</main>
-        <?php require VUE . '/footer.php' ?>
+        
 	</body>
+	<footer>
+		<?php require VUE . '/footer.php' ?>
+	</footer>
 </html>

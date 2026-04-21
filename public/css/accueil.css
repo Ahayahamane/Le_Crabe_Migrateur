@@ -196,6 +196,25 @@ nav .menuPrincipal {
     flex-direction: row;
   }
 }
+#footerNav {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 10px;
+}
+#footerNav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footerNav ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+#footerNav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 * {
   padding: 0;
   margin: 0;

@@ -157,6 +157,7 @@ class AbstractModel
 
     protected function create(string $class, array $fields): \PDOStatement
     {
+        
         $query = "INSERT INTO " . $class::table_name . " (";
         foreach (array_keys($fields) as $field) {
             $query .= $field;
@@ -169,7 +170,7 @@ class AbstractModel
         }
         $query .= ')';
 
-
+        
         return $this->execute_query($query, $fields);
     }
 

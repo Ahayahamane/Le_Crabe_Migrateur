@@ -20,7 +20,7 @@ class Event extends AbstractEntity{
         $this->date_ = htmlspecialchars($data['date_'] ?? '');
         $this->summary = htmlspecialchars($data['summary'] ?? '');
         $this->content = htmlspecialchars($data['content'] ?? '');
-        $this->itinerary = ($data['itinerary'] ?? 0);
+        $this->itinerary = $data['itinerary'] ?? 0;
     }
 
     public function to_array(): array{

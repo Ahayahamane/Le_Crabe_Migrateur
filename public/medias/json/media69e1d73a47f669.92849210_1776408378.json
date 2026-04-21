@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "Sentier des Douaniers - Port-Navalo",
+    "coordinates": [
+      {"lat": 47.5892, "lon": -3.1234},
+      {"lat": 47.5901, "lon": -3.1198},
+      {"lat": 47.5915, "lon": -3.1156},
+      {"lat": 47.5928, "lon": -3.1089},
+      {"lat": 47.5941, "lon": -3.1023}
+    ]
+  }
+}

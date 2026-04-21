@@ -1,6 +1,6 @@
 <header class="fondVertSombre">
 	<picture>
-		<img src="./public/img/happy-craby-backless.png" alt="Logo crabe">
+		<a href="?path=accueil"><img src="./public/img/happy-craby-backless.png" alt="Logo crabe"></a>
 	</picture>
 	<h2>Le Crabe Migrateur</h2>
 	<?php

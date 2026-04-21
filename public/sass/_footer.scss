@@ -1,0 +1,25 @@
+@use "couleur";
+
+
+
+#footerNav {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 10px;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            list-style-type: none;
+            margin: 5px;
+
+            a {
+                text-decoration: none;
+                color: couleur.$blanc;
+            }
+        }
+    }
+}

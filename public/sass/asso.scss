@@ -1,0 +1,35 @@
+@use "header";
+@use "navbar";
+@use "couleur";
+@use "footer";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#asso{
+    padding: 120px 80px;
+
+    article{
+        display: flex;
+        flex-direction: column;
+        border-radius: 40px;
+        padding: 120px;
+
+        h1,h2{
+            text-align: center;
+        }
+        p{
+            margin: 10px 0 30px;
+        } 
+        ul{
+            list-style-type: none;
+            padding-bottom: 30px;
+            padding-left: 30px;
+            
+        }
+    }
+
+}

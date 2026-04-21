@@ -83,6 +83,16 @@ class UserController extends AbstractController
     }
 
     /**
+    *"Déconnecte" l'utilisateur en réinitialisant les valeurs de la variable $_SESSION
+    */
+    public function logout_back()
+    {
+        $_SESSION["user"] = null;
+        $_SESSION['message'] = 'Votre compte a bien été déconnecté';
+        header("location:?path=backoffice");
+    }
+
+    /**
     *Affiche la page contenant les informations du compte actuellement connecté
     */
     public function my_account()

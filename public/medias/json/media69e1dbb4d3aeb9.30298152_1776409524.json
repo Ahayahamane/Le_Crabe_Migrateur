@@ -1,0 +1,12 @@
+{
+  "route": {
+    "name": "Circuit des Phares de Belle-Île",
+    "coordinates": [
+      {"lat": 47.3234, "lon": -3.2456},
+      {"lat": 47.3256, "lon": -3.2423},
+      {"lat": 47.3278, "lon": -3.2390},
+      {"lat": 47.3300, "lon": -3.2357},
+      {"lat": 47.3322, "lon": -3.2324}
+    ]
+  }
+}

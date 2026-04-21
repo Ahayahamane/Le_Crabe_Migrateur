@@ -1,6 +1,7 @@
 @use "header";
 @use "navbar";
 @use "couleur";
+@use "footer";
 
 * {
     padding: 0;
@@ -19,6 +20,11 @@
             flex-direction: column;
             padding: 30px;
             border-radius: 40px;
+            img {
+                height: 500px;
+                object-fit: cover;
+                display: block;
+            }
         }
 
         .comment {
