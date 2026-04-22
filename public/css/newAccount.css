@@ -32,8 +32,10 @@ header h2 {
   color: #FFFFFF;
 }
 header .connect a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
   text-decoration: none;
-  color: #FFFFFF;
 }
 
 nav {
@@ -91,7 +93,6 @@ nav .burger {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #9ED8A4;
   padding: 5px;
   width: 80px;
   height: 40px;
@@ -99,6 +100,28 @@ nav .burger {
 }
 nav .menuPrincipal {
   display: none;
+  border-radius: 30px;
+  padding: 10px;
+}
+nav .menuPrincipal.display {
+  display: block;
+  position: absolute;
+  right: 110px;
+  z-index: 99999;
+}
+nav .menuPrincipal li {
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 15px;
+  box-shadow: 3px 3px black;
+  list-style: none;
+}
+nav .menuPrincipal li a {
+  text-decoration: none;
+  color: black;
+}
+nav .menuPrincipal li:hover {
+  box-shadow: 5px 5px black;
 }
 
 @media screen and (min-width: 800px) {
@@ -119,7 +142,7 @@ nav .menuPrincipal {
     align-items: center;
     list-style-type: none;
     padding: 0 20px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
   }
   nav .menuPrincipal li {
     border-radius: 20px;
@@ -137,14 +160,60 @@ nav .menuPrincipal {
 #footerNav {
   display: flex;
   flex-direction: column;
+  margin: 0px;
+  padding: 10px;
+}
+#footerNav p {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+}
+#footerNav p a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
 }
 #footerNav ul {
   display: flex;
   flex-direction: row;
 }
 #footerNav ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+#footerNav ul li a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
   text-decoration: none;
-  color: #FFFFFF;
+}
+
+.notification-popup {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #9ED8A4;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.notification-popup.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 * {

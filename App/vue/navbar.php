@@ -1,16 +1,16 @@
 <nav>
-    <div class="burger fondCanard">
-        <p>Menu</p>
+    <button id="burger" class="burger fondCanard">
+        Menu
         <i class="fa-solid fa-bars"></i>
-    </div>
+</button>
 
-    <ul class="menuPrincipal fondCanard">
+    <ul id="menuPrincipal" class="menuPrincipal fondCanard">
 
         <li class="fondBleuCiel"><a href="?path=accueil">Accueil</a></li>
         <li class="fondBleuCiel"><a href="?path=asso">L'association</a></li>
         <li class="fondBleuCiel"><a href="?path=event_list">Evenements</a></li>
         <li class="fondBleuCiel"><a href="?path=itinerary_list">Itinéraires</a></li>
-        <li class="fondBleuCiel">Nous contacter</li>
+        <li class="fondBleuCiel"><a href="?path=first_contact_form">Nous contacter</a></li>
     </ul>
 
     <ol class="breadcrumb">

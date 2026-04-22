@@ -27,7 +27,7 @@
 
                     <h2 class="slide-title"><?= $datas["event"][0]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="public/img/randoneur1.jpg" alt="Slide 1"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias'. $datas["media"][0] ?>" alt="Slide 1"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][0]->get("summary") ?>
@@ -37,7 +37,7 @@
                 <div class="slide active main" data-index="1">
                     <h2 class="slide-title"><?= $datas["event"][1]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="public/img/randoneur2.jpg" alt="Slide 2"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias'. $datas["media"][1] ?>" alt="Slide 2"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][1]->get("summary") ?>
@@ -47,7 +47,7 @@
                 <div class="slide active last" data-index="2">
                     <h2 class="slide-title"><?= $datas["event"][2]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="public/img/randoneur3.jpg" alt="Slide 3"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias'. $datas["media"][2] ?>" alt="Slide 3"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][2]->get("summary") ?>
@@ -57,7 +57,7 @@
                 <div class="slide hidden" data-index="3">
                     <h2 class="slide-title"><?= $datas["event"][3]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="public/img/randoneur3.jpg" alt="Slide 4"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias'. $datas["media"][3] ?>" alt="Slide 4"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][3]->get("summary") ?>
@@ -67,7 +67,7 @@
                 <div class="slide hidden" data-index="4">
                     <h2 class="slide-title"><?= $datas["event"][3]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="public/img/randoneur3.jpg" alt="Slide 5"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias'. $datas["media"][4] ?>" alt="Slide 5"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][4]->get("summary") ?>
@@ -78,7 +78,7 @@
 
         </div>
         <div class="buttons">
-            <button class="left"><-< /button>
+            <button class="left"><-</button>
                     <button class="right">-></button>
         </div>
     </div>

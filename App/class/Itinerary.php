@@ -15,7 +15,7 @@ class Itinerary extends AbstractEntity
     protected ?int $length;
     protected string $duration;
     protected string $advice;
-    protected string $media;
+    protected string $track;
 
     public function __construct(array $datas = [])
     {
@@ -28,7 +28,7 @@ class Itinerary extends AbstractEntity
         $this->length = $datas['length'] ?? null;
         $this->duration = htmlspecialchars($datas['duration'] ?? '');
         $this->advice = htmlspecialchars($datas['advice'] ?? '');
-        $this->media = htmlspecialchars($datas['path'] ?? null);
+        $this->track = htmlspecialchars($datas['track'] ?? null);
     }
 
     public function to_array(): array
@@ -41,7 +41,7 @@ class Itinerary extends AbstractEntity
             'length' => $this->length,
             'duration' => $this->duration,
             'advice' => $this->advice,
-            'media' => $this->media
+            'track' => $this->track
         ];
     }
 }

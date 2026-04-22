@@ -1,7 +1,9 @@
 @use "header";
 @use "navbar";
-@use "couleur";
+@use "color";
 @use "footer";
+@use "mixins";
+@use "interactiveMessage";
 
 * {
     padding: 0;
@@ -9,3 +11,110 @@
     box-sizing: border-box;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+
+    .contacts,
+    .message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        gap: 30px;
+        width: 80%;
+        border-radius: 30px;
+
+        .phone,
+        .address {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+            border-radius: 30px;
+            @include mixins.black_text
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+
+            div {
+                padding: 15px;
+                border-radius: 30px;
+
+                a {
+                    color: black;
+                }
+            }
+
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 15px;
+
+            div {
+                padding: 20px;
+                border-radius: 40px;
+
+
+                input {
+                    margin-top: 15px;
+                    width: 100%;
+                    border-radius: 10px;
+                    border-style: none;
+
+
+                }
+
+                #content {
+                    height: 300px;
+                }
+
+            }
+
+            #email,
+            #subject,
+            #content {
+                grid-column: 1/-1;
+            }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    main {
+        .contacts {
+            flex-direction: row;
+
+            .phone,
+            .address {
+                height: 115px;
+            }
+
+            .social {
+                div {
+                    display: flex;
+                    width: 115px;
+                    height: 115px;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+    }
+}

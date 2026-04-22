@@ -5,7 +5,7 @@ namespace App\controller\tools;
 use App\controller\AbstractController;
 use App\model\MediaModel;
 
-class MediaController extends AbstractController
+class MediaTools extends AbstractController
 {
 
     private array $config;
@@ -54,7 +54,7 @@ class MediaController extends AbstractController
      */
     public function validate_media(array $file)
     {
-        
+
         $this->errors = [];
         if (!isset($file['tmp_name'])) {
             $this->errors['file'][] = "Aucun fichier valide reçu.";
@@ -112,11 +112,24 @@ class MediaController extends AbstractController
             ];
             $media_model = new MediaModel;
             $media_model->register_media($datas);
-            
+
             $this->path = $datas['path'];
         }
 
-        
+
+        return $this->errors;
+    }
+
+    public function register_itinerary()
+    {
+        $unique_name = $this->generateUniqueName($this->ext);
+        $target_path = MEDIAS . '/' . $this->type_config['folder'] . '/' . $unique_name;
+
+        if (!move_uploaded_file($this->tmp_name, $target_path)) {
+            $this->errors['file'][] = "Échec de l\'enregistrement du fichier.";
+        } else {
+            $this->path = '/' . $this->type_config['folder'] . '/' . $unique_name;
+        }
         return $this->errors;
     }
 
@@ -149,7 +162,8 @@ class MediaController extends AbstractController
         return uniqid('media', true) . '_' . time() . '.' . $this->ext;
     }
 
-    public function get_path(){
+    public function get_path()
+    {
         return $this->path;
     }
 }

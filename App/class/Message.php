@@ -17,11 +17,24 @@ class Message extends AbstractEntity{
 
     public function __construct($datas)
     {
+        $this->id=($datas['id']) ?? 0;
         $this->firstname = htmlspecialchars($datas["firstname"]);
         $this->name = htmlspecialchars($datas["name"]);
         $this->email = ($datas["email"]);
         $this->subject = htmlspecialchars($datas["subject"]);
         $this->content = htmlspecialchars($datas["content"]);
+        $this->date_ = date('Y-m-d');
+    }
+
+    public function to_array(){
+        return [
+            'firstname'=>$this->firstname,
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'subject'=>$this->subject,
+            'content'=>$this->content,
+            'date_'=>$this->date_
+        ];
     }
     
 }

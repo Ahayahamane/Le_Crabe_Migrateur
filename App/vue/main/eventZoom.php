@@ -1,4 +1,3 @@
-
 <div class="content">
     <div class="frame fondCanard">
         <article class="fondVertClair">
@@ -10,16 +9,17 @@
     </div>
     <div class="frame fondCanard">
         <div class="comments fondVertClair">
-            <?php foreach ($datas['comments'] as $comment): ?>
-
-                <p>
-                    <?= $comment->get('psedonym') ?><?= $comment->get('date_') ?><br>
-                    <?= $comment->get('content') ?>
-                </p>
-            <?php endforeach ?>
+            <?php if (!empty($datas['comments'])):
+                foreach ($datas['comments'] as $comment): ?>
+                    <p>
+                        <?= $comment->get('psedonym') ?><?= $comment->get('date_') ?><br>
+                        <?= $comment->get('content') ?>
+                    </p>
+            <?php endforeach;
+            endif ?>
         </div>
     </div>
-    <?php if (isset($_SESSION) && ($_SESSION['user']->get('role') > 0)) : ?>
+    <?php if (!empty($_SESSION['user']) && ($_SESSION['user']->get('role') > 0)) : ?>
         <form class="" method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
         </form>
         <button class="comment">Commenter</button>

@@ -12,7 +12,7 @@ use App\model\ItineraryModel;
 use App\model\MediaModel;
 
 use App\controller\AbstractController;
-
+use App\controller\tools\MediaTools;
 
 class EventController extends AbstractController
 {
@@ -27,6 +27,11 @@ class EventController extends AbstractController
         $three_last = $event_model->last_events(3);
         $all_others = $event_model->last_events(9, 3);
         $datas = [
+            "meta" => [
+                "keywords" => "liste d'événements, événements Lorient",
+                "description" => "Liste des événements proposé par l'association",
+                "title" => "Liste des événements"
+            ],
             "three_last" => $three_last,
             "all_others" => $all_others,
             "links" => '<link rel="stylesheet" href="public/css/eventList.css">'
@@ -53,8 +58,13 @@ class EventController extends AbstractController
 
         $media = new MediaModel();
         $media = $media->get_media_for($id);
-    
+
         $datas = [
+            "meta" => [
+                "keywords" =>  $event->get('title'),
+                "description" => $event->get('summary'),
+                "title" => $event->get('title')
+            ],
             'media' => $media,
             'event' => $event,
             'comments' => $comments,
@@ -75,6 +85,7 @@ class EventController extends AbstractController
         $comm_model = new EventCommModel;
         $comm_model->register_comm($datas);
         $id = $_GET['id'];
+        $_SESSION['message'] = 'commentaire enregistré';
         header("location:?path=event_zoom&id=$id");
     }
 
@@ -100,7 +111,7 @@ class EventController extends AbstractController
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
-        $new_media = new MediaController;
+        $new_media = new MediaTools;
 
 
 

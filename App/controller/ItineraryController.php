@@ -5,10 +5,11 @@ namespace App\controller;
 use App\class\Itinerary;
 use App\class\Validator;
 use App\model\ItineraryModel;
-
+use App\model\ItineraryCommModel;
 
 use App\controller\AbstractController;
-use App\model\ItineraryCommModel;
+use App\controller\tools\MediaTools;
+
 
 class ItineraryController extends AbstractController
 {
@@ -22,6 +23,11 @@ class ItineraryController extends AbstractController
         $itinerary_model = new ItineraryModel;
         $last_itinerarys = $itinerary_model->last_itinerary(12);
         $datas = [
+            "meta"=> [
+                "keywords"=>"liste d'itinéraires, itinéraires de randonée",
+                "description"=>"Liste des itinéraires proposé par notre association",
+                "title"=>"Liste des itinéraires"
+            ],
             "last_itinerarys" => $last_itinerarys,
             "links" => '<link rel="stylesheet" href="public/css/itineraryList.css">
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />'
@@ -40,10 +46,15 @@ class ItineraryController extends AbstractController
         $itinerary = $itinerary->get_one(['Id' => $id]);
         $comments = new ItineraryCommModel;
         $comments = $comments->get_comments_for($id);
-        $json_content = file_get_contents(MEDIAS . $itinerary->get('media'));
+        $json_content = file_get_contents(MEDIAS . $itinerary->get('track'));
 
 
         $datas = [
+            "meta"=> [
+                "keywords"=>$itinerary->get("title"),
+                "description"=>$itinerary->get("description"),
+                "title"=>"Zoom:" . $itinerary->get("title")
+            ],
             'json' => $json_content,
             'itinerary' => $itinerary,
             'comments' => $comments,
@@ -58,6 +69,7 @@ class ItineraryController extends AbstractController
         $comm_model = new ItineraryCommModel;
         $comm_model->register_comm();
         $id = $_GET['id'];
+        $_SESSION['message'] = 'commentaire enregistré';
         header("location:?path=itinerary_zoom&id=$id");
     }
 
@@ -82,7 +94,7 @@ class ItineraryController extends AbstractController
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
-        $new_media = new MediaController;
+        $new_media = new MediaTools;
 
         if (!empty($_FILES['json_data'])) {
             $return = $new_media->validate_media($_FILES['json_data']);
@@ -94,11 +106,11 @@ class ItineraryController extends AbstractController
         }
 
         if (empty($errors)) {
-            $errors = $new_media->register_media();
+            $errors = $new_media->register_itinerary();
 
             if (empty($errors)) {
                 $datas = $_POST;
-                $datas['path'] = $new_media->get_path();
+                $datas['track'] = $new_media->get_path();
                 $new_itinerary = new Itinerary($datas);
                 $itinerary_model = new ItineraryModel;
                 $itinerary_model->register_itinerary($new_itinerary->to_array());

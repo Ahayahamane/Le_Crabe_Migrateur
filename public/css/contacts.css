@@ -1,0 +1,324 @@
+.fondVertSombre {
+  background-color: #005D31;
+}
+
+.fondVertClair {
+  background-color: #9ED8A4;
+}
+
+.fondCanard {
+  background-color: #65BBA7;
+}
+
+.fondBleuCiel {
+  background-color: #AEE6F4;
+}
+
+.fondBlanc {
+  background-color: #FFFFFF;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+header picture img {
+  max-width: 100px;
+}
+header h2 {
+  color: #FFFFFF;
+}
+header .connect a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 20px;
+}
+nav .breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+nav .breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+nav .breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin: 0 10px;
+  color: #999;
+  font-weight: normal;
+}
+nav .breadcrumb li[aria-current=page] {
+  color: #333;
+  font-weight: 500;
+}
+nav .breadcrumb li[aria-current=page]::after {
+  content: none;
+}
+nav .breadcrumb a {
+  text-decoration: none;
+  color: #0066cc;
+  transition: color 0.2s ease;
+}
+nav .breadcrumb a:hover {
+  color: #004499;
+  text-decoration: underline;
+}
+nav .breadcrumb ul {
+  display: flex;
+  flex-direction: row;
+  width: 860px;
+  height: 70px;
+  border-radius: 30px;
+  justify-content: space-between;
+}
+nav .burger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+}
+nav .menuPrincipal {
+  display: none;
+  border-radius: 30px;
+  padding: 10px;
+}
+nav .menuPrincipal.display {
+  display: block;
+  position: absolute;
+  right: 110px;
+  z-index: 99999;
+}
+nav .menuPrincipal li {
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 15px;
+  box-shadow: 3px 3px black;
+  list-style: none;
+}
+nav .menuPrincipal li a {
+  text-decoration: none;
+  color: black;
+}
+nav .menuPrincipal li:hover {
+  box-shadow: 5px 5px black;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav .burger {
+    display: none;
+  }
+  nav .menuPrincipal {
+    display: flex;
+    flex-direction: row;
+    width: 860px;
+    height: 70px;
+    border-radius: 30px;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0 20px;
+    margin: 0 0 20px 0;
+  }
+  nav .menuPrincipal li {
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 3px 3px black;
+  }
+  nav .menuPrincipal li a {
+    text-decoration: none;
+    color: black;
+  }
+  nav .menuPrincipal li:hover {
+    box-shadow: 5px 5px black;
+  }
+}
+#footerNav {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 10px;
+}
+#footerNav p {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+}
+#footerNav p a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+#footerNav ul {
+  display: flex;
+  flex-direction: row;
+}
+#footerNav ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+#footerNav ul li a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.notification-popup {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #9ED8A4;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.notification-popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.content .contacts,
+.content .message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 30px;
+  width: 80%;
+  border-radius: 30px;
+}
+.content .contacts .phone,
+.content .contacts .address,
+.content .message .phone,
+.content .message .address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+}
+.content .contacts .social,
+.content .message .social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.content .contacts .social div,
+.content .message .social div {
+  padding: 15px;
+  border-radius: 30px;
+}
+.content .contacts .social div a,
+.content .message .social div a {
+  color: black;
+}
+.content .contacts form,
+.content .message form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 15px;
+}
+.content .contacts form div,
+.content .message form div {
+  padding: 20px;
+  border-radius: 40px;
+}
+.content .contacts form div input,
+.content .message form div input {
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 10px;
+  border-style: none;
+}
+.content .contacts form div #content,
+.content .message form div #content {
+  height: 300px;
+}
+.content .contacts form #email,
+.content .contacts form #subject,
+.content .contacts form #content,
+.content .message form #email,
+.content .message form #subject,
+.content .message form #content {
+  grid-column: 1/-1;
+}
+
+@media (min-width: 640px) {
+  main .contacts {
+    flex-direction: row;
+  }
+  main .contacts .phone,
+  main .contacts .address {
+    height: 115px;
+  }
+  main .contacts .social div {
+    display: flex;
+    width: 115px;
+    height: 115px;
+    justify-content: center;
+    align-items: center;
+  }
+  main .contacts .social div a {
+    font-size: 30px;
+  }
+}
+
+/*# sourceMappingURL=contacts.css.map */

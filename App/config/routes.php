@@ -86,7 +86,11 @@ const ROUTES = [
 
     'first_contacts' => [
         'controller' => App\controller\ContactsController::class,
-        'method' => 'first_contact_page'
+        'method' => 'first_contact_page',
+        'breadcrumb' => [
+            ['label' => 'Accueil', 'url' => '/'],
+            ['label'=>'Nous contacter','url'=>'/nous contacter']        
+        ]
     ],
 
     'contacts' => [
@@ -146,6 +150,16 @@ const ROUTES = [
         ]
     ],
 
+    'first_contact_form' =>[
+        'controller' => App\controller\ContactsController::class,
+        'method' => 'first_contact_page'
+    ],
+
+    'contact_form' =>[
+        'controller' => App\controller\ContactsController::class,
+        'method' => 'contact_form'
+    ],
+
     'backoffice'=>[
         'controller' => App\controller\UserController::class,
         'method' => 'first_backoffice'
@@ -165,6 +179,11 @@ const ROUTES = [
         'controller' => App\controller\UserController::class,
         'method' => 'logout_back'
     ],
+
+'delete_account' => [
+    'controller' => App\controller\UserController::class,
+    'method' => 'delete_account'
+]
 
     
 ];

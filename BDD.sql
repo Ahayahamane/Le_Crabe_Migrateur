@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 20 avr. 2026 à 08:51
+-- Généré le : mer. 22 avr. 2026 à 07:38
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -63,7 +63,7 @@ CREATE TABLE `event_com` (
   `content` varchar(500) NOT NULL,
   `date_` date NOT NULL,
   `event` int(11) NOT NULL,
-  `autor` int(11) NOT NULL
+  `autor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,9 +84,25 @@ CREATE TABLE `favorite_route` (
 --
 
 CREATE TABLE `illustrate_evt` (
-  `media` varchar(150) NOT NULL,
+  `media` int(11) NOT NULL,
   `event` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `illustrate_evt`
+--
+
+INSERT INTO `illustrate_evt` (`media`, `event`) VALUES
+(46, 5),
+(47, 6),
+(48, 7),
+(49, 8),
+(50, 9),
+(51, 10),
+(52, 11),
+(53, 12),
+(54, 13),
+(55, 14);
 
 -- --------------------------------------------------------
 
@@ -95,7 +111,7 @@ CREATE TABLE `illustrate_evt` (
 --
 
 CREATE TABLE `illustrate_evt_com` (
-  `media` varchar(150) NOT NULL,
+  `media` int(11) NOT NULL,
   `event_com` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -106,7 +122,7 @@ CREATE TABLE `illustrate_evt_com` (
 --
 
 CREATE TABLE `illustrate_itin_com` (
-  `media` varchar(150) NOT NULL,
+  `media` int(11) NOT NULL,
   `itin_com` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -125,24 +141,24 @@ CREATE TABLE `itinerary` (
   `length` int(11) NOT NULL,
   `duration` varchar(10) DEFAULT NULL,
   `advice` varchar(100) DEFAULT NULL,
-  `media` varchar(150) NOT NULL
+  `track` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `itinerary`
 --
 
-INSERT INTO `itinerary` (`id`, `title`, `description`, `start`, `difficulty`, `length`, `duration`, `advice`, `media`) VALUES
-(3, 'Sentier', 'Parcours côtier longeant le golfe avec points de vue sur les îles', 'Port-Navalo', 'easy', 9, '2h15', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d73a47f669.92849210_1776408378.json'),
-(4, 'Circuit des Légendes', 'Traversée de la forêt avec arrêts aux sites légendaires', 'Paimpont', 'normal', 14, '4h30', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d8081a9f13.31077455_1776408584.json'),
-(5, 'Tour de la Presqu\'île de Rhuys', 'Boucle complète avec plages et phares', 'Sarzeau', 'hard', 23, '6h45', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d8f7c502a4.30061325_1776408823.json'),
-(6, 'Sentier des Mégalithes', 'Combinaison sites archéologiques et sentier côtier', 'Carnac', 'easy', 6, '1h45', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d9aaaf5cb8.69560686_1776409002.json'),
-(7, 'Traversée de l\'Île de Groix', 'Exploration intérieure avec villages et géologie', 'Port-Tudy (Groix)', 'normal', 11, '3h30', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1da38dbcb88.08443856_1776409144.json'),
-(8, 'Côte Sauvage de Quiberon', 'Falaises et vagues de l\'Atlantique', 'Quiberon', 'hard', 17, '5h15', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dab796c5b7.17631892_1776409271.json'),
-(9, 'Vannes aux Marais Salants', 'Remparts historiques et marais environnants', 'Vannes', 'easy', 10, '2h45', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1db55312587.80799653_1776409429.json'),
-(10, 'Circuit des Phares de Belle-Île', 'Exploration des phares historiques', 'Le Palais', 'normal', 14, '4h00', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dbb4d3aeb9.30298152_1776409524.json'),
-(11, 'Mégalithes de Locmariaquer', 'Sites mégalithiques avec guide archéologue', 'Locmariaquer', 'easy', 5, '1h30', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dc06cab848.76741270_1776409606.json'),
-(12, 'Vallée du Loc\'h', 'Rivière paisible avec ponts et villages', 'Auray', 'easy', 8, '2h00', '', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dc831dece1.92657789_1776409731.json');
+INSERT INTO `itinerary` (`id`, `title`, `description`, `start`, `difficulty`, `length`, `duration`, `advice`, `track`) VALUES
+(3, 'Sentier des douaniers', 'Parcours côtier longeant le golfe avec points de vue sur les îles', 'Port-Navalo', 'easy', 9, '2h15', '', '/json/media69e1d73a47f669.92849210_1776408378.json'),
+(4, 'Circuit des Légendes', 'Traversée de la forêt avec arrêts aux sites légendaires', 'Paimpont', 'normal', 14, '4h30', '', '/json/media69e1d8081a9f13.31077455_1776408584.json'),
+(5, 'Tour de la Presqu\'île de Rhuys', 'Boucle complète avec plages et phares', 'Sarzeau', 'hard', 23, '6h45', '', '/json/media69e1d8f7c502a4.30061325_1776408823.json'),
+(6, 'Sentier des Mégalithes', 'Combinaison sites archéologiques et sentier côtier', 'Carnac', 'easy', 6, '1h45', '', '/json/media69e1d9aaaf5cb8.69560686_1776409002.json'),
+(7, 'Traversée de l\'Île de Groix', 'Exploration intérieure avec villages et géologie', 'Port-Tudy (Groix)', 'normal', 11, '3h30', '', '/json/media69e1da38dbcb88.08443856_1776409144.json'),
+(8, 'Côte Sauvage de Quiberon', 'Falaises et vagues de l\'Atlantique', 'Quiberon', 'hard', 17, '5h15', '', '/json/media69e1dab796c5b7.17631892_1776409271.json'),
+(9, 'Vannes aux Marais Salants', 'Remparts historiques et marais environnants', 'Vannes', 'easy', 10, '2h45', '', '/json/media69e1db55312587.80799653_1776409429.json'),
+(10, 'Circuit des Phares de Belle-Île', 'Exploration des phares historiques', 'Le Palais', 'normal', 14, '4h00', '', '/json/media69e1dbb4d3aeb9.30298152_1776409524.json'),
+(11, 'Mégalithes de Locmariaquer', 'Sites mégalithiques avec guide archéologue', 'Locmariaquer', 'easy', 5, '1h30', '', '/json/media69e1dc06cab848.76741270_1776409606.json'),
+(12, 'Vallée du Loc\'h', 'Rivière paisible avec ponts et villages', 'Auray', 'easy', 8, '2h00', '', '/json/media69e1dc831dece1.92657789_1776409731.json');
 
 -- --------------------------------------------------------
 
@@ -166,7 +182,7 @@ CREATE TABLE `itinerary_com` (
 
 CREATE TABLE `media` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `path` varchar(150) NOT NULL,
   `type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -175,38 +191,17 @@ CREATE TABLE `media` (
 -- Déchargement des données de la table `media`
 --
 
-INSERT INTO `media` (`id`, `name`, `path`, `type`) VALUES
-(4, 'media69e1659e014b37.72696221_1776379294.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1659e014b37.72696221_1776379294.json', 'json'),
-(5, 'media69e165bb28fad5.37083629_1776379323.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e165bb28fad5.37083629_1776379323.json', 'json'),
-(6, 'media69e165edc82d91.89009751_1776379373.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e165edc82d91.89009751_1776379373.json', 'json'),
-(7, 'media69e166017dcf97.33709525_1776379393.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e166017dcf97.33709525_1776379393.json', 'json'),
-(8, 'media69e16624791053.45213983_1776379428.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16624791053.45213983_1776379428.json', 'json'),
-(9, 'media69e166ea5b47c9.46315423_1776379626.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e166ea5b47c9.46315423_1776379626.json', 'json'),
-(10, 'media69e1674f2ab953.36882805_1776379727.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1674f2ab953.36882805_1776379727.json', 'json'),
-(11, 'media69e167aebf8011.99561799_1776379822.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e167aebf8011.99561799_1776379822.json', 'json'),
-(12, 'media69e167df49f3a2.96838095_1776379871.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e167df49f3a2.96838095_1776379871.json', 'json'),
-(13, 'media69e16809384d24.85034419_1776379913.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16809384d24.85034419_1776379913.json', 'json'),
-(14, 'media69e1685b8f28e8.45025843_1776379995.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1685b8f28e8.45025843_1776379995.json', 'json'),
-(15, 'media69e1688bca08f4.76155035_1776380043.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1688bca08f4.76155035_1776380043.json', 'json'),
-(16, 'media69e168d4a09707.05575326_1776380116.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e168d4a09707.05575326_1776380116.json', 'json'),
-(17, 'media69e169011c79b7.76622020_1776380161.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e169011c79b7.76622020_1776380161.json', 'json'),
-(18, 'media69e16941dfd919.31126022_1776380225.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16941dfd919.31126022_1776380225.json', 'json'),
-(19, 'media69e16950ec8524.30966600_1776380240.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16950ec8524.30966600_1776380240.json', 'json'),
-(20, 'media69e1696a82a949.39544178_1776380266.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1696a82a949.39544178_1776380266.json', 'json'),
-(21, 'media69e169f5921d12.25370888_1776380405.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e169f5921d12.25370888_1776380405.json', 'json'),
-(22, 'media69e16a42768a52.92623527_1776380482.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16a42768a52.92623527_1776380482.json', 'json'),
-(23, 'media69e16acfa5f4b0.57326428_1776380623.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16acfa5f4b0.57326428_1776380623.json', 'json'),
-(24, 'media69e16b19f12843.35291850_1776380697.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e16b19f12843.35291850_1776380697.json', 'json'),
-(25, 'media69e1d73a47f669.92849210_1776408378.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d73a47f669.92849210_1776408378.json', 'json'),
-(26, 'media69e1d8081a9f13.31077455_1776408584.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d8081a9f13.31077455_1776408584.json', 'json'),
-(27, 'media69e1d8f7c502a4.30061325_1776408823.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d8f7c502a4.30061325_1776408823.json', 'json'),
-(28, 'media69e1d9aaaf5cb8.69560686_1776409002.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1d9aaaf5cb8.69560686_1776409002.json', 'json'),
-(29, 'media69e1da38dbcb88.08443856_1776409144.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1da38dbcb88.08443856_1776409144.json', 'json'),
-(30, 'media69e1dab796c5b7.17631892_1776409271.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dab796c5b7.17631892_1776409271.json', 'json'),
-(31, 'media69e1db55312587.80799653_1776409429.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1db55312587.80799653_1776409429.json', 'json'),
-(32, 'media69e1dbb4d3aeb9.30298152_1776409524.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dbb4d3aeb9.30298152_1776409524.json', 'json'),
-(33, 'media69e1dc06cab848.76741270_1776409606.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dc06cab848.76741270_1776409606.json', 'json'),
-(34, 'media69e1dc831dece1.92657789_1776409731.json', '/home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/public/medias/json/media69e1dc831dece1.92657789_1776409731.json', 'json');
+INSERT INTO `media` (`id`, `title`, `path`, `type`) VALUES
+(46, 'Golfe du Morbihan', '/img/mdassonville-gulf-of-morbihan-6669582_1920.jpg', 'img'),
+(47, 'Foret de Painpont', '/img/nicolas-debray-bougival-7492939_1920.jpg', 'img'),
+(48, 'Rhyus', '/img/naturarno-brittany-3594188_1920.jpg', 'img'),
+(49, 'Carnac', '/img/aleslanger-menhir-6588934_1920.jpg', 'img'),
+(50, 'Groix', '/img/31259093-port-7920846_1920.jpg', 'img'),
+(51, 'Quiberon', '/img/gutife-chateau-5942095_1920.jpg', 'img'),
+(52, 'Vannes', '/img/lecreusois-boats-5526712_1920.jpg', 'img'),
+(53, 'Belle-ile-en-mer', '/img/sylvainp74-lighthouse-2936173_1920.jpg', 'img'),
+(54, 'Locmariaquer', '/img/samothas-brittany-1139065_1920.jpg', 'img'),
+(55, 'Auray', '/img/dezalb-brittany-1178828_1920.jpg', 'img');
 
 -- --------------------------------------------------------
 
@@ -256,7 +251,7 @@ CREATE TABLE `user_` (
 --
 
 INSERT INTO `user_` (`id`, `email`, `psedonym`, `firstname`, `name`, `password`, `role`) VALUES
-(1, 'truc.machin@bidule.fr', 'LaRigole', 'Toto', 'Le Rigolo', '$2y$10$o3Ojw3kTsuIEM17KznlorenDXJ/KnETZ5RSqvJOrEwM6nBREEcc4e', 1);
+(4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 3);
 
 --
 -- Index pour les tables déchargées
@@ -274,8 +269,8 @@ ALTER TABLE `event`
 --
 ALTER TABLE `event_com`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `event` (`event`),
-  ADD KEY `autor` (`autor`);
+  ADD KEY `event_com_ibfk_1` (`event`),
+  ADD KEY `event_com_ibfk_2` (`autor`);
 
 --
 -- Index pour la table `favorite_route`
@@ -289,42 +284,42 @@ ALTER TABLE `favorite_route`
 --
 ALTER TABLE `illustrate_evt`
   ADD PRIMARY KEY (`media`,`event`),
-  ADD KEY `event` (`event`);
+  ADD KEY `illustrate_evt_ibfk_2` (`event`);
 
 --
 -- Index pour la table `illustrate_evt_com`
 --
 ALTER TABLE `illustrate_evt_com`
   ADD PRIMARY KEY (`media`,`event_com`),
-  ADD KEY `event_com` (`event_com`);
+  ADD KEY `illustrate_evt_com_ibfk_2` (`event_com`);
 
 --
 -- Index pour la table `illustrate_itin_com`
 --
 ALTER TABLE `illustrate_itin_com`
   ADD PRIMARY KEY (`media`,`itin_com`),
-  ADD KEY `itin_com` (`itin_com`);
+  ADD KEY `illustrate_itin_com_ibfk_2` (`itin_com`);
 
 --
 -- Index pour la table `itinerary`
 --
 ALTER TABLE `itinerary`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `media` (`media`);
+  ADD KEY `media` (`track`);
 
 --
 -- Index pour la table `itinerary_com`
 --
 ALTER TABLE `itinerary_com`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `itinerary` (`itinerary`),
-  ADD KEY `autor` (`autor`);
+  ADD KEY `itinerary_com_ibfk_1` (`itinerary`),
+  ADD KEY `itinerary_com_ibfk_2` (`autor`);
 
 --
 -- Index pour la table `media`
 --
 ALTER TABLE `media`
-  ADD PRIMARY KEY (`path`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -355,31 +350,31 @@ ALTER TABLE `user_`
 -- AUTO_INCREMENT pour la table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `event_com`
 --
 ALTER TABLE `event_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `itinerary`
 --
 ALTER TABLE `itinerary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `itinerary_com`
 --
 ALTER TABLE `itinerary_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -391,7 +386,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées
@@ -407,8 +402,8 @@ ALTER TABLE `event`
 -- Contraintes pour la table `event_com`
 --
 ALTER TABLE `event_com`
-  ADD CONSTRAINT `event_com_ibfk_1` FOREIGN KEY (`event`) REFERENCES `event` (`id`),
-  ADD CONSTRAINT `event_com_ibfk_2` FOREIGN KEY (`autor`) REFERENCES `user_` (`id`);
+  ADD CONSTRAINT `event_com_ibfk_1` FOREIGN KEY (`event`) REFERENCES `event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `event_com_ibfk_2` FOREIGN KEY (`autor`) REFERENCES `user_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `favorite_route`
@@ -421,35 +416,29 @@ ALTER TABLE `favorite_route`
 -- Contraintes pour la table `illustrate_evt`
 --
 ALTER TABLE `illustrate_evt`
-  ADD CONSTRAINT `illustrate_evt_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`path`),
-  ADD CONSTRAINT `illustrate_evt_ibfk_2` FOREIGN KEY (`event`) REFERENCES `event` (`id`);
+  ADD CONSTRAINT `illustrate_evt_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `illustrate_evt_ibfk_2` FOREIGN KEY (`event`) REFERENCES `event` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `illustrate_evt_com`
 --
 ALTER TABLE `illustrate_evt_com`
-  ADD CONSTRAINT `illustrate_evt_com_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`path`),
-  ADD CONSTRAINT `illustrate_evt_com_ibfk_2` FOREIGN KEY (`event_com`) REFERENCES `event_com` (`id`);
+  ADD CONSTRAINT `illustrate_evt_com_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `illustrate_evt_com_ibfk_2` FOREIGN KEY (`event_com`) REFERENCES `event_com` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `illustrate_itin_com`
 --
 ALTER TABLE `illustrate_itin_com`
-  ADD CONSTRAINT `illustrate_itin_com_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`path`),
-  ADD CONSTRAINT `illustrate_itin_com_ibfk_2` FOREIGN KEY (`itin_com`) REFERENCES `itinerary_com` (`id`);
-
---
--- Contraintes pour la table `itinerary`
---
-ALTER TABLE `itinerary`
-  ADD CONSTRAINT `itinerary_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`path`);
+  ADD CONSTRAINT `illustrate_itin_com_ibfk_1` FOREIGN KEY (`media`) REFERENCES `media` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `illustrate_itin_com_ibfk_2` FOREIGN KEY (`itin_com`) REFERENCES `itinerary_com` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `itinerary_com`
 --
 ALTER TABLE `itinerary_com`
-  ADD CONSTRAINT `itinerary_com_ibfk_1` FOREIGN KEY (`itinerary`) REFERENCES `itinerary` (`id`),
-  ADD CONSTRAINT `itinerary_com_ibfk_2` FOREIGN KEY (`autor`) REFERENCES `user_` (`id`);
+  ADD CONSTRAINT `itinerary_com_ibfk_1` FOREIGN KEY (`itinerary`) REFERENCES `itinerary` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `itinerary_com_ibfk_2` FOREIGN KEY (`autor`) REFERENCES `user_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `register`

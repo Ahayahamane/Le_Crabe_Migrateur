@@ -1,0 +1,25 @@
+@use "font";
+
+@mixin black_text {
+  font-family: font.$fontText;
+  color: black;
+  font-size: 1rem;
+}
+
+@mixin white_text {
+  font-family: font.$fontText;
+  color: white;
+  font-size: 1rem;
+}
+
+@mixin black_title {
+  font-family: font.$fontTitle;
+  color: black;
+  font-size: 2rem;
+}
+
+@mixin white_title {
+  font-family: font.$fontTitle;
+  color: white;
+  font-size: 2rem;
+}

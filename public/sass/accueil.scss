@@ -1,8 +1,11 @@
 @use "header";
 @use "navbar";
-@use "couleur";
+@use "color";
 @use "slider";
 @use "footer";
+@use "interactiveMessage";
+@use "mixins";
+
 
 * {
     padding: 0;
@@ -51,7 +54,6 @@
 
 .buttons {
     display: flex;
-    // flex-direction: row;
     justify-content: space-around;
 }
 
@@ -62,7 +64,7 @@
     margin: 28px 80px;
 
     .slider-box {
-        background-color: #65BBA7;
+        background-color: color.$canard;
         align-content: flex-end;
         text-align: center;
         padding: 40px;
@@ -73,11 +75,11 @@
         justify-content: center;
 
         height: 1000px;
-        background-color: #65BBA7;
+        background-color: color.$canard;
         border-radius: 40px;
 
         .itinerary {
-            padding: 40px;
+            padding: 30px;
             line-height: 1.8em;
             h2 {
                 text-align: center;
@@ -89,7 +91,7 @@
             }
             a{
                 text-decoration: none;
-                color: white;
+                color: color.$blanc;
             }
         }
     }

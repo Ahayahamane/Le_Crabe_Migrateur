@@ -1,7 +1,8 @@
 @use "header";
 @use "navbar";
-@use "couleur";
+@use "color";
 @use "footer";
+@use "interactiveMessage";
 
 * {
     padding: 0;
@@ -48,7 +49,7 @@
         }
 
         a {
-            color: couleur.$blanc;
+            color: color.$blanc;
         }
     }
 }

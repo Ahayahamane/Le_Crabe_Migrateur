@@ -9,13 +9,7 @@
 	</picture>
 	<h2>Le Crabe Migrateur</h2>
 
-	<?php
-	if (isset($_SESSION['message'])): ?>
-
-		<p><?= $_SESSION['message'] ?></p>
-		<?= $_SESSION['message'] = null ?>
-
-	<?php endif; ?>
+	
 
 	<div class="connect ">
 		<?php if (isset($_SESSION["user"])): ?>

@@ -1,12 +1,18 @@
-@use "couleur";
-
-
+@use "mixins";
 
 #footerNav {
     display: flex;
     flex-direction: column;
     margin: 0px;
     padding: 10px;
+    p{
+        @include mixins.white_text;
+       a {
+                @include mixins.white_text;
+                text-decoration: none;
+                
+            } 
+    }
 
     ul {
         display: flex;
@@ -17,8 +23,9 @@
             margin: 5px;
 
             a {
+                @include mixins.white_text;
                 text-decoration: none;
-                color: couleur.$blanc;
+                
             }
         }
     }

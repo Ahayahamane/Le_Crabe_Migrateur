@@ -56,6 +56,7 @@ class EventCommModel extends AbstractModel
      */
     public function delete_comm(array $filters)
     {
+        
         $this-> remove (EventComm::class, $filters);
     }
 }

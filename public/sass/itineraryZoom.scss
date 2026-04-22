@@ -1,8 +1,9 @@
 @use "header";
 @use "navbar";
-@use "couleur";
+@use "color";
 @use "myLeaflet";
 @use "footer";
+@use "interactiveMessage";
 
 * {
     padding: 0;

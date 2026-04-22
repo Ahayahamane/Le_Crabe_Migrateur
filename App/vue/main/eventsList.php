@@ -11,7 +11,7 @@
 </div>
 
 <div class="old-list fondCanard">
-    <h2>Précédants événements</h2>
+    <h2>Précédents événements</h2>
     <?php foreach ($datas["all_others"] as $event): ?>
         <div class="old-event fondVertClair">
             <h2><?= $event->get("title") ?></h2>

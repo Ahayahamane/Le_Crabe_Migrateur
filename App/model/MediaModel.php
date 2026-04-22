@@ -5,17 +5,18 @@ namespace App\model;
 use App\controller\MediaController;
 use App\model\AbstractModel;
 use App\class\Repository;
+use App\controller\tools\MediaTools;
 
 class MediaModel extends AbstractModel
 {
     /**
-     *enregistrement d'un media
+     *enregistrement d'un media dans la BDD
      *@param array $datas = Tableau contenant les differents information nécésaire a l'enregistrement
      *ne retourne rien
      */
     public function register_media($datas)
     {
-        $this->create(MediaController::class, $datas);
+        $this->create(MediaTools::class, $datas);
     }
 
     /**

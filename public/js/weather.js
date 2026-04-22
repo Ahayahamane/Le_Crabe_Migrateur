@@ -44,12 +44,10 @@ function updateUI(data) {
   // Heure actuelle pour trouver l'index
   let now = new Date();
   let currentHour = now.getHours();
-  console.log(currentHour);
   
   // Trouver l'index de l'heure actuelle dans les données horaires
   let hourlyIndex = data.hourly.time.findIndex(time => {
     let hourTime = new Date(time);
-    console.log(hourTime);
     return hourTime.getHours() === currentHour;
   });
   

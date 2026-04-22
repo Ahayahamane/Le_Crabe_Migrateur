@@ -1,4 +1,4 @@
-@use "couleur";
+@use "color";
 
 nav {
     display: flex;
@@ -63,7 +63,6 @@ nav {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        background-color: couleur.$vertClair;
         padding: 5px;
         width: 80px;
         height: 40px;
@@ -72,7 +71,37 @@ nav {
 
     .menuPrincipal {
         display: none;
+        border-radius: 30px;
+        padding: 10px;
+        
+
+        &.display {
+            display: block;
+            position: absolute;
+            right: 110px;
+            z-index: 99999;
+            
+            
+        }
+        li {
+                border-radius: 20px;
+                padding: 5px 10px;
+                margin: 15px;
+                box-shadow: 3px 3px black;
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+
+                &:hover {
+                    box-shadow: 5px 5px black;
+                }
+            }
     }
+
+
 }
 
 @media screen and (min-width:800px) {
@@ -80,7 +109,7 @@ nav {
     nav {
         flex-direction: column;
         align-items: center;
-        
+
 
         .burger {
             display: none;
@@ -96,7 +125,7 @@ nav {
             align-items: center;
             list-style-type: none;
             padding: 0 20px;
-            margin-bottom: 20px;
+            margin:0 0 20px 0;
 
             li {
                 border-radius: 20px;

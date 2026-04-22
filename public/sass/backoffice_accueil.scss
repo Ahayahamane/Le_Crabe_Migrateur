@@ -1,7 +1,8 @@
 @use "header";
 @use "navbar";
-@use "couleur";
+@use "color";
 @use "footer";
+@use "interactiveMessage";
 
 * {
     padding: 0;
@@ -32,7 +33,7 @@
     .fondVertSombre {
         a {
             text-decoration: none;
-            color: white;
+            color: color.$blanc;
         }
     }
 }

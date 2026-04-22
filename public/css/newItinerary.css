@@ -32,21 +32,69 @@ header h2 {
   color: #FFFFFF;
 }
 header .connect a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
   text-decoration: none;
-  color: #FFFFFF;
 }
 
 #footerNav {
   display: flex;
   flex-direction: column;
+  margin: 0px;
+  padding: 10px;
+}
+#footerNav p {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+}
+#footerNav p a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
 }
 #footerNav ul {
   display: flex;
   flex-direction: row;
 }
 #footerNav ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+#footerNav ul li a {
+  font-family: "inter, sans-serif";
+  color: white;
+  font-size: 1rem;
   text-decoration: none;
-  color: #FFFFFF;
+}
+
+.notification-popup {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #9ED8A4;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.notification-popup.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 * {
