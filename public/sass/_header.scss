@@ -1,5 +1,6 @@
 @use "color";
 @use "mixins";
+@use "font";
 
 header{
     display: flex;
@@ -16,6 +17,8 @@ header{
     }
  
     h2{
+        font-family: font.$fontSiteName;
+        font-size: 3rem;
         color: color.$blanc;
     }
     .connect{

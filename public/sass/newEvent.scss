@@ -2,6 +2,7 @@
 @use "color";
 @use "footer";
 @use "interactiveMessage";
+@use "mixins";
 
 * {
     padding: 10;
@@ -9,7 +10,50 @@
     box-sizing: border-box;
 }
 
-form{
+.content {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 80px;
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        text-align: center;
+        gap: 15px;
+        padding: 15px;
+        width: 100%;
+        border-radius: 30px;
+        @include mixins.black_text;
+
+        h1 {
+            grid-column: 1/-1;
+        }
+
+        div {
+            padding: 20px;
+            border-radius: 40px;
+
+            input, textarea {
+                margin-top: 15px;
+                width: 100%;
+                border-radius: 10px;
+                border-style: none;
+                text-align: center;
+                box-sizing: border-box;
+
+                &.longtext {
+                    height: 200px;
+                }
+                
+            }
+            
+        }
+        .button{
+                    grid-column: 1/-1;
+                }
+    }
 }

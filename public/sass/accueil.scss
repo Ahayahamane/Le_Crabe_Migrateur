@@ -13,44 +13,65 @@
     box-sizing: border-box;
 }
 
-.banner {
+
+
+.hero {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
     height: 500px;
+    overflow: hidden;
 
-
-    &::before {
-        content: "";
+    .bg-video {
         position: absolute;
-
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        background-image: url("../img/plage_bretonne.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        opacity: 0.5;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
         z-index: -1;
     }
 
-    h1 {
+    .banner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 500px;
 
-        text-align: center;
-        margin-bottom: 20px;
-    }
 
-    p {
-        width: 70%;
-        text-align: center;
+        &::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        h1 {
+
+            @include mixins.white_title;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            @include mixins.white_text;
+            width: 70%;
+            text-align: center;
+
+        }
 
     }
 }
+
+
+
+
 
 .buttons {
     display: flex;
@@ -81,15 +102,18 @@
         .itinerary {
             padding: 30px;
             line-height: 1.8em;
+
             h2 {
                 text-align: center;
                 margin-bottom: 20px;
             }
-            p{
+
+            p {
                 display: flex;
                 justify-content: space-between;
             }
-            a{
+
+            a {
                 text-decoration: none;
                 color: color.$blanc;
             }
@@ -99,7 +123,7 @@
 
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1200px) {
     .content {
         flex-direction: row;
 

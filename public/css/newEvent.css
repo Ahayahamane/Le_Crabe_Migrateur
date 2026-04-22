@@ -29,6 +29,8 @@ header picture img {
   max-width: 100px;
 }
 header h2 {
+  font-family: "pacifico, sans-serif";
+  font-size: 3rem;
   color: #FFFFFF;
 }
 header .connect a {
@@ -103,9 +105,47 @@ header .connect a {
   box-sizing: border-box;
 }
 
-form {
+.content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 80px;
+}
+.content form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  text-align: center;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 30px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+}
+.content form h1 {
+  grid-column: 1/-1;
+}
+.content form div {
+  padding: 20px;
+  border-radius: 40px;
+}
+.content form div input, .content form div textarea {
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 10px;
+  border-style: none;
+  text-align: center;
+  box-sizing: border-box;
+}
+.content form div input.longtext, .content form div textarea.longtext {
+  height: 200px;
+}
+.content form .button {
+  grid-column: 1/-1;
 }
 
 /*# sourceMappingURL=newEvent.css.map */

@@ -29,6 +29,8 @@ header picture img {
   max-width: 100px;
 }
 header h2 {
+  font-family: "pacifico, sans-serif";
+  font-size: 3rem;
   color: #FFFFFF;
 }
 header .connect a {
@@ -301,7 +303,7 @@ nav .menuPrincipal li:hover {
   grid-column: 1/-1;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 900px) {
   main .contacts {
     flex-direction: row;
   }
