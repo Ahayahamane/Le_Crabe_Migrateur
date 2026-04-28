@@ -1,19 +1,28 @@
-<div class="banner">
-    <h1>Le Crabe Migrateur <br> L'aventure ne se fait pas en ligne droite.</h1>
-    <p>
-        Bienvenue chez Le Crabe Migrateur,
-        où l'on préfère les détours aux chemins battus.
-        Ici, chaque randonnée est une invitation à marcher
-        de côté pour mieux voir le monde. Nous guidons les
-        curieux vers des sentiers sauvages, loin de la foule
-        et de la hâte. Parce que l'aventure ne se mesure pas
-        à la vitesse, mais à la singularité du parcours.
-        Rejoignez notre tribu de marcheurs et redécouvrez
-        la nature, autrement.
-    </p>
-</div>
-<div class="content">
-    <div class="events">
+<section class="hero"><!-- section bannière -->
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="public/vid/25687-351383088_medium.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner">
+        <h2>Le Crabe Migrateur <br> L'aventure ne se fait pas en ligne droite.</h2>
+        <p>
+            Bienvenue chez Le Crabe Migrateur,
+            où l'on préfère les détours aux chemins battus.
+            Ici, chaque randonnée est une invitation à marcher
+            de côté pour mieux voir le monde. Nous guidons les
+            curieux vers des sentiers sauvages, loin de la foule
+            et de la hâte. Parce que l'aventure ne se mesure pas
+            à la vitesse, mais à la singularité du parcours.
+            Rejoignez notre tribu de marcheurs et redécouvrez
+            la nature, autrement.
+        </p>
+    </div>
+
+</section>
+
+<section class="content"><!-- section principale -->
+    <section class="events"><!-- sous-section evenements -->
         <div class="slider-box">
             <h2>Nos derniers événements organisé</h2>
             <p>
@@ -27,63 +36,68 @@
 
                     <h2 class="slide-title"><?= $datas["event"][0]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="<?= 'public/medias'. $datas["media"][0] ?>" alt="Slide 1"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias' . $datas["media"][0] ?>" alt="Slide 1"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][0]->get("summary") ?>
                     </p>
+                    <a href='?path=event_zoom&id=<?= $datas["event"][0]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide active main" data-index="1">
                     <h2 class="slide-title"><?= $datas["event"][1]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="<?= 'public/medias'. $datas["media"][1] ?>" alt="Slide 2"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias' . $datas["media"][1] ?>" alt="Slide 2"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][1]->get("summary") ?>
                     </p>
+                    <a href='?path=event_zoom&id=<?= $datas["event"][1]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide active last" data-index="2">
                     <h2 class="slide-title"><?= $datas["event"][2]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="<?= 'public/medias'. $datas["media"][2] ?>" alt="Slide 3"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias' . $datas["media"][2] ?>" alt="Slide 3"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][2]->get("summary") ?>
                     </p>
+                    <a href='?path=event_zoom&id=<?= $datas["event"][2]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide hidden" data-index="3">
                     <h2 class="slide-title"><?= $datas["event"][3]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="<?= 'public/medias'. $datas["media"][3] ?>" alt="Slide 4"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias' . $datas["media"][3] ?>" alt="Slide 4"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][3]->get("summary") ?>
                     </p>
+                    <a href='?path=event_zoom&id=<?= $datas["event"][3]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide hidden" data-index="4">
-                    <h2 class="slide-title"><?= $datas["event"][3]->get("title") ?></h2>
+                    <h2 class="slide-title"><?= $datas["event"][4]->get("title") ?></h2>
                     <picture class="slide-image">
-                        <img src="<?= 'public/medias'. $datas["media"][4] ?>" alt="Slide 5"> <!-- voir media pour source en fonction de media-->
+                        <img src="<?= 'public/medias' . $datas["media"][4] ?>" alt="Slide 5"> <!-- voir media pour source en fonction de media-->
                     </picture>
                     <p class="summary">
                         <?= $datas["event"][4]->get("summary") ?>
                     </p>
+                    <a href='?path=event_zoom&id=<?= $datas["event"][4]->get("id") ?>'>+ de détails</a>
                 </div>
 
             </div>
 
         </div>
         <div class="buttons">
-            <button class="left"><-</button>
-                    <button class="right">-></button>
+            <button class="left"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="right"><i class="fa-solid fa-angle-right"></i></button>
         </div>
-    </div>
-    <div class="side">
-        <div class="weather-container">
+    </section>
+    <aside class="side"><!-- section latérale -->
+        <section class="weather-container"> <!-- sous-section météo -->
             <!-- Météo Actuelle -->
             <div class="weather-current">
                 <div class="weather-icon" id="weather-icon">⛅</div>
@@ -117,8 +131,8 @@
                     <!-- Généré par JS -->
                 </div>
             </div>
-        </div>
-        <div class="itinerary">
+        </section>
+        <section class="itinerary"> <!-- sous-section itinéraires -->
             <h2>Nos dérnier itinéraires</h2>
             <?php for ($i = 0; $i < count($datas['itinerary']); $i++): ?>
                 <p>
@@ -126,8 +140,8 @@
                     <?= $datas['itinerary'][$i]->get('start') ?>
                 </p>
             <?php endfor ?>
-        </div>
-    </div>
-</div>
+        </section>
+    </aside>
+</section>
 <script src="public/js/weather.js"></script>
 <script src="public/js/slider.js"></script>

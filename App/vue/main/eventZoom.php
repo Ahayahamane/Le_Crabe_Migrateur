@@ -1,13 +1,19 @@
-<div class="content">
-    <div class="frame fondCanard">
+<section class="content"><!-- section principale -->
+    <section class="frame fondCanard"><!-- sous-section événement -->
         <article class="fondVertClair">
-            <h1><?= $datas['event']->get('title') ?></h1>
-            <p><?= $datas['event']->get('date_') ?></p>
-            <img src="<?= 'public/medias' . $datas['media'][0]->get('path') ?>" alt="">
+            <header>
+                <h2><?= $datas['event']->get('title') ?></h2>
+                <p><?= $datas['event']->get('date_') ?></p>
+            </header>
+            <figure>
+                <picture>
+                    <img src="<?= 'public/medias' . $datas['media'][0]->get('path') ?>" alt="">
+                </picture>
+            </figure>
             <p><?= $datas['event']->get('content') ?></p>
         </article>
-    </div>
-    <div class="frame fondCanard">
+    </section>
+    <section class="frame fondCanard"><!-- sous-section commentaires existant -->
         <div class="comments fondVertClair">
             <?php if (!empty($datas['comments'])):
                 foreach ($datas['comments'] as $comment): ?>
@@ -18,12 +24,12 @@
             <?php endforeach;
             endif ?>
         </div>
-    </div>
-    <?php if (!empty($_SESSION['user']) && ($_SESSION['user']->get('role') > 0)) : ?>
+    </section>
+    <section><!-- sous-section créer commentaire -->
         <form class="" method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
         </form>
         <button class="comment">Commenter</button>
-    <?php endif ?>
-</div>
+    </section>
+</section>
 
 <script src="public/js/comment.js"></script>

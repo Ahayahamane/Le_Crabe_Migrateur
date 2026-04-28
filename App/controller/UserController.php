@@ -42,8 +42,8 @@ class UserController extends AbstractController
     {
         $errors = [];
         $rules = [
-            'email' => 'required',
-            'password' => 'required'
+            'email' => ['required'],
+            'password' => ['required','password']
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
@@ -144,7 +144,7 @@ class UserController extends AbstractController
      * et la validation des données soumises. Vérifie l'unicité de l'email,
      * valide les règles de saisie et hache le mot de passe avant stockage.
      *
-     * Retourne le rendu de la vue correspondante.
+     * @return:Retourne le rendu de la vue correspondante.
      *   - Vue d'inscription en cas d'erreur ou d'affichage initial
      *   - Message de succès en cas d'enregistrement validé et retour à l'accueil
      */
@@ -157,11 +157,11 @@ class UserController extends AbstractController
             'psedonym' => ['required', 'min:3', 'max:20'],
             'firstname' => ['required', 'min:3'],
             'name' => ['required', 'min:3'],
-            'password' => ['required'],
+            'password' => ['required', 'password']
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
-
+        
 
         if (empty($errors)) {
             $new_user = new User($_POST);
@@ -179,14 +179,16 @@ class UserController extends AbstractController
                 "errors" => $errors,
                 "links" => '<link rel="stylesheet" href="public/css/newAccount.css">'
             ];
+            
             return $this->display_vue('/main/newAccount.php', $datas);
         }
     }
 
 
     /**
-     * 
-     * 
+     *supprime le compte de l'utilisateur connecté
+     *
+     * @return: affiche l'accueil en cas de validation de la suppression
      */
     public function delete_account()
     {
@@ -207,7 +209,7 @@ class UserController extends AbstractController
                 }
                 $_SESSION["user"] = null;
                 $_SESSION['message'] = 'Votre compte a bien été supprimé';
-                header("location:?path=accueill");
+                header("location:?path=accueil");
             } else {
                 $_SESSION['message'] = 'Mauvais mot de passe';
                 return $this->my_account();
@@ -219,6 +221,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * affiche le formulaire de connection du backoffice
      * 
      */
     public function first_backoffice()
@@ -229,16 +232,22 @@ class UserController extends AbstractController
         return $this->display_back_vue('/back/login.php', $datas);
     }
 
-    /**
-     * 
+    /** 
+     * Traite à la fois l'affichage du formulaire d'inscription
+     * et la validation des données soumises. Vérifie l'unicité de l'email,
+     * valide les règles de saisie et hache le mot de passe avant stockage.
+     *
+     * @return:Retourne le rendu de la vue correspondante.
+     *   - Vue d'inscription en cas d'erreur ou d'affichage initial
+     *   - Message de succès en cas d'enregistrement validé et retour à l'accueil
      */
     public function login_backoffice()
     {
 
         $errors = [];
         $rules = [
-            'email' => 'required',
-            'password' => 'required'
+            'email' => ['required'],
+            'password' => ['required', 'password']
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
@@ -250,7 +259,7 @@ class UserController extends AbstractController
             if (!empty($user) && password_verify($_POST["password"], $user->get('password'))) {
                 $_SESSION["user"] = $user;
                 $_SESSION["message"] = "Bienvenue" . $user->get('firstname') . " " . $user->get('name');
-                if (($user->get('role')) > 2) {
+                if (($user->get('role')) > 1) {
                     header("location:?path=backoffice_accueil");
                 } else {
                     $_SESSION["message"] .= "vous ne disposez pas des droit pour acceder au backoffice";
@@ -273,5 +282,33 @@ class UserController extends AbstractController
             ];
             return $this->display_back_vue('/back/login.php', $datas);
         }
+    }
+
+    /**
+     * supprime un compte sur décision d'un administrateur
+     * 
+     */
+    public function admin_delete_account()
+    {
+        
+            $user_model = new UserModel;
+            $user = $user_model->get_by(['psedonym' => $_POST['psedonym']]);
+
+            if ($user && $user->get('role') < 3 ) {
+                
+                
+                    $itin_comm = new ItineraryCommModel;
+                    $itin_comm->delete_comm(['id'=>$user->get("id")]);
+                    $event_comm = new EventCommModel;
+                    $event_comm->delete_comm(['id'=>$user->get("id")]);
+                    $user_model->delete_user(['id'=>$user->get("id")]);
+                
+                $_SESSION['message'] = 'Le compte a bien été supprimé';
+                header("location:?path=moderation");
+            } else {
+                $_SESSION['message'] = 'Vous ne pouvez pas supprimer un compte administrateur';
+                header("location:?path=moderation");
+            }
+        
     }
 }

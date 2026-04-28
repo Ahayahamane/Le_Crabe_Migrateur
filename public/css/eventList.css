@@ -244,6 +244,12 @@ nav .menuPrincipal li:hover {
   border-radius: 40px;
   align-items: center;
 }
+.last-list .last-event picture img {
+  max-width: 400px;
+  height: 400px;
+  object-fit: contain;
+  display: block;
+}
 
 .old-list {
   display: grid;
@@ -265,15 +271,33 @@ nav .menuPrincipal li:hover {
   border-radius: 40px;
   align-items: center;
 }
+.old-list .old-event picture img {
+  max-width: 200px;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
 
 @media (min-width: 900px) {
   .last-list {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
   }
+  .last-list .last-event picture img {
+    max-width: 400px;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+  }
   .old-list {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, auto);
+  }
+  .old-list picture img {
+    max-width: 200px;
+    height: 200px;
+    object-fit: contain;
+    display: block;
   }
 }
 

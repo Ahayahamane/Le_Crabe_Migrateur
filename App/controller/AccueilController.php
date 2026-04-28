@@ -19,7 +19,7 @@ class AccueilController extends AbstractController
     public $event_model;
     public $itinerary_model;
     public $ten_last;
-    
+
 
     public function main()
     {
@@ -31,20 +31,20 @@ class AccueilController extends AbstractController
             $this->media_model = $this->media_model->get_media_for($this->last_events[$i]->get('id'));
             $this->media[$i] = $this->media_model[0]->get('path');
         }
-        
 
-        
+
+
         $this->last_itinerary = $this->get_last_itinerary();
 
         // construction du tableau de transfers des informations
         $this->datas = [
-            "meta"=> [
-                "keywords"=>"randonnée, Lorient, Crabe Migrateur",
-                "description"=>"Bienvenue chez Le Crabe Migrateur, 
+            "meta" => [
+                "keywords" => "randonnée, Lorient, Crabe Migrateur",
+                "description" => "Bienvenue chez Le Crabe Migrateur, 
                 où l'on préfère les détours aux chemins battus. 
                 Ici, chaque randonnée est une invitation à marcher 
                 de côté pour mieux voir le monde. ",
-                "title"=>"Accueil - Le Crabe Migrateur"
+                "title" => "Accueil - Le Crabe Migrateur"
             ],
             "media" => $this->media,
             "event" => $this->last_events,
@@ -52,7 +52,7 @@ class AccueilController extends AbstractController
             "links" => '<link rel="stylesheet" href="public/css/accueil.css">
                         <link rel="stylesheet" href="public/css/weather.css">'
         ];
-     
+
         return $this->display_vue('/main/accueil.php', $this->datas);
     }
 
@@ -79,9 +79,16 @@ class AccueilController extends AbstractController
 
     public function backoffice_accueil()
     {
-        $datas = [
-            'links' => '<link rel="stylesheet" href="public/css/backoffice_accueil.css">'
-        ];
-        return $this->display_back_vue('/back/backoffice_accueil.php', $datas);
+        if (!empty($_SESSION['user']) && $_SESSION['user'] -> get('role') > 1) {
+            $datas = [
+                'links' => '<link rel="stylesheet" href="public/css/backoffice_accueil.css">'
+            ];
+            return $this->display_back_vue('/back/backoffice_accueil.php', $datas);
+        } else {
+            $datas = [
+                'links' => '<link rel="stylesheet" href="public/css/login.css">'
+            ];
+            return $this->display_back_vue('/back/login.php', $datas);
+        }
     }
 }

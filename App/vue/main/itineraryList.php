@@ -1,17 +1,15 @@
-<div class="itinerary-list fondCanard">
-    <h1>Derniers itinéraires</h1>
-
+<section class="itinerary-list fondCanard">
+    <h2>Derniers itinéraires</h2>
     <?php foreach ($datas["last_itinerarys"] as $itinerary): ?>
-        <div class="itinerary fondVertClair">
-            <h2><?= $itinerary->get("title") ?></h2>
+        <article class="itinerary fondVertClair">
+            <header>
+                <h2><?= $itinerary->get("title") ?></h2>
+            </header>
             <p><?= $itinerary->get("description") ?></p>
             <p><?= $itinerary->get("advice") ?></p>
-
-            
-            
-            <a href='?path=itinerary_zoom&id=<?= $itinerary->get("id") ?>'>+ de détails</a>
-
-        </div>
+            <footer>
+                <a href='?path=itinerary_zoom&id=<?= $itinerary->get("id") ?>'>+ de détails</a>
+            </footer>
+        </article>
     <?php endforeach ?>
-
-</div>
+</section>

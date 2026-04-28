@@ -1,6 +1,6 @@
-<div id="asso">
+<section id="asso">
     <article class="fondVertClair">
-        <h1>Le Crabe Migrateur : 22 ans de nature en Morbihan</h1>
+        <h2>Le Crabe Migrateur : 22 ans de nature en Morbihan</h2>
 
         <p>Bienvenue au cœur de l’association « Le Crabe Migrateur », le compagnon de route incontournable des amoureux de la nature dans le Morbihan.
             Depuis 22 ans, notre association tisse des liens entre les hommes et leur environnement, transformant chaque sentier en une aventure partagée. Née de la rencontre de cinq amis passionnés, notre histoire est celle d’une amitié qui a grandi pour devenir une communauté. Fondée à Lorient, notre base de vie, nous sillonnons aujourd'hui les côtes, les forêts et les marais de toute la région.</p>
@@ -32,4 +32,4 @@
 
         <p>Basé à Lorient, partout dans le Morbihan. 22 ans de passion, une seule envie : vous faire aimer la nature.</p>
     </article>
-</div>
+</section>

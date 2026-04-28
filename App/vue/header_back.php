@@ -7,7 +7,7 @@
 		?path=backoffice				
 		<?php endif ?> "><img src="./public/img/happy-craby-backless.png" alt="Logo crabe"></a>
 	</picture>
-	<h2>Le Crabe Migrateur</h2>
+	<h1>Le Crabe Migrateur</h1>
 
 	
 

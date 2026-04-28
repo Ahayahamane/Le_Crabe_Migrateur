@@ -13,13 +13,10 @@ class Validator
 
         $this->datas = $datas;
 
-        
+
         if (!empty(($_FILES['json_data_file']['tmp_name']))) {
             $this->datas['json_data_file'] = file_get_contents($_FILES['json_data_file']['tmp_name']);
-        } else {
-            '';
-        };
-        
+        }
     }
 
     /**
@@ -52,6 +49,9 @@ class Validator
                             break;
                         case $rule === 'email':
                             $this->mail($name, $this->datas[$name]);
+                            break;
+                        case $rule === 'password':
+                            $this->password($name, $this->datas[$name]);
                             break;
                         case $rule === 'int':
                             $this->int($name, $this->datas[$name]);
@@ -87,7 +87,7 @@ class Validator
     {
         $value = trim($value);
         if (!isset($value) || is_null($value) || empty($value)) {
-            $this->errors[$name][] = "{$name} doit etre renseigné";
+            $this->errors[$name][] = "Ce champ doit etre renseigné";
         }
     }
 
@@ -113,7 +113,7 @@ class Validator
         preg_match_all('/(\d+)/', $rule, $matches);
         $limit = (int) $matches[0][0];
         if (strlen($value) < $limit) {
-            $this->errors[$name][] = "{$name} doit comporter plus de {$limit} characteres";
+            $this->errors[$name][] = "ce champ doit comporter plus de {$limit} characteres";
         }
     }
 
@@ -126,7 +126,7 @@ class Validator
         preg_match_all('/(\d+)/', $rule, $matches);
         $limit = (int) $matches[0][0];
         if (strlen($value) > $limit) {
-            $this->errors[$name][] = "{$name} doit comporter moin de {$limit} characteres";
+            $this->errors[$name][] = "Ce champ doit comporter moin de {$limit} characteres";
         }
     }
 
@@ -146,7 +146,7 @@ class Validator
     public function int(string $name, string $value)
     {
         if (!preg_match('/^\d+$/', $value)) {
-            $this->errors[$name][] = "Cette information doit etre composé de chiffres uniquement";
+            $this->errors[$name][] = "Ce champ doit etre composé de chiffres uniquement";
         }
     }
 
@@ -180,5 +180,20 @@ class Validator
         } catch (\JsonException $e) {
             $this->errors[$name][] = "Votre fichier json est erroné(" . $e->getMessage() . ")";
         }
+    }
+
+
+    /**
+     * Fonction de validation du format d'un mot de passe
+     */
+    public function password(string $name, string $value)
+    {
+        min($name, $value, 'min:12');
+        $has_upper_case = preg_match('/[A-Z]/', $value);
+        $has_lower_case = preg_match('/[a-z]/', $value);
+        $has_number = preg_match('/\d/', $value);
+        $has_special_char = preg_match('/[!@#$%^&*(),.?":{}|<>]/', $value);
+        if (!$has_upper_case || !$has_lower_case || !$has_number || !$has_special_char)
+            $this->errors[$name][] = "Votre mot de passe doit comporter au moin une majuscule, une minuscule, un chiffre et un caractère spécial";
     }
 }

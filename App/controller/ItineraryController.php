@@ -75,6 +75,14 @@ class ItineraryController extends AbstractController
 
     public function first_new_itinerary()
     {
+        if (empty($_SESSION['user']) || $_SESSION['user']->get('role') < 1) {
+
+            $datas = [
+                'links' => '<link rel="stylesheet" href="public/css/login.css">'
+            ];
+            return $this->display_back_vue('/back/login.php', $datas);
+        }
+
         $datas = [
             'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
         ];
@@ -83,6 +91,13 @@ class ItineraryController extends AbstractController
 
     public function new_itinerary()
     {
+        if (empty($_SESSION['user']) || $_SESSION['user']->get('role') < 1) {
+
+            $datas = [
+                'links' => '<link rel="stylesheet" href="public/css/login.css">'
+            ];
+            return $this->display_back_vue('/back/login.php', $datas);
+        }
         $rules = [
             'title' => ['required', 'max:50'],
             'description' => ['required', 'max:250'],

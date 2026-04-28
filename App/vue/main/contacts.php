@@ -1,5 +1,5 @@
-<div class="content">
-    <div class="contacts fondCanard">
+<section class="content"><!-- section principale -->
+    <section class="contacts fondCanard"><!-- sous-section information -->
         <div class="phone fondVertClair">
             <i class="fa-solid fa-phone"></i>
             <p id="phone_num">n° telephone: 06 55 55 55 55</p>
@@ -18,29 +18,71 @@
                 <a href=""><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-    </div>
-    <div class="message fondCanard">
-        <form action="">
+    </section>
+    <section class="message fondCanard"><!-- sous-section formulaire de contact -->
+        <form method="POST" action="?path=contact_form">
+
             <div id="firstname" class="fondVertClair">
-                <legend>Prénom</legend>
-                <input type="text" name="firstname">
+                <label>Prénom</label>
+                <input type="text" name="firstname" <?php if (!empty($_POST["firstname"])): ?>
+                    value=<?= $_POST["firstname"] ?>
+                    <?php endif ?>>
+                <?php
+                if (isset($datas['firstname'])) {
+                    foreach ($datas['firstname'] as $data) {
+                        echo ("<br><span class='error'>" . $data . "</span>");
+                    }
+                } ?>
             </div>
             <div id="name" class="fondVertClair">
-                <legend>Nom</legend>
-                <input type="text" name="name">
+                <label>Nom</label>
+                <input type="text" name="name" <?php if (!empty($_POST["name"])): ?>
+                    value=<?= $_POST["name"] ?>
+                    <?php endif ?>>
+                <?php
+                if (isset($datas['name'])) {
+                    foreach ($datas['name'] as $data) {
+                        echo ("<br><span class='error'>" . $data . "</span>");
+                    }
+                } ?>
             </div>
             <div id="email" class="fondVertClair">
-                <legend>votre adresse mail</legend>
-                <input type="text" name="email">
+                <label>votre adresse mail</label>
+                <input type="text" name="email" <?php if (!empty($_POST["email"])): ?>
+                    value=<?= $_POST["email"] ?>
+                    <?php endif ?>>
+                <?php
+                if (isset($datas['email'])) {
+                    foreach ($datas['email'] as $data) {
+                        echo ("<br><span class='error'>" . $data . "</span>");
+                    }
+                } ?>
             </div>
             <div id="subject" class="fondVertClair">
-                <legend>Sujet du message</legend>
-                <input type="text" name="subject">
+                <label>Sujet du message</label>
+                <input type="text" name="subject" <?php if (!empty($_POST["subject"])): ?>
+                    value=<?= $_POST["subject"] ?>
+                    <?php endif ?>>
+                <?php
+                if (isset($datas['subject'])) {
+                    foreach ($datas['subject'] as $data) {
+                        echo ("<br><span class='error'>" . $data . "</span>");
+                    }
+                } ?>
             </div>
             <div id="content" class="fondVertClair">
-                <legend>Votre message</legend>
-                <input type="text" name="content" id="content">
+                <label>Votre message</label>
+                <input type="text" name="content" id="content" <?php if (!empty($_POST["content"])): ?>
+                    value=<?= $_POST["content"] ?>
+                    <?php endif ?>>
+                <?php
+                if (isset($datas['content'])) {
+                    foreach ($datas['content'] as $data) {
+                        echo ("<br><span class='error'>" . $data . "</span>");
+                    }
+                } ?>
             </div>
-        </form>
-    </div>
-</div>
+            <input type="submit" name="envoyer">
+        </form>   
+    </section>
+</section>

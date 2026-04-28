@@ -2,7 +2,7 @@
 	<picture>
 		<a href="?path=accueil"><img src="./public/img/happy-craby-backless.png" alt="Logo crabe"></a>
 	</picture>
-	<h2>Le Crabe Migrateur</h2>
+	<h1>Le Crabe Migrateur</h1>
 	
 	<div class="connect ">
 		<?php if (!isset($_SESSION["user"])): ?>

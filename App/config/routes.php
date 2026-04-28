@@ -21,7 +21,7 @@ const ROUTES = [
         'method' => 'event_list_page',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Evenements','url'=>'/evenements']
+            ['label' => 'Evenements', 'url' => '/evenements']
         ]
     ],
 
@@ -30,17 +30,17 @@ const ROUTES = [
         'method' => 'event_zoom_page',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Evenements','url'=>'/evenements'],
-            ['label'=>'Plus d\'infos','url'=>'/plus d\'infos']
+            ['label' => 'Evenements', 'url' => '/evenements'],
+            ['label' => 'Plus d\'infos', 'url' => '/plus d\'infos']
         ]
     ],
 
-    'first_new_event' =>[
+    'first_new_event' => [
         'controller' => App\controller\EventController::class,
         'method' => 'first_new_event'
     ],
 
-    'new_event' =>[
+    'new_event' => [
         'controller' => App\controller\EventController::class,
         'method' => 'new_event'
     ],
@@ -55,7 +55,7 @@ const ROUTES = [
         'method' => 'itin_list_page',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Itinéraires','url'=>'/itinéraires']
+            ['label' => 'Itinéraires', 'url' => '/itinéraires']
         ]
     ],
 
@@ -64,17 +64,17 @@ const ROUTES = [
         'method' => 'itin_zoom_page',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Itinéraires','url'=>'/itinéraires'],
-            ['label'=>'Plus d\'infos','url'=>'/plus d\'infos']
+            ['label' => 'Itinéraires', 'url' => '/itinéraires'],
+            ['label' => 'Plus d\'infos', 'url' => '/plus d\'infos']
         ]
     ],
 
-    'first_new_itinerary' =>[
+    'first_new_itinerary' => [
         'controller' => App\controller\ItineraryController::class,
         'method' => 'first_new_itinerary'
     ],
 
-    'new_itinerary' =>[
+    'new_itinerary' => [
         'controller' => App\controller\ItineraryController::class,
         'method' => 'new_itinerary'
     ],
@@ -89,7 +89,7 @@ const ROUTES = [
         'method' => 'first_contact_page',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Nous contacter','url'=>'/nous contacter']        
+            ['label' => 'Nous contacter', 'url' => '/nous contacter']
         ]
     ],
 
@@ -103,7 +103,7 @@ const ROUTES = [
         'method' => 'first_login_form',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Connection','url'=>'/connection']
+            ['label' => 'Connection', 'url' => '/connection']
         ]
     ],
 
@@ -112,7 +112,7 @@ const ROUTES = [
         'method' => 'login_form',
         'title' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Connection','url'=>'/connection']
+            ['label' => 'Connection', 'url' => '/connection']
         ]
     ],
 
@@ -121,7 +121,7 @@ const ROUTES = [
         'method' => 'my_account',
         'title' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Mon compte','url'=>'/mon compte']
+            ['label' => 'Mon compte', 'url' => '/mon compte']
         ]
     ],
 
@@ -135,37 +135,37 @@ const ROUTES = [
         'method' => 'first_register_form',
         'title' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Connection','url'=>'/connection'],
-            ['label'=>'Créer un compte','url'=>'/créer un compte']
+            ['label' => 'Connection', 'url' => '/connection'],
+            ['label' => 'Créer un compte', 'url' => '/créer un compte']
         ]
     ],
-    
+
     'register' => [
         'controller' => App\controller\UserController::class,
         'method' => 'register_form',
         'title' => [
             ['label' => 'Accueil', 'url' => '/'],
-            ['label'=>'Connection','url'=>'/connection'],
-            ['label'=>'Créer un compte','url'=>'/créer un compte']
+            ['label' => 'Connection', 'url' => '/connection'],
+            ['label' => 'Créer un compte', 'url' => '/créer un compte']
         ]
     ],
 
-    'first_contact_form' =>[
+    'first_contact_form' => [
         'controller' => App\controller\ContactsController::class,
-        'method' => 'first_contact_page'
+        'method' => 'first_contact_form'
     ],
 
-    'contact_form' =>[
+    'contact_form' => [
         'controller' => App\controller\ContactsController::class,
         'method' => 'contact_form'
     ],
 
-    'backoffice'=>[
+    'backoffice' => [
         'controller' => App\controller\UserController::class,
         'method' => 'first_backoffice'
     ],
 
-    'login_backoffice'=>[
+    'login_backoffice' => [
         'controller' => App\controller\UserController::class,
         'method' => 'login_backoffice'
     ],
@@ -180,10 +180,10 @@ const ROUTES = [
         'method' => 'logout_back'
     ],
 
-'delete_account' => [
-    'controller' => App\controller\UserController::class,
-    'method' => 'delete_account'
-]
+    'delete_account' => [
+        'controller' => App\controller\UserController::class,
+        'method' => 'delete_account'
+    ]
 
-    
+
 ];
