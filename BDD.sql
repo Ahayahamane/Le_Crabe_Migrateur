@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 22 avr. 2026 à 07:38
+-- Généré le : jeu. 04 juin 2026 à 02:40
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -65,6 +65,17 @@ CREATE TABLE `event_com` (
   `event` int(11) NOT NULL,
   `autor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `event_com`
+--
+
+INSERT INTO `event_com` (`id`, `content`, `date_`, `event`, `autor`) VALUES
+(4, 'gjfhkljl!kl', '2026-04-23', 13, 4),
+(5, 'Commentaire test Belle-Île-en-Mer', '2026-06-03', 12, 4),
+(6, 'commentaire test auray', '2026-06-03', 14, 4),
+(7, 'un truc au pif', '2026-06-04', 12, 8),
+(8, 'toto est passé par la', '2026-06-04', 12, 8);
 
 -- --------------------------------------------------------
 
@@ -174,6 +185,13 @@ CREATE TABLE `itinerary_com` (
   `autor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `itinerary_com`
+--
+
+INSERT INTO `itinerary_com` (`id`, `content`, `date_`, `itinerary`, `autor`) VALUES
+(2, 'le mot de toto', '2026-06-04', 11, 8);
+
 -- --------------------------------------------------------
 
 --
@@ -239,7 +257,7 @@ CREATE TABLE `register` (
 CREATE TABLE `user_` (
   `id` int(11) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `psedonym` varchar(20) NOT NULL,
+  `pseudonym` varchar(20) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `password` varchar(80) NOT NULL,
@@ -250,8 +268,10 @@ CREATE TABLE `user_` (
 -- Déchargement des données de la table `user_`
 --
 
-INSERT INTO `user_` (`id`, `email`, `psedonym`, `firstname`, `name`, `password`, `role`) VALUES
-(4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 3);
+INSERT INTO `user_` (`id`, `email`, `pseudonym`, `firstname`, `name`, `password`, `role`) VALUES
+(4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 3),
+(7, 'test@machin.fr', 'testmachin', 'test', 'machin', '$2y$10$ipIxXg/hOILaiDLjepupW.qgq1SClwb6BYOYSQjyOidPUpPowochi', 1),
+(8, 'toto@live.fr', 'Toto', 'toto', 'lerigolo', '$2y$10$ocLDX4asVi6JBPe/Rityfe8s8aJVjC8Eeq9xLAne3JCB0ii1.UEnm', 2);
 
 --
 -- Index pour les tables déchargées
@@ -356,7 +376,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT pour la table `event_com`
 --
 ALTER TABLE `event_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `itinerary`
@@ -368,7 +388,7 @@ ALTER TABLE `itinerary`
 -- AUTO_INCREMENT pour la table `itinerary_com`
 --
 ALTER TABLE `itinerary_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `media`
@@ -386,7 +406,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Contraintes pour les tables déchargées
