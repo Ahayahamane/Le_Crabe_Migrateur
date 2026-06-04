@@ -1,0 +1,20 @@
+<header class="fondVertSombre">
+	<picture>
+		<a href="
+		 <?php if (!empty($_SESSION['user']) && ($_SESSION['user']->get('role') > 2)): ?>
+		?path=backoffice_accueil
+		<?php else: ?> 
+		?path=backoffice				
+		<?php endif ?> "><img src="./public/img/happy-craby-backless.png" alt="Logo crabe"></a>
+	</picture>
+	<h1>Le Crabe Migrateur</h1>
+
+	
+
+	<div class="connect ">
+		<?php if (isset($_SESSION["user"])): ?>
+			<p>User : <?= $_SESSION["user"]->get("pseudonym") ?></p>
+			<a href="?path=logout_back">Se déconnecter</a>
+		<?php endif; ?>
+	</div>
+</header>
