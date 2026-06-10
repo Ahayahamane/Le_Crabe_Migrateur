@@ -11,6 +11,9 @@
 }
 
 .content {
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+
     .frame {
         padding: 30px;
         border-radius: 40px;
@@ -19,31 +22,55 @@
         article {
             display: flex;
             flex-direction: column;
+            align-items: center;
             padding: 30px;
             border-radius: 40px;
+
+            header{
+                width: 100%;
+                justify-content: space-between;
+            }
+
             img {
                 height: 500px;
                 object-fit: cover;
                 display: block;
+                margin: 20px;
+            }
+
+            p{
+                margin: 0 50px;
             }
         }
 
-        .comment {
+        .comments_list {
             display: flex;
             flex-direction: column;
-        }
-        form{
-            
-            .hide{
-                display: none;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 40px;
+
+            .comhead {
+                padding: 0;
+            }
+
+            p {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
         }
-    }
-}
 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
 
-@media (min-width: 640px) {
-    .content {
-        width: 66%;
+            #content {
+                height: 120px;
+            }
+
+        }
+
     }
 }

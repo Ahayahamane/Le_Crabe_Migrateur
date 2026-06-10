@@ -28,7 +28,7 @@ header {
 header picture img {
   max-width: 100px;
 }
-header h2 {
+header h1 {
   font-family: "pacifico, sans-serif";
   font-size: 3rem;
   color: #FFFFFF;
@@ -224,6 +224,10 @@ nav .menuPrincipal li:hover {
   box-sizing: border-box;
 }
 
+.content {
+  line-height: 1.5;
+  letter-spacing: 1.2px;
+}
 .content .frame {
   padding: 30px;
   border-radius: 40px;
@@ -232,26 +236,45 @@ nav .menuPrincipal li:hover {
 .content .frame article {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 30px;
   border-radius: 40px;
+}
+.content .frame article header {
+  width: 100%;
+  justify-content: space-between;
 }
 .content .frame article img {
   height: 500px;
   object-fit: cover;
   display: block;
+  margin: 20px;
 }
-.content .frame .comment {
+.content .frame article p {
+  margin: 0 50px;
+}
+.content .frame .comments_list {
   display: flex;
   flex-direction: column;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 40px;
 }
-.content .frame form .hide {
-  display: none;
+.content .frame .comments_list .comhead {
+  padding: 0;
 }
-
-@media (min-width: 640px) {
-  .content {
-    width: 66%;
-  }
+.content .frame .comments_list p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content .frame form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.content .frame form #content {
+  height: 120px;
 }
 
 /*# sourceMappingURL=eventZoom.css.map */

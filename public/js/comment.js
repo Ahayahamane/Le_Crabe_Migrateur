@@ -6,8 +6,7 @@ function displayForm() {
     let form = document.querySelector("form");
     let input = document.getElementById("content");
     if (!input) {
-        input = document.createElement("input");
-        input.type = "text";
+        input = document.createElement("textarea");
         input.id = "content";
         input.name = "content";
         input.placeholder = "Ecrivez votre commentaire ici";

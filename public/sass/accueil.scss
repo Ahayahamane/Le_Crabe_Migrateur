@@ -9,7 +9,13 @@
 
 * {
     padding: 0;
-    margin: 0;
+    margin: 0;a {
+                padding: 5px;
+                border-radius: 10px;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+            }
     box-sizing: border-box;
 }
 
@@ -52,7 +58,7 @@
             z-index: -1;
         }
 
-        h1 {
+        h2 {
 
             @include mixins.white_title;
             text-align: center;
@@ -90,6 +96,7 @@
         text-align: center;
         padding: 40px;
         border-radius: 40px;
+        
     }
 
     .side {

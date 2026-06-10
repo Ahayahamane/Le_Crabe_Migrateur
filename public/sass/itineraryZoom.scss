@@ -10,3 +10,58 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.content {
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+
+    .frame {
+        padding: 30px;
+        border-radius: 40px;
+        margin-bottom: 20px;
+
+        article {
+        
+            padding: 30px;
+            border-radius: 40px;
+
+            picture {
+                margin: 20px;
+            }
+        }
+
+        #map {
+            width: 80%;
+        }
+
+         .comments_list {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 40px;
+
+            .comhead {
+                padding: 0;
+            }
+
+            p {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            #content {
+                height: 120px;
+            }
+
+        }
+
+    }
+}

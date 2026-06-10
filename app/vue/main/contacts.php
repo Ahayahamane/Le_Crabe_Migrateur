@@ -72,7 +72,7 @@
             </div>
             <div id="content" class="fondVertClair">
                 <label>Votre message</label>
-                <input type="text" name="content" id="content" <?php if (!empty($_POST["content"])): ?>
+                <textarea name="content" id="content" <?php if (!empty($_POST["content"])): ?>
                     value=<?= $_POST["content"] ?>
                     <?php endif ?>>
                 <?php
@@ -81,8 +81,9 @@
                         echo ("<br><span class='error'>" . $data . "</span>");
                     }
                 } ?>
+                </textarea>
             </div>
-            <input type="submit" name="envoyer">
+            <input id="btn" type="submit" name="envoyer">
         </form>   
     </section>
 </section>

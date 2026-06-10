@@ -28,7 +28,7 @@ header {
 header picture img {
   max-width: 100px;
 }
-header h2 {
+header h1 {
   font-family: "pacifico, sans-serif";
   font-size: 3rem;
   color: #FFFFFF;
@@ -126,14 +126,14 @@ header .connect a {
   color: black;
   font-size: 1rem;
 }
-.content form h1 {
+.content form h2 {
   grid-column: 1/-1;
 }
 .content form div {
   padding: 20px;
   border-radius: 40px;
 }
-.content form div input, .content form div textarea {
+.content form div input, .content form div textarea, .content form div select {
   margin-top: 15px;
   width: 100%;
   border-radius: 10px;
@@ -141,7 +141,7 @@ header .connect a {
   text-align: center;
   box-sizing: border-box;
 }
-.content form div input.longtext, .content form div textarea.longtext {
+.content form div textarea {
   height: 200px;
 }
 .content form .button {

@@ -4,11 +4,9 @@
             <header>
                 <h2><?= $datas['itinerary']->get('title') ?></h2>
             </header>
-            <div class="info-panel">
-                <h3 id="route-title">Chargement...</h3>
-
-            </div>
-            <div id="map"></div>
+            <picture>
+                <div id="map"></div>
+            </picture>
             <p><?= $datas['itinerary']->get('description') ?></p>
         </article>
     </section>
@@ -22,8 +20,8 @@
             <?php endforeach ?>
         </div>
     </section>
-    <section><!-- sous-section créer commentaire -->
-        <form class="" method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
+    <section class="frame fondCanard"><!-- sous-section créer commentaire -->
+        <form class="content" method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
         <button class="comment">Commenter</button>
     </section>
 </section>

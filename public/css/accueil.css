@@ -28,7 +28,7 @@ header {
 header picture img {
   max-width: 100px;
 }
-header h2 {
+header h1 {
   font-family: "pacifico, sans-serif";
   font-size: 3rem;
   color: #FFFFFF;
@@ -219,6 +219,13 @@ p {
   line-height: 1.6;
   color: black;
 }
+.slider .slide a {
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
 .slider .main {
   order: 1;
 }
@@ -296,6 +303,15 @@ p {
 * {
   padding: 0;
   margin: 0;
+}
+* a {
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+* {
   box-sizing: border-box;
 }
 
@@ -332,7 +348,7 @@ p {
   background: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
-.hero .banner h1 {
+.hero .banner h2 {
   font-family: "EB gramond, sans-serif";
   color: white;
   font-size: 2rem;

@@ -14,19 +14,27 @@
         </article>
     </section>
     <section class="frame fondCanard"><!-- sous-section commentaires existant -->
-        <div class="comments fondVertClair">
-            <?php if (!empty($datas['comments'])):
-                foreach ($datas['comments'] as $comment): ?>
+        <?php if (!empty($datas['comments'])):
+            foreach ($datas['comments'] as $comment): ?>
+                <div class="comments_list fondVertClair">
+                    <header class="comhead">
+                        <p>
+                            Auteur: <?= $comment->get('pseudonym') ?>
+                        </p>
+                        <p>
+                            <?= $comment->get('date_') ?>
+                        </p>
+                    </header>
                     <p>
-                        <?= $comment->get('pseudonym') ?><?= $comment->get('date_') ?><br>
                         <?= $comment->get('content') ?>
                     </p>
-            <?php endforeach;
-            endif ?>
-        </div>
+
+                </div>
+        <?php endforeach;
+        endif ?>
     </section>
-    <section><!-- sous-section créer commentaire -->
-        <form class="" method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
+    <section class="frame fondCanard"><!-- sous-section créer commentaire -->
+        <form method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
         </form>
         <button class="comment">Commenter</button>
     </section>

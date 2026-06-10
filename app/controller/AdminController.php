@@ -37,7 +37,7 @@ class AdminController extends AbstractController
                 "title" => "Recherche d'utilisateur"
             ],
             "users" => $this->users,
-            "links" => ''
+            "links" => '<link rel="stylesheet" href="public/css/adminList.css">'
         ];
         var_dump($this->datas["users"]);
         return $this->display_back_vue('/back/adminUsersList.php',$this->datas);
@@ -60,7 +60,7 @@ class AdminController extends AbstractController
                 "title" => "Liste des utilisateurs"
             ],
             "users" => $this->users,
-            "links" => ''
+            "links" => '<link rel="stylesheet" href="public/css/adminList.css">'
         ];
         return $this->display_back_vue('/back/adminUsersList.php',$this->datas);
     }
@@ -82,7 +82,7 @@ class AdminController extends AbstractController
                 "title" => "Liste des commentaires"
             ],
             "comments" => $this->commentarys,
-            "links" => ''
+            "links" => '<link rel="stylesheet" href="public/css/adminList.css">'
         ];
         
         return $this->display_back_vue('/back/adminComList.php',$this->datas);

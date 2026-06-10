@@ -44,7 +44,7 @@ class ContactsController extends AbstractController
                     'errors' => $errors,
                     'links' => '<link rel="stylesheet" href="public/css/contacts.css">'
                 ];
-                return $this->display_back_vue('/main/contacts.php', $datas);
+                return $this->display_vue('/main/contacts.php', $datas);
             }
         
     }

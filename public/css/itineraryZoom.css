@@ -28,7 +28,7 @@ header {
 header picture img {
   max-width: 100px;
 }
-header h2 {
+header h1 {
   font-family: "pacifico, sans-serif";
   font-size: 3rem;
   color: #FFFFFF;
@@ -230,6 +230,49 @@ nav .menuPrincipal li:hover {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.content {
+  line-height: 1.5;
+  letter-spacing: 1.2px;
+}
+.content .frame {
+  padding: 30px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+.content .frame article {
+  padding: 30px;
+  border-radius: 40px;
+}
+.content .frame article picture {
+  margin: 20px;
+}
+.content .frame #map {
+  width: 80%;
+}
+.content .frame .comments_list {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+}
+.content .frame .comments_list .comhead {
+  padding: 0;
+}
+.content .frame .comments_list p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content .frame form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.content .frame form #content {
+  height: 120px;
 }
 
 /*# sourceMappingURL=itineraryZoom.css.map */

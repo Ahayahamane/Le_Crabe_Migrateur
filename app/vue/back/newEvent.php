@@ -30,7 +30,7 @@
 
         <div class='fondVertClair'>
             <label>Résumé de l'événement</label>
-            <textarea class="longtext" name="summary" placeholder="un résumé de la déscription de votre événement"><?php if (!empty($_POST["summary"])) {
+            <textarea name="summary" placeholder="un résumé de la déscription de votre événement"><?php if (!empty($_POST["summary"])) {
                                                                                                                         echo $_POST["summary"];
                                                                                                                     } ?></textarea>
             <?php
@@ -42,7 +42,7 @@
         </div>
         <div class='fondVertClair'>
             <label>Description de l'événement</label>
-            <textarea class="longtext" name="content" placeholder="La déscription complète de votre événement"><?php if (!empty($_POST["content"])) {
+            <textarea name="content" placeholder="La déscription complète de votre événement"><?php if (!empty($_POST["content"])) {
                                                                                                                     echo $_POST["content"];
                                                                                                                 } ?></textarea>
             <?php

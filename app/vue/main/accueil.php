@@ -41,7 +41,7 @@
                     <p class="summary">
                         <?= $datas["event"][0]->get("summary") ?>
                     </p>
-                    <a href='?path=event_zoom&id=<?= $datas["event"][0]->get("id") ?>'>+ de détails</a>
+                    <a class="fondCanard" href='?path=event_zoom&id=<?= $datas["event"][0]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide active main" data-index="1">
@@ -52,7 +52,7 @@
                     <p class="summary">
                         <?= $datas["event"][1]->get("summary") ?>
                     </p>
-                    <a href='?path=event_zoom&id=<?= $datas["event"][1]->get("id") ?>'>+ de détails</a>
+                    <a class="fondCanard" href='?path=event_zoom&id=<?= $datas["event"][1]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide active last" data-index="2">
@@ -63,7 +63,7 @@
                     <p class="summary">
                         <?= $datas["event"][2]->get("summary") ?>
                     </p>
-                    <a href='?path=event_zoom&id=<?= $datas["event"][2]->get("id") ?>'>+ de détails</a>
+                    <a class="fondCanard" href='?path=event_zoom&id=<?= $datas["event"][2]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide hidden" data-index="3">
@@ -74,7 +74,7 @@
                     <p class="summary">
                         <?= $datas["event"][3]->get("summary") ?>
                     </p>
-                    <a href='?path=event_zoom&id=<?= $datas["event"][3]->get("id") ?>'>+ de détails</a>
+                    <a class="fondCanard" href='?path=event_zoom&id=<?= $datas["event"][3]->get("id") ?>'>+ de détails</a>
                 </div>
 
                 <div class="slide hidden" data-index="4">
@@ -85,7 +85,7 @@
                     <p class="summary">
                         <?= $datas["event"][4]->get("summary") ?>
                     </p>
-                    <a href='?path=event_zoom&id=<?= $datas["event"][4]->get("id") ?>'>+ de détails</a>
+                    <a class="fondCanard" href='?path=event_zoom&id=<?= $datas["event"][4]->get("id") ?>'>+ de détails</a>
                 </div>
 
             </div>

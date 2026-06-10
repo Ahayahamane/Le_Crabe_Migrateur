@@ -23,8 +23,6 @@ class AccueilController extends AbstractController
 
     public function main()
     {
-        var_dump($_SESSION);
-
         $this->last_events = $this->get_last_events();
 
         for ($i = 0; $i < count($this->last_events); $i++) {

@@ -1,10 +1,12 @@
-<section>
-    <form method="POST" action="?path=new_itinerary" enctype="multipart/form-data">
-        <div>
+<section class="content">
+    <form method="POST" action="?path=new_itinerary" enctype="multipart/form-data" class='fondCanard'>
+        <h2>Creation d'un itinéraire</h2>
+        <div class='fondVertClair'>
             <label>Titre de l'itinéraire</label>
-            <input type="text" name="title" placeholder="Le titre" <?php if (!empty($_POST["title"])): ?>
+            <input type="text" name="title" placeholder="Le titre"
+                <?php if (!empty($_POST["title"])): ?>
                 value=<?= $_POST["title"] ?>
-                <?php endif ?>>>
+                <?php endif ?>>
             <?php
             if (!empty($datas['errors']['title'])) {
                 foreach ($datas['errors']['title'] as $data) {
@@ -12,11 +14,12 @@
                 }
             } ?>
         </div>
-        <div>
-            <label>Ville de départ <  </label>
-            <input type="text" name="start" placeholder="Ville la plus proche" <?php if (!empty($_POST["start"])): ?>
+        <div class='fondVertClair'>
+            <label>Ville de départ </label>
+            <input type="text" name="start" placeholder="Ville la plus proche"
+                <?php if (!empty($_POST["start"])): ?>
                 value=<?= $_POST["start"] ?>
-                <?php endif ?>>>
+                <?php endif ?>>
             <?php
             if (!empty($datas['errors']['start'])) {
                 foreach ($datas['errors']['start'] as $data) {
@@ -24,7 +27,7 @@
                 }
             } ?>
         </div>
-        <div>
+        <div class='fondVertClair'>
             <label>Difficulté </label>
             <select name="difficulty">
                 <option value="">--choisissez une difficultée--</option>
@@ -40,12 +43,12 @@
             } ?>
         </div>
 
-        <div>
+        <div class='fondVertClair'>
             <label>Longueur(en km)</label>
             <input type="text" name="length" placeholder="Longeur estimé de l'itinéraire"
                 <?php if (!empty($_POST["length"])): ?>
                 value=<?= $_POST["length"] ?>
-                <?php endif ?>>>
+                <?php endif ?>>
             <?php
             if (!empty($datas['errors']['length'])) {
                 foreach ($datas['errors']['length'] as $data) {
@@ -53,12 +56,40 @@
                 }
             } ?>
         </div>
-        <div>
+        
+        <div class='fondVertClair'>
+            <label>Déscription de l'itinéraire</label>
+            <textarea name="description" placeholder="Une description" <?php if (!empty($_POST["description"])): ?>
+                value=<?= $_POST["description"] ?>
+                <?php endif ?>>
+            <?php
+            if (!empty($datas['errors']['description'])) {
+                foreach ($datas['errors']['description'] as $data) {
+                    echo ("<br><span class='error'>" . $data . "</span>");
+                }
+            } ?>
+            </textarea>
+        </div>
+        <div class='fondVertClair'>
+            <label>Conseil</label>
+            <textarea name="advice" placeholder="Buvez de l'eau"
+                <?php if (!empty($_POST["advice"])): ?>
+                value=<?= $_POST["advice"] ?>
+                <?php endif ?>>
+            <?php
+            if (!empty($datas['errors']['advice'])) {
+                foreach ($datas['errors']['advice'] as $data) {
+                    echo ("<br><span class='error'>" . $data . "</span>");
+                }
+            } ?>
+            </textarea>
+        </div>
+        <div class='fondVertClair'>
             <label>Durée du parcours</label>
             <input type="text" name="duration" placeholder="Durée estimé de l'itinéraire"
                 <?php if (!empty($_POST["duration"])): ?>
                 value=<?= $_POST["duration"] ?>
-                <?php endif ?>>>
+                <?php endif ?>>
             <?php
             if (!empty($datas['errors']['duration'])) {
                 foreach ($datas['errors']['duration'] as $data) {
@@ -66,32 +97,7 @@
                 }
             } ?>
         </div>
-        <div>
-            <label>Déscription de l'itinéraire</label>
-            <input type="text" name="description" placeholder="Une description" <?php if (!empty($_POST["description"])): ?>
-                value=<?= $_POST["description"] ?>
-                <?php endif ?>>>
-            <?php
-            if (!empty($datas['errors']['description'])) {
-                foreach ($datas['errors']['description'] as $data) {
-                    echo ("<br><span class='error'>" . $data . "</span>");
-                }
-            } ?>
-        </div>
-        <div>
-            <label>Conseil</label>
-            <input type="text" name="advice" placeholder="Buvez de l'eau"
-                <?php if (!empty($_POST["advice"])): ?>
-                value=<?= $_POST["advice"] ?>
-                <?php endif ?>>>
-            <?php
-            if (!empty($datas['errors']['advice'])) {
-                foreach ($datas['errors']['advice'] as $data) {
-                    echo ("<br><span class='error'>" . $data . "</span>");
-                }
-            } ?>
-        </div>
-        <div>
+        <div class='fondVertClair'>
             <label>Itinéraire au format JSON</label>
             <input type="file" name="json_data" accept=".json">
 
@@ -106,7 +112,4 @@
         <br>
         <input type="submit" name="connect">
     </form>
-    <aside>
-        outil conversion coordonées/lieu dit
-    </aside>
 </section>

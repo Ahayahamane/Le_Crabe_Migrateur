@@ -13,7 +13,11 @@ const ROUTES = [
 
     'asso' => [
         'controller' => app\controller\StaticController::class,
-        'method' => 'asso'
+        'method' => 'asso',
+        'breadcrumb' => [
+            ['label' => 'Accueil', 'url' => '/'],
+            ['label' => 'L\'association', 'url' => '/association']
+        ]
     ],
 
     'event_list' => [
@@ -90,18 +94,36 @@ const ROUTES = [
         'roles' => [1, 2, 3]
     ],
 
-    'first_contacts' => [
+    // 'first_contacts' => [
+    //     'controller' => app\controller\ContactsController::class,
+    //     'method' => 'first_contact_page',
+    //     'breadcrumb' => [
+    //         ['label' => 'Accueil', 'url' => '/'],
+    //         ['label' => 'Nous contacter', 'url' => '/nous contacter']
+    //     ]
+    // ],
+
+    // 'contacts' => [
+    //     'controller' => app\controller\ContactsController::class,
+    //     'method' => 'contact_page'
+    // ],
+
+    'first_contact_form' => [
         'controller' => app\controller\ContactsController::class,
-        'method' => 'first_contact_page',
+        'method' => 'first_contact_form',
         'breadcrumb' => [
             ['label' => 'Accueil', 'url' => '/'],
             ['label' => 'Nous contacter', 'url' => '/nous contacter']
         ]
     ],
 
-    'contacts' => [
+    'contact_form' => [
         'controller' => app\controller\ContactsController::class,
-        'method' => 'contact_page'
+        'method' => 'contact_form',
+        'breadcrumb' => [
+            ['label' => 'Accueil', 'url' => '/'],
+            ['label' => 'Nous contacter', 'url' => '/nous contacter']
+        ]
     ],
 
     'first_login' => [
@@ -156,15 +178,7 @@ const ROUTES = [
         ]
     ],
 
-    'first_contact_form' => [
-        'controller' => app\controller\ContactsController::class,
-        'method' => 'first_contact_form'
-    ],
-
-    'contact_form' => [
-        'controller' => app\controller\ContactsController::class,
-        'method' => 'contact_form'
-    ],
+    
 
     'backoffice' => [
         'controller' => app\controller\UserController::class,

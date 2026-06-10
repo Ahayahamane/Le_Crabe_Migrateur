@@ -61,15 +61,11 @@ class Router
 		//si acces autorisé alors instanciation du controleur
 
 		if (isset($route)) {
-// var_dump($route);
 			$required_roles = $route['roles'] ?? null;
-			// var_dump($required_roles);
 
 			$check_role = new CheckRoleMiddleware;
 
 			$check_role->check($required_roles);
-
-			echo "check ok ";
 
 			$controller = new $route['controller'];
 			
@@ -79,7 +75,6 @@ class Router
 			}
 
 			$controller->{$route['method']}(...$params);
-			var_dump($route["method"]);
 		}
 	}
 

@@ -84,20 +84,13 @@ class ItineraryController extends AbstractController
         }
 
         $datas = [
-            'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+            'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
         ];
         return $this->display_back_vue('/back/newItinerary.php', $datas);
     }
 
     public function new_itinerary()
     {
-        // if (empty($_SESSION['user']) || $_SESSION['user']->get('role') < 1) {
-
-        //     $datas = [
-        //         'links' => '<link rel="stylesheet" href="public/css/login.css">'
-        //     ];
-        //     return $this->display_back_vue('/back/login.php', $datas);
-        // }
         $rules = [
             'title' => ['required', 'max:50'],
             'description' => ['required', 'max:250'],
@@ -134,14 +127,14 @@ class ItineraryController extends AbstractController
             } else {
                 $datas = [
                     'errors' => $errors,
-                    'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+                    'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
                 ];
                 return $this->display_back_vue('/back/newItinerary.php', $datas);
             }
         } else {
             $datas = [
                 'errors' => $errors,
-                'links' => '<link rel="stylesheet" href="public/css/newItinerary.css">'
+                'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
             ];
             return $this->display_back_vue('/back/newItinerary.php', $datas);
         }

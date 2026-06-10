@@ -5,10 +5,12 @@
             <header>
                 <h2><?= $itinerary->get("title") ?></h2>
             </header>
-            <p><?= $itinerary->get("description") ?></p>
-            <p><?= $itinerary->get("advice") ?></p>
+            <main>
+                <p><?= $itinerary->get("description") ?></p>
+                <p><?= $itinerary->get("advice") ?></p>
+            </main>
             <footer>
-                <a href='?path=itinerary_zoom&id=<?= $itinerary->get("id") ?>'>+ de détails</a>
+                <a class="fondCanard" href='?path=itinerary_zoom&id=<?= $itinerary->get("id") ?>'>+ de détails</a>
             </footer>
         </article>
     <?php endforeach ?>

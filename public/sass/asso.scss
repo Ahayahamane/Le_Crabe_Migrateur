@@ -10,26 +10,31 @@
     box-sizing: border-box;
 }
 
-#asso{
+#asso {
     padding: 120px 80px;
 
-    article{
+    article {
         display: flex;
         flex-direction: column;
         border-radius: 40px;
-        padding: 120px;
+        padding: 120px 180px;
+        line-height: 1.5;
+        letter-spacing: 1.2px;
 
-        h1,h2{
+        h2 {
             text-align: center;
         }
-        p{
-            margin: 10px 0 30px;
-        } 
-        ul{
+
+        p {
+            margin: 20px 0 60px;
+
+        }
+
+        ul {
             list-style-type: none;
-            padding-bottom: 30px;
+            padding-bottom: 60px;
             padding-left: 30px;
-            
+
         }
     }
 

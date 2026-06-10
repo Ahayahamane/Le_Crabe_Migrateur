@@ -28,7 +28,7 @@ header {
 header picture img {
   max-width: 100px;
 }
-header h2 {
+header h1 {
   font-family: "pacifico, sans-serif";
   font-size: 3rem;
   color: #FFFFFF;
@@ -231,17 +231,19 @@ nav .menuPrincipal li:hover {
   display: flex;
   flex-direction: column;
   border-radius: 40px;
-  padding: 120px;
+  padding: 120px 180px;
+  line-height: 1.5;
+  letter-spacing: 1.2px;
 }
-#asso article h1, #asso article h2 {
+#asso article h2 {
   text-align: center;
 }
 #asso article p {
-  margin: 10px 0 30px;
+  margin: 20px 0 60px;
 }
 #asso article ul {
   list-style-type: none;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
   padding-left: 30px;
 }
 

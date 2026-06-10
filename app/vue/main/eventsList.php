@@ -12,7 +12,7 @@
             </figure>
             <p><?= $event["obj"]->get("summary") ?></p>
             <footer>
-                <a href='?path=event_zoom&id=<?= $event["obj"]->get("id") ?>'>+ de détails</a>
+                <a class="fondCanard" href='?path=event_zoom&id=<?= $event["obj"]->get("id") ?>'>+ de détails</a>
             </footer>
         </article>
     <?php endforeach ?>
@@ -32,7 +32,7 @@
             </figure>
             <p><?= $event["obj"]->get("summary") ?></p>
             <footer>
-                <a href='?path=event_zoom&id=<?= $event["obj"]->get("id") ?>'>+ de détails</a>
+                <a class="fondCanard" href='?path=event_zoom&id=<?= $event["obj"]->get("id") ?>'>+ de détails</a>
             </footer>
         </article>
     <?php endforeach ?>
