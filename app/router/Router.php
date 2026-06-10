@@ -68,13 +68,15 @@ class Router
 			$check_role->check($required_roles);
 
 			$controller = new $route['controller'];
-			
+
 
 			if (method_exists($controller, 'setBreadcrumb')) {
 				$controller->setBreadcrumb($route['breadcrumb'] ?? []);
 			}
 
 			$controller->{$route['method']}(...$params);
+		} else {
+			header('Location:?path=accueil');
 		}
 	}
 

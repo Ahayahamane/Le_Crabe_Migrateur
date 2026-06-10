@@ -21,7 +21,7 @@ class User extends AbstractEntity{
         $this->firstname=htmlspecialchars($datas['firstname'] ?? '');
         $this->name=htmlspecialchars($datas['name'] ?? '');
         $this->password= !empty($datas['password']) ? password_hash($datas['password'],PASSWORD_DEFAULT):NULL;
-        $this->role=($datas['role']) ?? 1;
+        $this->role=($datas['role']) ?? "user";
     }
 
     public function to_array(){

@@ -78,16 +78,16 @@ class AccueilController extends AbstractController
 
     public function backoffice_accueil()
     {
-        // if (!empty($_SESSION['user']) && $_SESSION['user'] -> get('role') > 1) {
+        if (!empty($_SESSION['user']) && (($_SESSION['user'] -> get('role') == "administrateur") || ($_SESSION['user'] -> get('role') == "organisateur"))) {
             $datas = [
                 'links' => '<link rel="stylesheet" href="public/css/backoffice_accueil.css">'
             ];
             return $this->display_back_vue('/back/backoffice_accueil.php', $datas);
-        // } else {
-        //     $datas = [
-        //         'links' => '<link rel="stylesheet" href="public/css/login.css">'
-        //     ];
-        //     return $this->display_back_vue('/back/login.php', $datas);
+        } else {
+            $datas = [
+                'links' => '<link rel="stylesheet" href="public/css/login.css">'
+            ];
+            return $this->display_back_vue('/back/login.php', $datas);
         }
-    //
+    }
 }

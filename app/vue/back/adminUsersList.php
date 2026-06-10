@@ -14,15 +14,15 @@
                 <h2><?= $user->get("pseudonym") ?></h2>
             </header>
             <main>
-                <p><?= $user->get("firstname") ?><?= $user->get("name") ?></p>
-                <p><?= $user->get("role") ?></p>
-                <p><?= $user->get("email") ?></p>
+                <p>Pseudonyme: <?= $user->get("firstname") ?><?= $user->get("name") ?></p>
+                <p>Role: <?= $user->get("role") ?></p>
+                <p>Adresse mail: <?= $user->get("email") ?></p>
             </main>
             <footer>
                 <a class="fondCanard" href='?path=sup_user&id=<?= $user->get("id") ?>'>Supprimer le compte</a>
-                <?php if ($user->get("role") == 1): ?>
+                <?php if ($user->get("role") == "user"): ?>
                     <a class="fondCanard" href='?path=role_organizer&id=<?= $user->get("id") ?>'>promouvoir au role: organisateur</a>
-                <?php elseif ($user->get("role") == 2): ?>
+                <?php elseif ($user->get("role") == "organisateur"): ?>
                     <a class="fondCanard" href='?path=role_user&id=<?= $user->get("id") ?>'>Rétrograder au role: utilisateur</a>
                 <?php endif ?>
             </footer>

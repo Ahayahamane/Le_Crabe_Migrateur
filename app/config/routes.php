@@ -42,19 +42,19 @@ const ROUTES = [
     'first_new_event' => [
         'controller' => app\controller\EventController::class,
         'method' => 'first_new_event',
-        'roles' => [2, 3]
+        'roles' => ["organisateur", "administrateur"]
     ],
 
     'new_event' => [
         'controller' => app\controller\EventController::class,
         'method' => 'new_event',
-        'roles' => [2, 3]
+        'roles' => ["organisateur", "administrateur"]
     ],
 
     'comment_event' => [
         'controller' => app\controller\EventController::class,
         'method' => 'comment',
-        'roles' => [1, 2, 3]
+        'roles' => ["user", "organisateur", "administrateur"]
     ],
 
     'itinerary_list' => [
@@ -79,34 +79,20 @@ const ROUTES = [
     'first_new_itinerary' => [
         'controller' => app\controller\ItineraryController::class,
         'method' => 'first_new_itinerary',
-        'roles' => [2, 3]
+        'roles' => ["organisateur", "administrateur"]
     ],
 
     'new_itinerary' => [
         'controller' => app\controller\ItineraryController::class,
         'method' => 'new_itinerary',
-        'roles' => [2, 3]
+        'roles' => ["organisateur", "administrateur"]
     ],
 
     'comment_itinerary' => [
         'controller' => app\controller\ItineraryController::class,
         'method' => 'comment_itinerary',
-        'roles' => [1, 2, 3]
+        'roles' => ["user", "organisateur", "administrateur"]
     ],
-
-    // 'first_contacts' => [
-    //     'controller' => app\controller\ContactsController::class,
-    //     'method' => 'first_contact_page',
-    //     'breadcrumb' => [
-    //         ['label' => 'Accueil', 'url' => '/'],
-    //         ['label' => 'Nous contacter', 'url' => '/nous contacter']
-    //     ]
-    // ],
-
-    // 'contacts' => [
-    //     'controller' => app\controller\ContactsController::class,
-    //     'method' => 'contact_page'
-    // ],
 
     'first_contact_form' => [
         'controller' => app\controller\ContactsController::class,
@@ -193,7 +179,7 @@ const ROUTES = [
     'backoffice_accueil' => [
         'controller' => app\controller\AccueilController::class,
         'method' => 'backoffice_accueil',
-        'roles' => [2, 3]
+        // 'roles' => ["organisateur", "administrateur"]
     ],
 
     'logout_back' => [
@@ -209,30 +195,30 @@ const ROUTES = [
     'get_commentarys' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'get_commentarys',
-        'roles' => [3]
+        'roles' => ["administrateur"]
     ],
 
     'get_all_users' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'get_all_users',
-        'roles' => [3]
+        'roles' => ["administrateur"]
     ],
 
     'search_users' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'search_users',
-        'roles' => [3]
+        'roles' => ["administrateur"]
     ],
 
     'role_organizer' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'role_organizer',
-        'roles' => [3]
+        'roles' => ["administrateur"]
     ],
 
     'role_user' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'role_user',
-        'roles' => [3]
+        'roles' => ["administrateur"]
     ]
 ];

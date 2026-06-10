@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 04 juin 2026 à 02:40
+-- Généré le : mer. 10 juin 2026 à 22:49
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -261,7 +261,7 @@ CREATE TABLE `user_` (
   `firstname` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `password` varchar(80) NOT NULL,
-  `role` int(11) NOT NULL
+  `role` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -269,9 +269,9 @@ CREATE TABLE `user_` (
 --
 
 INSERT INTO `user_` (`id`, `email`, `pseudonym`, `firstname`, `name`, `password`, `role`) VALUES
-(4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 3),
-(7, 'test@machin.fr', 'testmachin', 'test', 'machin', '$2y$10$ipIxXg/hOILaiDLjepupW.qgq1SClwb6BYOYSQjyOidPUpPowochi', 1),
-(8, 'toto@live.fr', 'Toto', 'toto', 'lerigolo', '$2y$10$ocLDX4asVi6JBPe/Rityfe8s8aJVjC8Eeq9xLAne3JCB0ii1.UEnm', 2);
+(4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 'administrateur'),
+(7, 'test@machin.fr', 'testmachin', 'test', 'machin', '$2y$10$ipIxXg/hOILaiDLjepupW.qgq1SClwb6BYOYSQjyOidPUpPowochi', 'user'),
+(8, 'toto@live.fr', 'Toto', 'toto', 'lerigolo', '$2y$10$ocLDX4asVi6JBPe/Rityfe8s8aJVjC8Eeq9xLAne3JCB0ii1.UEnm', 'organisateur');
 
 --
 -- Index pour les tables déchargées

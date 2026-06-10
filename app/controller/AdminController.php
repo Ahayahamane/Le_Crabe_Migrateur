@@ -95,7 +95,7 @@ class AdminController extends AbstractController
     public function role_organizer()
     {
         $this->user_model = new UserModel;
-        $this->user_model->change_role(['role' => 2], $_GET ["id"]);
+        $this->user_model->change_role(['role' => "organisateur"], $_GET ["id"]);
         header("location:?path=get_all_users");
     }
 
@@ -105,7 +105,7 @@ class AdminController extends AbstractController
     public function role_user()
     {
         $this->user_model = new UserModel;
-        $this->user_model->change_role(['role' => 1], $_GET ["id"]);
+        $this->user_model->change_role(['role' => "user"], $_GET ["id"]);
         header("location:?path=get_all_users");
     }
 
