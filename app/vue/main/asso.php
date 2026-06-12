@@ -8,22 +8,22 @@
 
             <p>Chez Le Crabe Migrateur, nous croyons fermement que la randonnée n’est pas réservée aux seuls experts. Notre mission est de faire découvrir la richesse du patrimoine naturel et culturel du Morbihan à chacun, quel que soit son âge ou son niveau physique.<br>
 
-            Que vous soyez :
+            Que vous soyez : </p>
         <ul>
             <li>Un enfant curieux découvrant les premiers pas sur un sentier,</li>
             <li>Une famille cherchant un moment de complicité en pleine nature,</li>
             <li>Un senior désireux de rester actif dans un cadre préservé,</li>
             <li>Ou un groupe d’amis en quête de nouvelles sensations,</li>
         </ul>
-        Nous avons le parcours qu’il vous faut. Nos sorties sont conçues pour être inclusives, sécurisées et conviviales.</p>
+        <p>Nous avons le parcours qu’il vous faut. Nos sorties sont conçues pour être inclusives, sécurisées et conviviales.</p>
         <h2>Nos Activités</h2>
 
-        <p>Nous organisons régulièrement des sorties de groupe encadrées par des bénévoles expérimentés. Ces moments sont l’occasion de :
+        <p>Nous organisons régulièrement des sorties de groupe encadrées par des bénévoles expérimentés. Ces moments sont l’occasion de :</p>
         <ul>
             <li>Explorer les trésors cachés du Golfe du Morbihan et de la presqu’île de Rhuys.</li>
             <li>Apprendre à reconnaître la flore et la faune locales.</li>
             <li>Échanger, rire et partager des moments de vie autour d’un pique-nique ou d’un point de vue exceptionnel.</li>
-        </ul></p>
+        </ul>
         <h2>Rejoignez l'Aventure</h2>
 
         <p>Depuis nos débuts modestes, nous sommes restés fidèles à nos valeurs initiales : partage, découverte et respect de l’environnement. Aujourd’hui, nous sommes fiers de compter parmi nos membres des centaines de randonneurs qui ont fait de la nature leur seconde maison.</p>

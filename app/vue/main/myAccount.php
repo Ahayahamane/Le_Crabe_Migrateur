@@ -1,5 +1,5 @@
 <div>
-    <p>Psedo:<?= $_SESSION['user']->get("pseudonym") ?></p>
+    <p>Pseudo:<?= $_SESSION['user']->get("pseudonym") ?></p>
     <a href="?path=logout">Se déconnecter</a>
 </div>
 <div>

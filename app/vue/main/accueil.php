@@ -24,7 +24,7 @@
 <section class="content"><!-- section principale -->
     <section class="events"><!-- sous-section evenements -->
         <div class="slider-box">
-            <h2>Nos derniers événements organisé</h2>
+            <h2>Nos derniers événements organisés</h2>
             <p>
                 Retrouvez ici nos dernières sorties organisées en groupe.<br>
                 Venez y participer si l'envie vous en prend
@@ -133,7 +133,7 @@
             </div>
         </section>
         <section class="itinerary"> <!-- sous-section itinéraires -->
-            <h2>Nos dérnier itinéraires</h2>
+            <h2>Nos dérniers itinéraires</h2>
             <?php for ($i = 0; $i < count($datas['itinerary']); $i++): ?>
                 <p>
                     <a href="#"><?= $datas['itinerary'][$i]->get('title') ?></a>
