@@ -16,11 +16,14 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- fonts -->
-    
+
 
     <?= $datas["links"] ?>
     <?php if (isset($datas["script"])) {
         $datas["script"];
     } ?>
-    <script defer src="public/js/interactiveMessage.js"></script>
-    <script defer src="public/js/burger.js"></script>
+
+    <script type="module" src="public/js/mainScript.js"></script>
+
+    <!-- <script defer src="public/js/interactiveMessage.js"></script>
+    <script defer src="public/js/burger.js"></script> -->

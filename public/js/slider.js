@@ -1,12 +1,12 @@
-// Récupérer les éléments HTML des 2 boutons (left et right)
-let boutonDroit = document.querySelector(".right");  //juste la classe suffit
+
+let boutonDroit = document.querySelector(".right");  
 let boutonGauche = document.querySelector(".left");
 
-// Ajouter des écouteurs d'événement à ces 2 boutons
+
 boutonDroit.addEventListener("click", defilerDroite);
 boutonGauche.addEventListener("click", defilerGauche);
 
-// Autoplay
+
 setInterval(defilerDroite, 5000);
 
 function calculerIndex() {

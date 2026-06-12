@@ -48,8 +48,7 @@ class AccueilController extends AbstractController
             "media" => $this->media,
             "event" => $this->last_events,
             "itinerary" => $this->last_itinerary,
-            "links" => '<link rel="stylesheet" href="public/css/accueil.css">
-                        <link rel="stylesheet" href="public/css/weather.css">'
+            "links" => '<link rel="stylesheet" href="public/css/accueil.css">'
         ];
 
         return $this->display_vue('/main/accueil.php', $this->datas);

@@ -1,4 +1,3 @@
-// weather.js
 
 // Codes WMO pour les conditions météo
 let WEATHER_CODES = {

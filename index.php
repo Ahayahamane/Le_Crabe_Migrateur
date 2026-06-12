@@ -6,15 +6,13 @@ use Dotenv\Dotenv;
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 
-use App\router\Router;
-use App\config\Session;
+use app\router\Router;
+use app\config\Session;
 
 define("ROOT", __DIR__);
-define("VUE",__DIR__."/App/vue");
+define("VUE",__DIR__."/app/vue");
 define("MEDIAS",__DIR__."/public/medias");
 
 new Session();
 
 $router = new Router();
-// echo '<br><pre>';
-// var_dump($all_others);
