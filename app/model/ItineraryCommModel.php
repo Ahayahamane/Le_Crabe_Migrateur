@@ -60,9 +60,4 @@ class ItineraryCommModel extends AbstractModel{
     {
         $this-> remove (EventComm::class, $autor);
     }
-    
-    // public function get_itinerary_by(array $filters){
-    //     $itinerary = $this->read_many(ItineraryComm::class,[],$filters);
-    //     return $itinerary;
-    // }
 }

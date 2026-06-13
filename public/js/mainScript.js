@@ -19,6 +19,11 @@ if (viewName === 'accueil') {
         './my_leaflet.js',
         './comment.js'
     );
+}else if (viewName === 'eventZoom') {
+
+    scriptsToLoad.push(
+        './comment.js'
+    );
 }
 
 async function loadScriptFromPath(path) {

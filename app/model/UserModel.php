@@ -18,6 +18,7 @@ class UserModel extends AbstractModel
     public function get_by(array $filter)
     {
         return $this->read_one(User::class, $filter);
+        
     }
 
     public function get_all()

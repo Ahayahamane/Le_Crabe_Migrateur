@@ -183,7 +183,7 @@ class UserController extends AbstractController
      */
     public function delete_account()
     {
-        if (!empty($_SESSION["user"]) && $_SESSION["user"]->get('role') < "administrateur") {
+        if (!empty($_SESSION["user"]) && $_SESSION["user"]->get('role') === "user") {
             $user_model = new UserModel;
             $user = $user_model->get_by(['email' => $_SESSION["user"]->get("email")]);
 

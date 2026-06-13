@@ -164,8 +164,6 @@ const ROUTES = [
         ]
     ],
 
-    
-
     'backoffice' => [
         'controller' => app\controller\UserController::class,
         'method' => 'first_backoffice'
@@ -219,6 +217,18 @@ const ROUTES = [
     'role_user' => [
         'controller' => app\controller\AdminController::class,
         'method' => 'role_user',
+        'roles' => ["administrateur"]
+    ],
+
+    'sup_user' => [
+        'controller' => app\controller\AdminController::class,
+        'method' => 'admin_delete_account',
+        'roles' => ["administrateur"]
+    ],
+
+    'sup_comment' => [
+        'controller' => app\controller\AdminController::class,
+        'method' => 'admin_detete_com',
         'roles' => ["administrateur"]
     ]
 ];

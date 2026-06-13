@@ -1,5 +1,4 @@
 let popup = document.getElementById('notification-popup');
-document.addEventListener('DOMContentLoaded', function () {
     if (popup) {
         let popup = document.getElementById('notification-popup');
 
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(hide, 10000);
     }
 
-});
+
 function hide() {
     popup.remove();
 }

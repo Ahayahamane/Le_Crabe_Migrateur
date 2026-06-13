@@ -12,17 +12,27 @@
             </article>
         </section>
         <section class="frame fondCanard"><!-- sous-section commentaires existant -->
-            <div class="comments fondVertClair">
-                <?php foreach ($datas['comments'] as $comment): ?>
-                    <p>
-                        <?= $comment->get('pseudonym') ?><?= $comment->get('date_') ?><br>
-                        <?= $comment->get('content') ?>
-                    </p>
-                <?php endforeach ?>
-            </div>
+            <?php if (!empty($datas['comments'])):
+                foreach ($datas['comments'] as $comment): ?>
+                    <div class="comments_list fondVertClair">
+                        <header class="comhead">
+                            <p>
+                                Auteur: <?= $comment->get('pseudonym') ?>
+                            </p>
+                            <p>
+                                <?= $comment->get('date_') ?>
+                            </p>
+                        </header>
+                        <p>
+                            <?= $comment->get('content') ?>
+                        </p>
+
+                    </div>
+            <?php endforeach;
+            endif ?>
         </section>
         <section class="frame fondCanard"><!-- sous-section créer commentaire -->
-            <form class="content" method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
+            <form class="height" method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
             <button class="comment">Commenter</button>
         </section>
     </section>
@@ -30,7 +40,7 @@
 
 
 
-    <!-- <script>
+<!-- <script>
         let routeData = <?= $datas['json'] ?>
     </script>
 

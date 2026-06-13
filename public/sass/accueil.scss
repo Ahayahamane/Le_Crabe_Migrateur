@@ -6,8 +6,6 @@
 @use "interactiveMessage";
 @use "mixins";
 
-@import ".../css/weather";
-
 * {
     padding: 0;
     margin: 0;a {
@@ -109,7 +107,7 @@
 
         .itinerary {
             padding: 30px;
-            line-height: 1.8em;
+            line-height: 1.6em;
 
             h2 {
                 text-align: center;

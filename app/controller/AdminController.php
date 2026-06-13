@@ -10,6 +10,7 @@ use app\model\EventCommModel;
 class AdminController extends AbstractController
 {
     public $user_model;
+    public $user;
     public $users;
     public $datas;
     public $commentary;
@@ -117,22 +118,21 @@ class AdminController extends AbstractController
     {
         $id = $_GET['id'];
         $this->user_model = new UserModel;
-        $user = $this->user_model->get_by(['id' => '%' . $id . '%']);
+        $this->user = $this->user_model->get_by(['id' => $id ]);
 
-        if ($user && $user->get('role') < 3) {
-
+        if ($this->user && (($this->user->get('role') === "user") || ($this->user->get('role') === "organisateur"))) {
 
             $itin_comm = new ItineraryCommModel;
-            $itin_comm->delete_comm(['id' => $user->get("id")]);
+            $itin_comm->delete_comm(['id' => $this->user->get("id")]);
             $event_comm = new EventCommModel;
-            $event_comm->delete_comm(['id' => $user->get("id")]);
-            $this->user_model->delete_user(['id' => $user->get("id")]);
+            $event_comm->delete_comm(['id' => $this->user->get("id")]);
+            $this->user_model->delete_user(['id' => $this->user->get("id")]);
 
             $_SESSION['message'] = 'Le compte a bien été supprimé';
             header("location:?path=moderation");
         } else {
             $_SESSION['message'] = 'Vous ne pouvez pas supprimer un compte administrateur';
-            header("location:?path=moderation");
+            header("location:?path=get_all_users");
         }
     }
 
