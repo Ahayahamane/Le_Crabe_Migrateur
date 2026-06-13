@@ -151,17 +151,16 @@ class EventController extends AbstractController
         $new_media = new MediaTools;
 
 
-
-        if (!empty($_FILES['media'])) {
+        if (!empty($_FILES['media']['name'])) {
             $return = $new_media->validate_media($_FILES['media']);
 
             if (!empty($return['file'])) {
-                $errors += $return['file'];
+                $errors['file'] = $return['file'];
             }
         } else {
             $errors['file'][] = 'Fichier au format image ou vidéo requis';
         }
-
+    
         if (empty($errors)) {
             $errors = $new_media->register_media();
             if (empty($errors)) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 10 juin 2026 à 22:49
+-- Généré le : sam. 13 juin 2026 à 16:22
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -50,7 +50,8 @@ INSERT INTO `event` (`id`, `title`, `date_`, `itinerary`, `summary`, `content`) 
 (11, 'Vannes - Murailles et Marais', '2026-03-28', 9, 'Randonnée urbaine et naturelle combinant histoire médiévale et marais salants de Guérande.', 'Partez des remparts de Vannes, ville fortifiée du XIIIe siècle classée parmi les Plus Beaux Détours de France, pour rejoindre les marais salants environnants dans une randonnée hybride unique. Le parcours commence par une visite des murailles médiévales avec ses 14 tours et ses trois portes historiques où un guide expliquera l\'architecture défensive et l\'histoire de la ville portuaire. Vous descendrez ensuite vers la baie de Quiberon en suivant des sentiers qui alternent entre chemins forestiers et pistes cyclables aménagées. La destination finale est les marais salants de Guérande où vous rencontrerez des paludiers qui pratiquent encore la récolte traditionnelle du sel à la louche. Une visite d\'un atelier de saliculture vous permettra de comprendre le processus de production du sel gris de Guérande et de déguster différentes variétés de sel avec des produits d\'accompagnement. Des panneaux pédagogiques expliquent l\'écologie des zones humides et l\'importance de ces milieux pour la biodiversité aviaire incluant les flamants roses et les bécasseaux. Cette randonnée convient à tous les niveaux avec un parcours majoritairement plat et bien balisé. Prévoyez des vêtements confortables et un appareil photo pour capturer les paysages changeants des marais. Des toilettes publiques sont disponibles à Vannes, à l\'entrée des marais et au parking de la Brière. Un pique-nique est recommandé avec des produits locaux achetés sur les marchés de Vannes le matin du départ.'),
 (12, 'Belle-Île-en-Mer - Circuit des Phares', '2026-04-06', 10, 'Exploration des phares emblématiques de Belle-Île avec vues panoramiques sur l\'océan et la côte déchiquetée. ', 'Parcourez Belle-Île-en-Mer, la plus grande des îles bretonnes, en suivant la chaîne des phares historiques qui ont marqué l\'histoire maritime de l\'Atlantique pendant plus de deux siècles. Le parcours commence au Palais, chef-lieu de l\'île, où vous embarquerez pour une journée complète de randonnée avec des arrêts stratégiques aux phares les plus emblématiques. Le Phare de Goulphar, construit en 1835 avec ses 52 mètres de hauteur, offre une vue imprenable sur la côte sud déchiquetée et les îles de Houat et Hoëdic au loin. Son ascension de 220 marches permet d\'admirer le mécanisme optique d\'origine et les collections muséographiques sur la vie des gardiens de phare. Le Phare de la Baleine, plus ancien datant de 1692, présente une architecture unique avec sa tour carrée en granite et son musée dédié à la navigation. Chaque arrêt est accompagné d\'un guide qui partagera des anecdotes sur les tempêtes historiques, les naufrages évités grâce à ces feux de signalisation et les techniques de maintenance des phares avant l\'électricité. Le sentier longe également des plages sauvages comme la Plage de Port-Blanc où vous pourrez faire une pause baignade si la météo le permet. Prévoyez un équipement complet avec couches superposées car les conditions météorologiques varient rapidement sur l\'île. Des points de ravitaillement sont disponibles au Palais et à Locmariaquer-Belle-Île. Cette randonnée convient aux marcheurs de niveau intermédiaire avec un dénivelé modéré de 200 mètres répartis sur 13 kilomètres.'),
 (13, 'Locmariaquer - Table des Marchands', '2026-04-24', 11, 'Randonnée archéologique vers les mégalithes les plus imposants de Bretagne avec guide spécialisé.', 'Explorez le site mégalithique exceptionnel de Locmariaquer, considéré comme l\'un des plus importants ensembles préhistoriques d\'Europe avec des monuments datant de 4500 avant J.-C. Le parcours vous mènera vers la Table des Marchands, un dolmen couvert avec une dalle de couverture de 10 mètres de long ornée de gravures représentant une hache et un sceptre qui témoignent du statut social des personnes enterrées. Vous découvrirez également le Grand Menhir brisé, le plus grand menhir connu au monde avec ses 20 mètres de hauteur et 280 tonnes de granite, cassé en quatre morceaux probablement lors d\'un tremblement de terre ou d\'un effondrement naturel. Un guide archéologue diplômé accompagnera le groupe pour expliquer les techniques de construction néolithiques incluant le transport des pierres sur de longues distances sans roue ni animal de trait, les rituels funéraires pratiqués dans ces monuments et les hypothèses actuelles sur leur fonction astronomique ou religieuse. Des fouilles en cours seront visibles depuis les zones délimitées avec explications sur les méthodes archéologiques modernes. Le site dispose d\'un centre d\'interprétation moderne avec des reconstitutions 3D et des maquettes interactives. Cette randonnée éducative convient aux curieux d\'histoire préhistorique avec un parcours plat de 5 kilomètres facilement accessible. Prévoyez un carnet pour noter les informations et un appareil photo pour documenter les gravures mégalithiques. Des toilettes et un point d\'eau sont disponibles au parking du site.'),
-(14, 'Auray - Vallée du Loc\'h', '2026-04-23', 12, 'Promenade paisible le long de la rivière avec ponts médiévaux et villages pittoresques de l\'arrière-pays.', 'Cette randonnée douce suit la vallée du Loc\'h à travers des paysages bucoliques typiques de l\'arrière-pays breton loin du tumulte touristique côtier. Le parcours de 7,6 kilomètres longe la rivière du Loc\'h qui traverse plusieurs communes avant de se jeter dans la baie d\'Auray. Vous passerez sous des ponts médiévaux en pierre datant du XVIe siècle dont le Pont-Néuf d\'Auray qui offre un point de vue magnifique sur la rivière et ses canards sauvages. Des moulins restaurés comme le Moulin de Kerdroan témoignent de l\'activité économique passée de la vallée avec la transformation du grain et la production de farine locale. Les maisons en pierre de granite caractéristiques de la région bordent le sentier avec leurs toits d\'ardoise et leurs jardins fleuris au printemps. Cette promenade est idéale pour les familles avec enfants grâce à son terrain plat et sécurisé sans danger proche de l\'eau. Des aires de pique-nique aménagées avec tables et bancs permettent de faire une pause gastronomique avec des produits locaux achetés au marché d\'Auray le matin. Des panneaux pédagogiques expliquent l\'écosystème de la rivière avec ses poissons comme la truite fario et le brochet ainsi que les oiseaux nicheurs incluant les martinets pêcheurs et les hérons cendrés. Prévoyez un appareil photo pour capturer les reflets dans l\'eau et les architectures traditionnelles. Des toilettes publiques sont disponibles au départ à Auray et à mi-parcours au village de Pluneret. Cette randonnée convient aux débutants et aux personnes recherchant une activité relaxante en pleine nature.');
+(14, 'Auray - Vallée du Loc\'h', '2026-04-23', 12, 'Promenade paisible le long de la rivière avec ponts médiévaux et villages pittoresques de l\'arrière-pays.', 'Cette randonnée douce suit la vallée du Loc\'h à travers des paysages bucoliques typiques de l\'arrière-pays breton loin du tumulte touristique côtier. Le parcours de 7,6 kilomètres longe la rivière du Loc\'h qui traverse plusieurs communes avant de se jeter dans la baie d\'Auray. Vous passerez sous des ponts médiévaux en pierre datant du XVIe siècle dont le Pont-Néuf d\'Auray qui offre un point de vue magnifique sur la rivière et ses canards sauvages. Des moulins restaurés comme le Moulin de Kerdroan témoignent de l\'activité économique passée de la vallée avec la transformation du grain et la production de farine locale. Les maisons en pierre de granite caractéristiques de la région bordent le sentier avec leurs toits d\'ardoise et leurs jardins fleuris au printemps. Cette promenade est idéale pour les familles avec enfants grâce à son terrain plat et sécurisé sans danger proche de l\'eau. Des aires de pique-nique aménagées avec tables et bancs permettent de faire une pause gastronomique avec des produits locaux achetés au marché d\'Auray le matin. Des panneaux pédagogiques expliquent l\'écosystème de la rivière avec ses poissons comme la truite fario et le brochet ainsi que les oiseaux nicheurs incluant les martinets pêcheurs et les hérons cendrés. Prévoyez un appareil photo pour capturer les reflets dans l\'eau et les architectures traditionnelles. Des toilettes publiques sont disponibles au départ à Auray et à mi-parcours au village de Pluneret. Cette randonnée convient aux débutants et aux personnes recherchant une activité relaxante en pleine nature.'),
+(21, 'test post event', '2025-05-10', 6, '', 'c&#039;est un peut gris la bas');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `event_com` (`id`, `content`, `date_`, `event`, `autor`) VALUES
 (5, 'Commentaire test Belle-Île-en-Mer', '2026-06-03', 12, 4),
 (6, 'commentaire test auray', '2026-06-03', 14, 4),
 (7, 'un truc au pif', '2026-06-04', 12, 8),
-(8, 'toto est passé par la', '2026-06-04', 12, 8);
+(8, 'toto est passé par la', '2026-06-04', 12, 8),
+(9, 'vxbwcgnvh,jv;kb:l', '2026-06-10', 13, 8);
 
 -- --------------------------------------------------------
 
@@ -190,7 +192,8 @@ CREATE TABLE `itinerary_com` (
 --
 
 INSERT INTO `itinerary_com` (`id`, `content`, `date_`, `itinerary`, `autor`) VALUES
-(2, 'le mot de toto', '2026-06-04', 11, 8);
+(2, 'le mot de toto', '2026-06-04', 11, 8),
+(3, 'test comm', '2026-06-13', 12, 11);
 
 -- --------------------------------------------------------
 
@@ -200,7 +203,7 @@ INSERT INTO `itinerary_com` (`id`, `content`, `date_`, `itinerary`, `autor`) VAL
 
 CREATE TABLE `media` (
   `id` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `path` varchar(150) NOT NULL,
   `type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -209,7 +212,7 @@ CREATE TABLE `media` (
 -- Déchargement des données de la table `media`
 --
 
-INSERT INTO `media` (`id`, `title`, `path`, `type`) VALUES
+INSERT INTO `media` (`id`, `name`, `path`, `type`) VALUES
 (46, 'Golfe du Morbihan', '/img/mdassonville-gulf-of-morbihan-6669582_1920.jpg', 'img'),
 (47, 'Foret de Painpont', '/img/nicolas-debray-bougival-7492939_1920.jpg', 'img'),
 (48, 'Rhyus', '/img/naturarno-brittany-3594188_1920.jpg', 'img'),
@@ -219,7 +222,10 @@ INSERT INTO `media` (`id`, `title`, `path`, `type`) VALUES
 (52, 'Vannes', '/img/lecreusois-boats-5526712_1920.jpg', 'img'),
 (53, 'Belle-ile-en-mer', '/img/sylvainp74-lighthouse-2936173_1920.jpg', 'img'),
 (54, 'Locmariaquer', '/img/samothas-brittany-1139065_1920.jpg', 'img'),
-(55, 'Auray', '/img/dezalb-brittany-1178828_1920.jpg', 'img');
+(55, 'Auray', '/img/dezalb-brittany-1178828_1920.jpg', 'img'),
+(56, 'media6a2d66d626de79.75200121_1781360342.png', '/img/media6a2d66d626de79.75200121_1781360342.png', 'image'),
+(57, 'media6a2d66e8f383a1.64685877_1781360360.png', '/img/media6a2d66e8f383a1.64685877_1781360360.png', 'image'),
+(58, 'media6a2d672dad5338.78149207_1781360429.png', '/img/media6a2d672dad5338.78149207_1781360429.png', 'image');
 
 -- --------------------------------------------------------
 
@@ -271,7 +277,8 @@ CREATE TABLE `user_` (
 INSERT INTO `user_` (`id`, `email`, `pseudonym`, `firstname`, `name`, `password`, `role`) VALUES
 (4, 'zig@zag.fr', 'Zigzag', 'Zig', 'ZAG', '$2y$10$hgGLqKotbH4QxmFVwhCJ4.QYUsRfVNHnAssPiAjG8WvQdqsqdQ/w.', 'administrateur'),
 (7, 'test@machin.fr', 'testmachin', 'test', 'machin', '$2y$10$ipIxXg/hOILaiDLjepupW.qgq1SClwb6BYOYSQjyOidPUpPowochi', 'user'),
-(8, 'toto@live.fr', 'Toto', 'toto', 'lerigolo', '$2y$10$ocLDX4asVi6JBPe/Rityfe8s8aJVjC8Eeq9xLAne3JCB0ii1.UEnm', 'organisateur');
+(8, 'toto@live.fr', 'Toto', 'toto', 'lerigolo', '$2y$10$ocLDX4asVi6JBPe/Rityfe8s8aJVjC8Eeq9xLAne3JCB0ii1.UEnm', 'organisateur'),
+(11, 'adcrab@mail.fr', 'Craby', 'Admin ', 'Crab', '$2y$10$rQmp3eJ60GnCJpWg5.3D3OL2yRY9hVi7NG3aBOwm9sL0UYqmCqgXS', 'administrateur');
 
 --
 -- Index pour les tables déchargées
@@ -370,13 +377,13 @@ ALTER TABLE `user_`
 -- AUTO_INCREMENT pour la table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `event_com`
 --
 ALTER TABLE `event_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `itinerary`
@@ -388,13 +395,13 @@ ALTER TABLE `itinerary`
 -- AUTO_INCREMENT pour la table `itinerary_com`
 --
 ALTER TABLE `itinerary_com`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -406,7 +413,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées

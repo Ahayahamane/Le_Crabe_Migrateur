@@ -16,7 +16,7 @@
         </div>
         <div class='fondVertClair'>
             <label>Date de l'événement </label>
-            <input type="text" name="date_" placeholder="AAAA-MM-JJ"
+            <input type="date" name="date_"
                 <?php if (!empty($_POST["date_"])): ?>
                 value="<?= $_POST["date_"] ?>"
                 <?php endif ?>>
@@ -53,7 +53,6 @@
             } ?>
         </div>
         <div class='fondVertClair'>
-            <!-- a voir plus en détails -->
             <label>Itinéraire utilisé</label>
             <select name="itinerary"
                 <?php if (!empty($_POST["itinerary"])): ?>
