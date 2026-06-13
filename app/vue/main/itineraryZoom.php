@@ -32,7 +32,7 @@
             endif ?>
         </section>
         <section class="frame fondCanard"><!-- sous-section créer commentaire -->
-            <form class="height" method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
+            <form method="POST" action="?path=comment_itinerary&id=<?= $datas['itinerary']->get('id'); ?>"></form>
             <button class="comment">Commenter</button>
         </section>
     </section>

@@ -35,7 +35,7 @@
             endif ?>
         </section>
         <section class="frame fondCanard"><!-- sous-section créer commentaire -->
-            <form class="height" method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
+            <form method="POST" action="?path=comment_event&id=<?= $datas['event']->get('id') ?>">
             </form>
             <button class="comment">Commenter</button>
         </section>

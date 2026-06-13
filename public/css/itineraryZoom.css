@@ -271,7 +271,7 @@ nav .menuPrincipal li:hover {
   flex-direction: column;
   gap: 15px;
 }
-.content .frame form .height {
+.content .frame form #content {
   height: 120px;
 }
 
