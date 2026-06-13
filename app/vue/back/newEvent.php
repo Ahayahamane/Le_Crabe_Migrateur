@@ -1,8 +1,8 @@
 <section class="content">
     <form method="POST" action="?path=new_event" enctype="multipart/form-data" class='fondCanard'>
-        <h2>Creation d'un évenement</h2>
+        <h2>Création d'un événement</h2>
         <div class='fondVertClair'>
-            <label>Titre de l'évenement</label>
+            <label>Titre de l'événement</label>
             <input type="text" name="title" placeholder="Le titre"
                 <?php if (!empty($_POST["title"])): ?>
                 value="<?= $_POST["title"] ?>"
@@ -30,9 +30,9 @@
 
         <div class='fondVertClair'>
             <label>Résumé de l'événement</label>
-            <textarea name="summary" placeholder="un résumé de la déscription de votre événement"><?php if (!empty($_POST["summary"])) {
-                                                                                                                        echo $_POST["summary"];
-                                                                                                                    } ?></textarea>
+            <textarea name="summary" placeholder="un résumé de la description de votre événement"><?php if (!empty($_POST["summary"])) {
+                    echo $_POST["summary"];
+                } ?></textarea>
             <?php
             if (!empty($datas['errors']['summary'])) {
                 foreach ($datas['errors']['summary'] as $data) {
@@ -42,9 +42,9 @@
         </div>
         <div class='fondVertClair'>
             <label>Description de l'événement</label>
-            <textarea name="content" placeholder="La déscription complète de votre événement"><?php if (!empty($_POST["content"])) {
-                                                                                                                    echo $_POST["content"];
-                                                                                                                } ?></textarea>
+            <textarea name="content" placeholder="La description complète de votre événement"><?php if (!empty($_POST["content"])) {
+                    echo $_POST["content"];
+                } ?></textarea>
             <?php
             if (!empty($datas['errors']['content'])) {
                 foreach ($datas['errors']['content'] as $data) {
@@ -67,11 +67,11 @@
             </select>
             <?php
             if (!empty($datas['errors']['itinerary'])) {
-                echo ("<br><span class='error'> Choisisez un itinéraire </span>");
+                echo ("<br><span class='error'> Choisissez un itinéraire </span>");
             } ?>
         </div>
         <div class='fondVertClair'>
-            <label>Ilustration/vidéo</label>
+            <label>Illustration/vidéo</label>
             <input type="file" name="media" accept=".jpg, .jpeg, .svg, .png, .mp4">
             <?php
             if (isset($datas['errors']['file'])) {
@@ -80,6 +80,6 @@
                 }
             } ?>
         </div>
-        <input class="button" type="submit" name="connect">
+        <input class="button" type="submit" name="connect" value="Enregistrer">
     </form>
 </section>

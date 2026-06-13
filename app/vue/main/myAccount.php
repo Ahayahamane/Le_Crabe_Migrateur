@@ -5,11 +5,10 @@
 <div>
     <form method="POST" action="?path=delete_account">
         <div class="field fondVertClair">
-            <label>Votre mot de passe</label>
+            <label>Entrez votre mot de passe puis confirmez la suppression de votre compte</label>
             <input type="password" name="password" placeholder="mot de passe">
             <label><input type="checkbox" name="sup_comment">Je souhaite supprimer tout mes messages</label>
-            <!-- <label><input type="submit">Supprimer mon compte</label> -->
-            <input class=" fondVertClair" type="submit" value="Supprimer mon compte">
+            <input class=" fondVertClair" type="submit" value="Confirmer">
         </div>
     </form>
 </div>

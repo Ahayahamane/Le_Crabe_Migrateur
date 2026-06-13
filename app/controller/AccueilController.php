@@ -35,7 +35,7 @@ class AccueilController extends AbstractController
 
         $this->last_itinerary = $this->get_last_itinerary();
 
-        // construction du tableau de transfers des informations
+        // construction du tableau de transfer des informations
         $this->datas = [
             "meta" => [
                 "keywords" => "randonnée, Lorient, Crabe Migrateur",
