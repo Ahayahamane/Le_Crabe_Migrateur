@@ -15,6 +15,7 @@ class MediaTools extends AbstractController
     private $tmp_name;
     private $type_config;
     public $path;
+    public array $datas = [];
 
     /**
      * Constante privée : Définition des types de médias supportés.
@@ -97,30 +98,28 @@ class MediaTools extends AbstractController
         return $this->errors;
     }
 
-    public function register_media()
+    public function prepare_media()
     {
         $unique_name = $this->generateUniqueName();
         $target_path = MEDIAS . '/' . $this->type_config['folder'] . '/' . $unique_name;
 
-
-           
-    
-
         if (!move_uploaded_file($this->tmp_name, $target_path)) {
             $this->errors['file'][] = "Échec de l\'enregistrement du fichier.";
+            return $this->errors;
         } else {
             $datas = [
                 'type' => $this->media_type,
                 'path' => '/' . $this->type_config['folder'] . '/' . $unique_name,
                 'name' => $unique_name,
             ];
-            $media_model = new MediaModel;
-            $media_model->register_media($datas);
+            // $media_model = new MediaModel;
+            // $media_model->register_media($datas);
 
             $this->path = $datas['path'];
+            return $datas;
         }
 
-        return $this->errors;
+        
     }
 
     public function register_itinerary()

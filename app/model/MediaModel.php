@@ -16,7 +16,7 @@ class MediaModel extends AbstractModel
      */
     public function register_media($datas)
     {
-        $this->create(MediaTools::class, $datas);
+        return $this->insert(MediaTools::class, $datas);
     }
 
     /**

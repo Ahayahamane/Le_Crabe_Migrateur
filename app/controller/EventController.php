@@ -114,13 +114,6 @@ class EventController extends AbstractController
 
     public function first_new_event()
     {
-        if (empty($_SESSION['user']) || $_SESSION['user']->get('role') < 1) {
-
-            $datas = [
-                'links' => '<link rel="stylesheet" href="public/css/login.css">'
-            ];
-            return $this->display_back_vue('/back/login.php', $datas);
-        }
         $itinerary = new ItineraryModel;
         $itinerary = $itinerary->get_all();
         $datas = [
@@ -132,14 +125,6 @@ class EventController extends AbstractController
 
     public function new_event()
     {
-        if (empty($_SESSION['user']) || $_SESSION['user']->get('role') < 1) {
-
-            $datas = [
-                'links' => '<link rel="stylesheet" href="public/css/login.css">'
-            ];
-            return $this->display_back_vue('/back/login.php', $datas);
-        }
-
         $rules = [
             'title' => ['required', 'min:10', 'max:50'],
             'date_' => ['required', 'format_date'],
@@ -150,7 +135,6 @@ class EventController extends AbstractController
         $errors = $validator->validate($rules);
         $new_media = new MediaTools;
 
-
         if (!empty($_FILES['media']['name'])) {
             $return = $new_media->validate_media($_FILES['media']);
 
@@ -160,25 +144,27 @@ class EventController extends AbstractController
         } else {
             $errors['file'][] = 'Fichier au format image ou vidéo requis';
         }
-    
-        if (empty($errors)) {
-            $errors = $new_media->register_media();
-            if (empty($errors)) {
-                $new_event = new Event($_POST);
-                $event_model = new EventModel;
-                $event_model->register_event($new_event->to_array());
-                $_SESSION["message"] = "Evenement crée avec succes";
-                header("location:?path=first_new_event");
-            } else {
-                $itinerary = new ItineraryModel;
-                $itinerary = $itinerary->get_all();
-                $datas = [
-                    'itinerary' => $itinerary,
-                    'errors' => $errors,
-                    'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
-                ];
-                return $this->display_back_vue('/back/newEvent.php', $datas);
-            }
+
+        if (empty($errors)) {  //si pas d'erreur tenter d'enregistrer tout
+            $media_data = $new_media->prepare_media();
+
+            $new_event = new Event($_POST);
+            $event_model = new EventModel;
+            // 2. Insert event + récupération ID
+            $eventId = $event_model->register_event($new_event->to_array());
+
+            // 3. Récupération ID media (à adapter selon ton MediaModel)
+            $media_model = new MediaModel;
+            $mediaId = $media_model->register_media($media_data); // ou via MediaTools si tu le stockes
+
+            // 4. Liaison event ↔ media
+            $event_model->link_media($eventId, $mediaId);
+
+            // $event_model->register_event($new_event->to_array());
+
+
+            $_SESSION["message"] = "Evenement crée avec succes";
+            header("location:?path=first_new_event");
         } else {
             $itinerary = new ItineraryModel;
             $itinerary = $itinerary->get_all();

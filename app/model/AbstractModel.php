@@ -7,6 +7,7 @@ use app\model\DBConnector;
 
 class AbstractModel
 {
+    private $sql_errors_logs = __DIR__ . '/app/logs/sql_errors.log';
 
     //connection à la base de données
     private function connect()
@@ -17,20 +18,38 @@ class AbstractModel
     }
 
     /**
-    *Execute une requette crée préalablement
-    *@param $query = requette préparée
-    *@param $params = parametres à injecter dans la requette
-    *
-    *@return object de type PDOStatement
-    */
+     *Execute une requette crée préalablement
+     *@param $query = requette préparée
+     *@param $params = parametres à injecter dans la requette
+     *
+     *@return object de type PDOStatement
+     */
 
     protected function execute_query(string $query, array $params = []): \PDOStatement
     {
-        $db = $this->connect();
-        $stmt = $db->prepare($query);
-        foreach ($params as $key => $param) $stmt->bindValue($key, $param);
-        $stmt->execute();
-        return $stmt;
+        try {
+            $db = $this->connect();
+            $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $stmt = $db->prepare($query);
+            foreach ($params as $key => $param) {
+                $stmt->bindValue($key, $param);
+            }
+            $stmt->execute();
+            return $stmt;
+        } catch (\PDOException $e) {
+            $timestamp = date('Y-m-d H:i:s');
+            $logMessage = "[$timestamp] ERREUR SQL:\n";
+            $logMessage .= "-> Message: " . $e->getMessage() . "\n";
+            $logMessage .= "-> Requête: " . $query . "\n";
+            $logMessage .= "-> Paramètres: " . print_r($params, true) . "\n";
+            $logMessage .= "-> Fichier/Ligne: " . $e->getFile() . ":" . $e->getLine() . "\n";
+            $logMessage .= "-----------------------------------------\n";
+
+            error_log($logMessage, 3, $this->sql_errors_logs);
+
+            // Remontée de l'exception pour arrêter l'exécution et permettre le rollback
+            throw new \RuntimeException("Une erreur de base de données est survenue.", 0, $e);
+        }
     }
 
 
@@ -40,12 +59,12 @@ class AbstractModel
     /*--------------------------------*/
 
     /**
-    *récupération d'une ressource dans une entitée à l'aide de filtres
-    *@param $class = la ressource (article, utilisateur, commentaire,...)
-    *@param array $filters = filtres de la recherche
-    *
-    *@return object objet contenant la ligne correspondante
-    */
+     *récupération d'une ressource dans une entitée à l'aide de filtres
+     *@param $class = la ressource (article, utilisateur, commentaire,...)
+     *@param array $filters = filtres de la recherche
+     *
+     *@return object objet contenant la ligne correspondante
+     */
 
     protected function read_one(string $class, array $filters): mixed
     {
@@ -67,30 +86,30 @@ class AbstractModel
 
         //configure le mode de fetch pour obtenir un objet
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $class);
-        
+
         return $stmt->fetch();
     }
 
 
     /**
-    *récupération d'une ou plusieurs ressources dans une entitée à l'aide de filtres
-    *@param $class = la resource(article, utilisateur, commentaire,...)
-    *@param array $filters = filtres de la recherche
-    *@param array $order = classement (par id descendants, par date ascendantes, ...)
-    *@param $limit = nombre de ressources que l'on souhaite récupérer
-    *@param $offset = nombre de ressources à ignorer avant de commencer la récupération 
-    *
-    *@return array Tableau de toute les lignes correspondantes sous forme d'objet
-    */
+     *récupération d'une ou plusieurs ressources dans une entitée à l'aide de filtres
+     *@param $class = la resource(article, utilisateur, commentaire,...)
+     *@param array $filters = filtres de la recherche
+     *@param array $order = classement (par id descendants, par date ascendantes, ...)
+     *@param $limit = nombre de ressources que l'on souhaite récupérer
+     *@param $offset = nombre de ressources à ignorer avant de commencer la récupération 
+     *
+     *@return array Tableau de toute les lignes correspondantes sous forme d'objet
+     */
 
     protected function read_many(
         string $class,
         array $columns = [],
-        array $filters = [], 
-        array $order = [], 
-        ?int $limit = null, 
-        ?int $offset = null): array
-    {
+        array $filters = [],
+        array $order = [],
+        ?int $limit = null,
+        ?int $offset = null
+    ): array {
 
         $query = 'SELECT ';
 
@@ -110,7 +129,7 @@ class AbstractModel
         //ajout des filtres
         if (!empty($filters)) {
             $query .= ' WHERE ';
-            
+
             foreach (array_keys($filters) as $filter) {
                 $query .= $filter . " = :" . $filter;
                 if ($filter != array_key_last($filters)) $query .= ' AND ';
@@ -133,7 +152,7 @@ class AbstractModel
                 $query .= ' OFFSET ' . $offset;
             }
         }
-        
+
 
         $stmt = $this->execute_query($query, $filters);
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $class);
@@ -147,16 +166,16 @@ class AbstractModel
     /*--------------------------------*/
 
     /**
-    *Enregistrement d'une nouvelle ressource dans une entitée
-    *@param $class = la ressource
-    *@param array $fields = les differents champs à enregistrer en BDD
-    *
-    *@return object de type PDOStatement
-    */
+     *Enregistrement d'une nouvelle ressource dans une entitée
+     *@param $class = la ressource
+     *@param array $fields = les differents champs à enregistrer en BDD
+     *
+     *@return object de type PDOStatement
+     */
 
     protected function create(string $class, array $fields): \PDOStatement
     {
-        
+
         $query = "INSERT INTO " . $class::table_name . " (";
         foreach (array_keys($fields) as $field) {
             $query .= $field;
@@ -169,18 +188,18 @@ class AbstractModel
         }
         $query .= ')';
 
-        
+
         return $this->execute_query($query, $fields);
     }
 
     /**
-    *modification d'une ressource existante
-    *@param $class = la ressource
-    *@param array $fields = les differents champs à modifier
-    *@param $id = identifiant de la ressource
-    *
-    *@return object de type PDOStatement
-    */
+     *modification d'une ressource existante
+     *@param $class = la ressource
+     *@param array $fields = les differents champs à modifier
+     *@param $id = identifiant de la ressource
+     *
+     *@return object de type PDOStatement
+     */
     protected function update(string $class, array $fields, int $id): \PDOStatement
     {
         $query = "UPDATE " . $class::table_name . " SET ";
@@ -195,27 +214,44 @@ class AbstractModel
 
 
     /** 
-    *suppression d'une ressource
-    *@param $class = la ressource
-    *@param $filters = valeur du filtre (id)
-    *
-    *@return object de type PDOStatement
-    */
+     *suppression d'une ressource
+     *@param $class = la ressource
+     *@param $filters = valeur du filtre (id)
+     *
+     *@return object de type PDOStatement
+     */
     protected function remove(string $class, array $filters): \PDOStatement
     {
         $query = "DELETE FROM " . $class::table_name;
 
         if (!empty($filters)) {
             $query .= ' WHERE ';
-            
+
             foreach (array_keys($filters) as $filter) {
                 $query .= $filter . " = :" . $filter;
                 if ($filter != array_key_last($filters)) $query .= ' AND ';
             }
         }
 
-        
+
         return $this->execute_query($query, $filters);
     }
 
+
+
+
+
+    protected function insert(string $class, array $fields): int
+{
+    $query = "INSERT INTO " . $class::table_name . " (" .
+        implode(', ', array_keys($fields)) .
+        ") VALUES (:" . implode(', :', array_keys($fields)) . ")";
+
+    $pdo = $this->connect();
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($fields);
+
+    return (int) $pdo->lastInsertId();
+}
 }

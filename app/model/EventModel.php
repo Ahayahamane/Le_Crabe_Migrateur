@@ -1,10 +1,12 @@
 <?php
+
 namespace app\model;
 
 use app\model\AbstractModel;
 use app\class\Event;
 
-class EventModel extends AbstractModel{
+class EventModel extends AbstractModel
+{
 
     /**
      *récupération des derniers événements par ordre inverse de parution
@@ -13,9 +15,9 @@ class EventModel extends AbstractModel{
      *
      *@return array Tableau des événements récupéré sous forme d'objets
      */
-    public function last_events(int $number ,?int $offset = null)
+    public function last_events(int $number, ?int $offset = null)
     {
-        $last_events = $this->read_many(Event::class ,[], [], ['id' => 'DESC'], $number, $offset);       
+        $last_events = $this->read_many(Event::class, [], [], ['id' => 'DESC'], $number, $offset);
         return $last_events;
     }
 
@@ -28,7 +30,7 @@ class EventModel extends AbstractModel{
     public function get_one(array $filter)
     {
         $event = $this->read_one(Event::class, $filter);
-        
+
         return $event;
     }
 
@@ -38,8 +40,19 @@ class EventModel extends AbstractModel{
      *
      *ne retourne rien
      */
-    public function register_event($datas){      
-        $this->create(Event::class, $datas);
+    public function register_event($datas)
+    {
+        return $this->insert(Event::class, $datas);
     }
 
+    public function link_media(int $eventId, int $mediaId): void
+    {
+        $query = "INSERT INTO illustrate_evt (event, media)
+              VALUES (:event, :media)";
+
+        $this->execute_query($query, [
+            'event' => $eventId,
+            'media' => $mediaId
+        ]);
+    }
 }

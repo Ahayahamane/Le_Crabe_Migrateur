@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 13 juin 2026 à 16:22
+-- Généré le : dim. 14 juin 2026 à 18:26
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -51,7 +51,7 @@ INSERT INTO `event` (`id`, `title`, `date_`, `itinerary`, `summary`, `content`) 
 (12, 'Belle-Île-en-Mer - Circuit des Phares', '2026-04-06', 10, 'Exploration des phares emblématiques de Belle-Île avec vues panoramiques sur l\'océan et la côte déchiquetée. ', 'Parcourez Belle-Île-en-Mer, la plus grande des îles bretonnes, en suivant la chaîne des phares historiques qui ont marqué l\'histoire maritime de l\'Atlantique pendant plus de deux siècles. Le parcours commence au Palais, chef-lieu de l\'île, où vous embarquerez pour une journée complète de randonnée avec des arrêts stratégiques aux phares les plus emblématiques. Le Phare de Goulphar, construit en 1835 avec ses 52 mètres de hauteur, offre une vue imprenable sur la côte sud déchiquetée et les îles de Houat et Hoëdic au loin. Son ascension de 220 marches permet d\'admirer le mécanisme optique d\'origine et les collections muséographiques sur la vie des gardiens de phare. Le Phare de la Baleine, plus ancien datant de 1692, présente une architecture unique avec sa tour carrée en granite et son musée dédié à la navigation. Chaque arrêt est accompagné d\'un guide qui partagera des anecdotes sur les tempêtes historiques, les naufrages évités grâce à ces feux de signalisation et les techniques de maintenance des phares avant l\'électricité. Le sentier longe également des plages sauvages comme la Plage de Port-Blanc où vous pourrez faire une pause baignade si la météo le permet. Prévoyez un équipement complet avec couches superposées car les conditions météorologiques varient rapidement sur l\'île. Des points de ravitaillement sont disponibles au Palais et à Locmariaquer-Belle-Île. Cette randonnée convient aux marcheurs de niveau intermédiaire avec un dénivelé modéré de 200 mètres répartis sur 13 kilomètres.'),
 (13, 'Locmariaquer - Table des Marchands', '2026-04-24', 11, 'Randonnée archéologique vers les mégalithes les plus imposants de Bretagne avec guide spécialisé.', 'Explorez le site mégalithique exceptionnel de Locmariaquer, considéré comme l\'un des plus importants ensembles préhistoriques d\'Europe avec des monuments datant de 4500 avant J.-C. Le parcours vous mènera vers la Table des Marchands, un dolmen couvert avec une dalle de couverture de 10 mètres de long ornée de gravures représentant une hache et un sceptre qui témoignent du statut social des personnes enterrées. Vous découvrirez également le Grand Menhir brisé, le plus grand menhir connu au monde avec ses 20 mètres de hauteur et 280 tonnes de granite, cassé en quatre morceaux probablement lors d\'un tremblement de terre ou d\'un effondrement naturel. Un guide archéologue diplômé accompagnera le groupe pour expliquer les techniques de construction néolithiques incluant le transport des pierres sur de longues distances sans roue ni animal de trait, les rituels funéraires pratiqués dans ces monuments et les hypothèses actuelles sur leur fonction astronomique ou religieuse. Des fouilles en cours seront visibles depuis les zones délimitées avec explications sur les méthodes archéologiques modernes. Le site dispose d\'un centre d\'interprétation moderne avec des reconstitutions 3D et des maquettes interactives. Cette randonnée éducative convient aux curieux d\'histoire préhistorique avec un parcours plat de 5 kilomètres facilement accessible. Prévoyez un carnet pour noter les informations et un appareil photo pour documenter les gravures mégalithiques. Des toilettes et un point d\'eau sont disponibles au parking du site.'),
 (14, 'Auray - Vallée du Loc\'h', '2026-04-23', 12, 'Promenade paisible le long de la rivière avec ponts médiévaux et villages pittoresques de l\'arrière-pays.', 'Cette randonnée douce suit la vallée du Loc\'h à travers des paysages bucoliques typiques de l\'arrière-pays breton loin du tumulte touristique côtier. Le parcours de 7,6 kilomètres longe la rivière du Loc\'h qui traverse plusieurs communes avant de se jeter dans la baie d\'Auray. Vous passerez sous des ponts médiévaux en pierre datant du XVIe siècle dont le Pont-Néuf d\'Auray qui offre un point de vue magnifique sur la rivière et ses canards sauvages. Des moulins restaurés comme le Moulin de Kerdroan témoignent de l\'activité économique passée de la vallée avec la transformation du grain et la production de farine locale. Les maisons en pierre de granite caractéristiques de la région bordent le sentier avec leurs toits d\'ardoise et leurs jardins fleuris au printemps. Cette promenade est idéale pour les familles avec enfants grâce à son terrain plat et sécurisé sans danger proche de l\'eau. Des aires de pique-nique aménagées avec tables et bancs permettent de faire une pause gastronomique avec des produits locaux achetés au marché d\'Auray le matin. Des panneaux pédagogiques expliquent l\'écosystème de la rivière avec ses poissons comme la truite fario et le brochet ainsi que les oiseaux nicheurs incluant les martinets pêcheurs et les hérons cendrés. Prévoyez un appareil photo pour capturer les reflets dans l\'eau et les architectures traditionnelles. Des toilettes publiques sont disponibles au départ à Auray et à mi-parcours au village de Pluneret. Cette randonnée convient aux débutants et aux personnes recherchant une activité relaxante en pleine nature.'),
-(21, 'test post event', '2025-05-10', 6, '', 'c&#039;est un peut gris la bas');
+(26, 'testeeventsdfgh', '2225-05-10', 5, 'estrehtjryht', 'sdgshtjyufyikutlyh');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,8 @@ INSERT INTO `illustrate_evt` (`media`, `event`) VALUES
 (52, 11),
 (53, 12),
 (54, 13),
-(55, 14);
+(55, 14),
+(63, 26);
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,8 @@ INSERT INTO `itinerary` (`id`, `title`, `description`, `start`, `difficulty`, `l
 (9, 'Vannes aux Marais Salants', 'Remparts historiques et marais environnants', 'Vannes', 'easy', 10, '2h45', '', '/json/media69e1db55312587.80799653_1776409429.json'),
 (10, 'Circuit des Phares de Belle-Île', 'Exploration des phares historiques', 'Le Palais', 'normal', 14, '4h00', '', '/json/media69e1dbb4d3aeb9.30298152_1776409524.json'),
 (11, 'Mégalithes de Locmariaquer', 'Sites mégalithiques avec guide archéologue', 'Locmariaquer', 'easy', 5, '1h30', '', '/json/media69e1dc06cab848.76741270_1776409606.json'),
-(12, 'Vallée du Loc\'h', 'Rivière paisible avec ponts et villages', 'Auray', 'easy', 8, '2h00', '', '/json/media69e1dc831dece1.92657789_1776409731.json');
+(12, 'Vallée du Loc\'h', 'Rivière paisible avec ponts et villages', 'Auray', 'easy', 8, '2h00', '', '/json/media69e1dc831dece1.92657789_1776409731.json'),
+(15, 'itinéraire', 'un tour du coin', 'iciouailleur', 'medium', 125, '235', 'buvez de l&#039;eau', '/json/media6a2d759f0351b2.50794193_1781364127.json');
 
 -- --------------------------------------------------------
 
@@ -225,7 +227,11 @@ INSERT INTO `media` (`id`, `name`, `path`, `type`) VALUES
 (55, 'Auray', '/img/dezalb-brittany-1178828_1920.jpg', 'img'),
 (56, 'media6a2d66d626de79.75200121_1781360342.png', '/img/media6a2d66d626de79.75200121_1781360342.png', 'image'),
 (57, 'media6a2d66e8f383a1.64685877_1781360360.png', '/img/media6a2d66e8f383a1.64685877_1781360360.png', 'image'),
-(58, 'media6a2d672dad5338.78149207_1781360429.png', '/img/media6a2d672dad5338.78149207_1781360429.png', 'image');
+(58, 'media6a2d672dad5338.78149207_1781360429.png', '/img/media6a2d672dad5338.78149207_1781360429.png', 'image'),
+(59, 'media6a2d7b081d93a2.51688995_1781365512.jpg', '/img/media6a2d7b081d93a2.51688995_1781365512.jpg', 'image'),
+(60, 'media6a2d7bdf414a71.17068049_1781365727.jpeg', '/img/media6a2d7bdf414a71.17068049_1781365727.jpeg', 'image'),
+(61, 'media6a2e9fb385d095.37185017_1781440435.png', '/img/media6a2e9fb385d095.37185017_1781440435.png', 'image'),
+(63, 'media6a2ed5dddc32d9.97855913_1781454301.jpg', '/img/media6a2ed5dddc32d9.97855913_1781454301.jpg', 'image');
 
 -- --------------------------------------------------------
 
@@ -377,7 +383,7 @@ ALTER TABLE `user_`
 -- AUTO_INCREMENT pour la table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `event_com`
@@ -389,7 +395,7 @@ ALTER TABLE `event_com`
 -- AUTO_INCREMENT pour la table `itinerary`
 --
 ALTER TABLE `itinerary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `itinerary_com`
@@ -401,7 +407,7 @@ ALTER TABLE `itinerary_com`
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT pour la table `message`
