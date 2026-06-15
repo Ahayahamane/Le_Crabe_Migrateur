@@ -3,9 +3,64 @@
 @use "color";
 @use "footer";
 @use "interactiveMessage";
+@use "mixins";
+
+@mixin bouton_style {
+    padding: 5px;
+    border-style: none;
+    border-radius: 40px;
+    box-shadow: 3px 3px black;
+
+    &:hover {
+        box-shadow: 5px 5px black;
+    }
+}
 
 * {
-    padding: 10;
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    @include mixins.black_text;
+
+    .bouton {
+
+        text-decoration: none;
+        color: black;
+
+
+        @include bouton_style;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        .square {
+            width: 20%;
+        }
+
+        .bouton {
+            @include mixins.black_text;
+            @include bouton_style;
+        }
+
+
+    }
+}
+
+.content {
+    width: auto;
+    gap: 30px;
+    margin: 30px 80px;
 }

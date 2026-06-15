@@ -219,9 +219,59 @@ nav .menuPrincipal li:hover {
 }
 
 * {
-  padding: 10;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+}
+section .bouton {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border-style: none;
+  border-radius: 40px;
+  box-shadow: 3px 3px black;
+}
+section .bouton:hover {
+  box-shadow: 5px 5px black;
+}
+section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+section form .square {
+  width: 20%;
+}
+section form .bouton {
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+  padding: 5px;
+  border-style: none;
+  border-radius: 40px;
+  box-shadow: 3px 3px black;
+}
+section form .bouton:hover {
+  box-shadow: 5px 5px black;
+}
+
+.content {
+  width: auto;
+  gap: 30px;
+  margin: 30px 80px;
 }
 
 /*# sourceMappingURL=myAccount.css.map */

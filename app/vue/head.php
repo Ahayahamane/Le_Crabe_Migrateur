@@ -24,6 +24,3 @@
     } ?>
 
     <script type="module" src="public/js/mainScript.js"></script>
-
-    <!-- <script defer src="public/js/interactiveMessage.js"></script>
-    <script defer src="public/js/burger.js"></script> -->

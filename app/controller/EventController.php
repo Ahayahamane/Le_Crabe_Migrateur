@@ -117,6 +117,9 @@ class EventController extends AbstractController
         $itinerary = new ItineraryModel;
         $itinerary = $itinerary->get_all();
         $datas = [
+            'meta' => [
+                'title' => "Création d'un événement"
+            ],
             'itinerary' => $itinerary,
             'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
         ];
@@ -168,7 +171,11 @@ class EventController extends AbstractController
         } else {
             $itinerary = new ItineraryModel;
             $itinerary = $itinerary->get_all();
+
             $datas = [
+                'meta' => [
+                    'title' => "Création d'un événement"
+                ],
                 'itinerary' => $itinerary,
                 'errors' => $errors,
                 'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'

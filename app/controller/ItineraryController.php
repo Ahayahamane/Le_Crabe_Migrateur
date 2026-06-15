@@ -23,10 +23,10 @@ class ItineraryController extends AbstractController
         $itinerary_model = new ItineraryModel;
         $last_itinerarys = $itinerary_model->last_itinerary(12);
         $datas = [
-            "meta"=> [
-                "keywords"=>"liste d'itinéraires, itinéraires de randonée",
-                "description"=>"Liste des itinéraires proposé par notre association",
-                "title"=>"Liste des itinéraires"
+            "meta" => [
+                "keywords" => "liste d'itinéraires, itinéraires de randonée",
+                "description" => "Liste des itinéraires proposé par notre association",
+                "title" => "Liste des itinéraires"
             ],
             "last_itinerarys" => $last_itinerarys,
             "links" => '<link rel="stylesheet" href="public/css/itineraryList.css">
@@ -50,10 +50,10 @@ class ItineraryController extends AbstractController
 
 
         $datas = [
-            "meta"=> [
-                "keywords"=>$itinerary->get("title"),
-                "description"=>$itinerary->get("description"),
-                "title"=>"Zoom:" . $itinerary->get("title")
+            "meta" => [
+                "keywords" => $itinerary->get("title"),
+                "description" => $itinerary->get("description"),
+                "title" => "Zoom:" . $itinerary->get("title")
             ],
             'json' => $json_content,
             'itinerary' => $itinerary,
@@ -76,6 +76,9 @@ class ItineraryController extends AbstractController
     public function first_new_itinerary()
     {
         $datas = [
+            'meta' => [
+                'title' => "Création d'un itinéraire"
+            ],
             'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
         ];
         return $this->display_back_vue('/back/newItinerary.php', $datas);
@@ -125,6 +128,9 @@ class ItineraryController extends AbstractController
             }
         } else {
             $datas = [
+                'meta' => [
+                    'title' => "Création d'un itinéraire"
+                ],
                 'errors' => $errors,
                 'links' => '<link rel="stylesheet" href="public/css/newEvent.css">'
             ];

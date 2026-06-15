@@ -219,7 +219,7 @@ nav .menuPrincipal li:hover {
 }
 
 * {
-  padding: 10;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
 }

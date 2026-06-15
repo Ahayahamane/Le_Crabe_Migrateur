@@ -80,6 +80,6 @@
                 }
             } ?>
         </div>
-        <input class="button" type="submit" name="connect" value="Enregistrer">
+        <input class="button fondBleuCiel" type="submit" name="connect" value="Enregistrer">
     </form>
 </section>

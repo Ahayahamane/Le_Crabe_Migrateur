@@ -30,11 +30,6 @@ class AdminController extends AbstractController
         
         $this->datas = [
             "meta" => [
-                // "keywords" => "randonnée, Lorient, Crabe Migrateur",
-                // "description" => "Bienvenue chez Le Crabe Migrateur, 
-                // où l'on préfère les détours aux chemins battus. 
-                // Ici, chaque randonnée est une invitation à marcher 
-                // de côté pour mieux voir le monde. ",
                 "title" => "Recherche d'utilisateur"
             ],
             "users" => $this->users,

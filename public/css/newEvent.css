@@ -99,8 +99,127 @@ header .connect a {
   visibility: visible;
 }
 
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 20px;
+}
+nav .breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+nav .breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+nav .breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin: 0 10px;
+  color: #999;
+  font-weight: normal;
+}
+nav .breadcrumb li[aria-current=page] {
+  color: #333;
+  font-weight: 500;
+}
+nav .breadcrumb li[aria-current=page]::after {
+  content: none;
+}
+nav .breadcrumb a {
+  text-decoration: none;
+  color: #0066cc;
+  transition: color 0.2s ease;
+}
+nav .breadcrumb a:hover {
+  color: #004499;
+  text-decoration: underline;
+}
+nav .breadcrumb ul {
+  display: flex;
+  flex-direction: row;
+  width: 860px;
+  height: 70px;
+  border-radius: 30px;
+  justify-content: space-between;
+}
+nav .burger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+}
+nav .menuPrincipal {
+  display: none;
+  border-radius: 30px;
+  padding: 10px;
+}
+nav .menuPrincipal.display {
+  display: block;
+  position: absolute;
+  right: 110px;
+  z-index: 99999;
+}
+nav .menuPrincipal li {
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 15px;
+  box-shadow: 3px 3px black;
+  list-style: none;
+}
+nav .menuPrincipal li a {
+  text-decoration: none;
+  color: black;
+}
+nav .menuPrincipal li:hover {
+  box-shadow: 5px 5px black;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav .burger {
+    display: none;
+  }
+  nav .menuPrincipal {
+    display: flex;
+    flex-direction: row;
+    width: 860px;
+    height: 70px;
+    border-radius: 30px;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0 20px;
+    margin: 0 0 20px 0;
+  }
+  nav .menuPrincipal li {
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 3px 3px black;
+  }
+  nav .menuPrincipal li a {
+    text-decoration: none;
+    color: black;
+  }
+  nav .menuPrincipal li:hover {
+    box-shadow: 5px 5px black;
+  }
+}
 * {
-  padding: 10;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
@@ -133,7 +252,9 @@ header .connect a {
   padding: 20px;
   border-radius: 40px;
 }
-.content form div input, .content form div textarea, .content form div select {
+.content form div input,
+.content form div textarea,
+.content form div select {
   margin-top: 15px;
   width: 100%;
   border-radius: 10px;
@@ -146,6 +267,16 @@ header .connect a {
 }
 .content form .button {
   grid-column: 1/-1;
+  padding: 5px;
+  border-style: none;
+  border-radius: 40px;
+  box-shadow: 3px 3px black;
+  font-family: "inter, sans-serif";
+  color: black;
+  font-size: 1rem;
+}
+.content form .button:hover {
+  box-shadow: 5px 5px black;
 }
 
 /*# sourceMappingURL=newEvent.css.map */

@@ -97,7 +97,7 @@ class UserController extends AbstractController
         header("location:?path=accueil");
     }
 
-    
+
     /**
      *Affiche la page contenant les informations du compte actuellement connecté
      */
@@ -152,7 +152,7 @@ class UserController extends AbstractController
         ];
         $validator = new Validator($_POST);
         $errors = $validator->validate($rules);
-        
+
 
         if (empty($errors)) {
             $new_user = new User($_POST);
@@ -170,7 +170,7 @@ class UserController extends AbstractController
                 "errors" => $errors,
                 "links" => '<link rel="stylesheet" href="public/css/newAccount.css">'
             ];
-            
+
             return $this->display_vue('/main/newAccount.php', $datas);
         }
     }
@@ -188,15 +188,15 @@ class UserController extends AbstractController
             $user = $user_model->get_by(['email' => $_SESSION["user"]->get("email")]);
 
             if ($user && password_verify($_POST["password"], $user->get('password'))) {
-                
+
                 if (!empty($_POST['sup_comment'])) {
                     $itin_comm = new ItineraryCommModel;
-                    $itin_comm->delete_comm(['id'=>$user->get("id")]);
+                    $itin_comm->delete_comm(['id' => $user->get("id")]);
                     $event_comm = new EventCommModel;
-                    $event_comm->delete_comm(['id'=>$user->get("id")]);
-                    $user_model->delete_user(['id'=>$user->get("id")]);
+                    $event_comm->delete_comm(['id' => $user->get("id")]);
+                    $user_model->delete_user(['id' => $user->get("id")]);
                 } else {
-                    $user_model->delete_user(['id'=>$user->get("id")]);
+                    $user_model->delete_user(['id' => $user->get("id")]);
                 }
                 $_SESSION["user"] = null;
                 $_SESSION['message'] = 'Votre compte a bien été supprimé';
@@ -218,6 +218,9 @@ class UserController extends AbstractController
     public function first_backoffice()
     {
         $datas = [
+            'meta' => [
+                'title' => "Connection backoffice"
+            ],
             "links" => '<link rel="stylesheet" href="public/css/login.css">'
         ];
         return $this->display_back_vue('/back/login.php', $datas);
@@ -260,6 +263,9 @@ class UserController extends AbstractController
                 $errors["wrong"] = 'Utilisateur ou mot de passe erroné';
                 $links = '<link rel="stylesheet" href="public/css/login.css">';
                 $datas = [
+                    'meta' => [
+                        'title' => "Connection backoffice"
+                    ],
                     'errors' => $errors,
                     'links' => $links
                 ];
@@ -268,6 +274,9 @@ class UserController extends AbstractController
         } else {
             $links = '<link rel="stylesheet" href="public/css/login.css">';
             $datas = [
+                'meta' => [
+                    'title' => "Connection backoffice"
+                ],
                 'errors' => $errors,
                 'links' => $links
             ];
@@ -284,7 +293,4 @@ class UserController extends AbstractController
         $_SESSION['message'] = 'Votre compte a bien été déconnecté';
         header("location:?path=backoffice");
     }
-
-
-    
 }

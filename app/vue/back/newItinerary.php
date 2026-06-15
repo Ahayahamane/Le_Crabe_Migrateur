@@ -73,8 +73,8 @@
         <div class='fondVertClair'>
             <label>Conseil</label>
             <textarea name="advice" placeholder="Buvez de l'eau"><?php if (!empty($_POST["advice"])) {
-                    echo $_POST["advice"];
-                } ?></textarea>
+                echo $_POST["advice"];
+            } ?></textarea>
             <?php
             if (!empty($datas['errors']['advice'])) {
                 foreach ($datas['errors']['advice'] as $data) {
@@ -105,6 +105,6 @@
                 }
             } ?>
         </div>
-        <input class="button" type="submit" name="connect" value="Enregistrer">
+        <input class="button fondBleuCiel" type="submit" name="connect" value="Enregistrer">
     </form>
 </section>

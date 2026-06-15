@@ -72,18 +72,18 @@
             </div>
             <div id="content" class="fondVertClair">
                 <label>Votre message</label>
-                <textarea name="content" id="content" <?php if (!empty($_POST["content"])): ?>
-                    value=<?= $_POST["content"] ?>
-                    <?php endif ?>>
+                <textarea name="content" id="content"><?php if (!empty($_POST["content"])) {
+                    echo $_POST["content"];
+                } ?></textarea>
                 <?php
                 if (isset($datas['content'])) {
                     foreach ($datas['content'] as $data) {
                         echo ("<br><span class='error'>" . $data . "</span>");
                     }
                 } ?>
-                </textarea>
+
             </div>
-            <input id="btn" type="submit" name="envoyer">
-        </form>   
+            <input id="btn" type="submit" name="envoyer"value="Envoyer">
+        </form>
     </section>
 </section>

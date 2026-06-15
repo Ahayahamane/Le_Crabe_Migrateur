@@ -80,6 +80,9 @@ class AccueilController extends AbstractController
     {
         if (!empty($_SESSION['user']) && (($_SESSION['user'] -> get('role') == "administrateur") || ($_SESSION['user'] -> get('role') == "organisateur"))) {
             $datas = [
+                'meta' => [
+                'title' => "Accueil backoffice"
+            ],
                 'links' => '<link rel="stylesheet" href="public/css/backoffice_accueil.css">'
             ];
             return $this->display_back_vue('/back/backoffice_accueil.php', $datas);
