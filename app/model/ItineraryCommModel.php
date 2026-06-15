@@ -58,6 +58,6 @@ class ItineraryCommModel extends AbstractModel{
      */
     public function delete_comm(array $autor)
     {
-        $this-> remove (EventComm::class, $autor);
+        $this-> remove (ItineraryComm::class, $autor);
     }
 }
