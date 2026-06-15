@@ -102,7 +102,10 @@ function showError(message) {
 }
 
 // Charger au démarrage
-document.addEventListener('DOMContentLoaded', fetchWeather);
-
+// document.addEventListener('DOMContentLoaded', fetchWeather);
+fetchWeather();
 // Rafraîchir toutes les 30 minutes
 setInterval(fetchWeather, 1800000);
+
+console.log("weather.js chargé");
+console.log(document.readyState);

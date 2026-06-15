@@ -12,6 +12,7 @@ if (viewName === 'accueil') {
         "./weather.js",
         "./slider.js"
     );
+    console.log(scriptsToLoad);
 
 } else if (viewName === 'itineraryZoom') {
 

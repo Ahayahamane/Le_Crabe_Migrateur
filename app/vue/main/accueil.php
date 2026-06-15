@@ -145,5 +145,3 @@
         </aside>
     </section>
 </div>
-<script src="public/js/weather.js"></script>
-<script src="public/js/slider.js"></script>

@@ -60,7 +60,7 @@ function calculerIndex() {
 
 function defilerDroite() {
     let index = calculerIndex();
-    sliderImg = index[5];
+    let sliderImg = index[5];
     defiler(index[1], index[4], index[2], index[3], index[5]);
     sliderImg[index[3]].classList.remove("last");
     sliderImg[index[4]].classList.add("last");
@@ -68,7 +68,7 @@ function defilerDroite() {
 
 function defilerGauche() {
     let index = calculerIndex();
-    sliderImg = index[5];
+    let sliderImg = index[5];
     defiler(index[3], index[0], index[2], index[1], index[5]);
     sliderImg[index[3]].classList.remove("last");
     sliderImg[index[2]].classList.add("last");
