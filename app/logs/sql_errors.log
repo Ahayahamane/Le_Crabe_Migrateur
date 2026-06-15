@@ -1,0 +1,17 @@
+[2026-06-15 14:37:18] ERREUR SQL:
+-> Message: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'title' in 'field list'
+-> Requête: SELECT u.pseudonym, c.id, c.content, c.date_, c.source_type
+            FROM ( 
+                SELECT id, content, date_, autor, title, "event_com" AS source_type FROM event_com 
+                UNION ALL 
+                SELECT id, content, date_, autor, title, "itinerary_com" AS source_type FROM itinerary_com
+            ) AS c
+            LEFT JOIN user_ AS u ON u.id = c.autor
+            ORDER BY c.date_ DESC
+            
+-> Paramètres: Array
+(
+)
+
+-> Fichier/Ligne: /home/kerx10/Documents/Xampp/ServWeb/projet_crabe/Site/app/model/AbstractModel.php:38
+-----------------------------------------

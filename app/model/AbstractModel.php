@@ -7,7 +7,8 @@ use app\model\DBConnector;
 
 class AbstractModel
 {
-    private $sql_errors_logs = __DIR__ . '/app/logs/sql_errors.log';
+    private $sql_errors_logs = ROOT . '/app/logs/sql_errors.log';
+    
 
     //connection à la base de données
     private function connect()

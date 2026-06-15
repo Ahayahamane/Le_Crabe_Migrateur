@@ -6,14 +6,14 @@
     <?php foreach ($datas["comments"] as $comment): ?>
         <div class="fondVertClair">
             <header>
-                <h2><?= $comment->get("pseudonym") ?></h2>
-                <p><?= $comment->get("date_") ?></p>
+                <h2>Auteur: <?= $comment->get("pseudonym") ?></h2>
+                <p>Date: <?= $comment->get("date_") ?></p>
             </header>
             <main>
                 <p><?= $comment->get("content") ?></p>
             </main>
             <footer>
-                <a class="fondCanard" href='?path=sup_comment&id=<?= $comment->get("id") ?>'>Supprimer ce commentaire</a>
+                <a class="fondCanard" href='?path=sup_comment&id=<?= $comment->get("id") ?>&com_source=<?= $comment->get("source_type") ?>'>Supprimer ce commentaire</a>
             </footer>
         </div>
     <?php endforeach ?>

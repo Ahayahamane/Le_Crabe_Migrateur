@@ -118,9 +118,9 @@ class AdminController extends AbstractController
         if ($this->user && (($this->user->get('role') === "user") || ($this->user->get('role') === "organisateur"))) {
 
             $itin_comm = new ItineraryCommModel;
-            $itin_comm->delete_comm(['id' => $this->user->get("id")]);
+            $itin_comm->delete_comm(['autor' => $this->user->get("id")]);
             $event_comm = new EventCommModel;
-            $event_comm->delete_comm(['id' => $this->user->get("id")]);
+            $event_comm->delete_comm(['autor' => $this->user->get("id")]);
             $this->user_model->delete_user(['id' => $this->user->get("id")]);
 
             $_SESSION['message'] = 'Le compte a bien été supprimé';
@@ -133,6 +133,18 @@ class AdminController extends AbstractController
 
     public function admin_detete_com()
     {
-
+        $id = $_GET['id'];
+        $com_source = $_GET ['com_source'];
+        if ($com_source==="itinerary_com"){
+            $itin_comm = new ItineraryCommModel;
+            $itin_comm->delete_comm(['id' => $id]);
+            $_SESSION['message'] = 'Le message a été supprimé des commentaires de l\'itinéraire';
+            header("location:?path=get_commentarys");
+        }else if ($com_source==="event_com"){
+            $event_comm = new EventCommModel;
+            $event_comm->delete_comm(['id' => $id]);
+            $_SESSION['message'] = 'Le message a été supprimé des commentaires de l\'événement';
+            header("location:?path=get_commentarys");
+        }
     }
 }

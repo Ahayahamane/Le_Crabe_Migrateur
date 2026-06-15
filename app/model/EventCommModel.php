@@ -67,7 +67,7 @@ class EventCommModel extends AbstractModel
     {
         $query = 'SELECT u.pseudonym, c.id, c.content, c.date_, c.source_type
             FROM ( 
-                SELECT id, content, date_, autor,"event_com" AS source_type FROM event_com 
+                SELECT id, content, date_, autor, "event_com" AS source_type FROM event_com 
                 UNION ALL 
                 SELECT id, content, date_, autor, "itinerary_com" AS source_type FROM itinerary_com
             ) AS c
